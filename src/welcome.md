@@ -6,7 +6,7 @@ If you are not yet a member of the CU SRL, please visit our site, at [https://so
 
 ## Editing the docs
 
-Click on the little Github icon on the top right of this page, or go to [https://github.com/UCBoulder/cusrl.github.io](https://github.com/UCBoulder/cusrl.github.io). 
+Click on the little Github icon on the top right of this page, or go to [https://cu-srl.github.io/docs/](https://cu-srl.github.io/docs/). 
 
 ### Editing Pages
 
