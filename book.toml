@@ -1,0 +1,12 @@
+[book]
+authors = ["Parker Lamb"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CU Sounding Rocket Lab Documentation"
+
+[output.html]
+git-repository-url = "https://github.com/UCBoulder/cusrl.github.io"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/UCBoulder/cusrl.github.io/edit/main/{path}"
+
