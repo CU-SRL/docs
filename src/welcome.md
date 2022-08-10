@@ -17,3 +17,5 @@ Be sure to commit your changes (the green button at the bottom) after your edits
 ### Adding Pages
 
 You can add pages on the GitHub repository itself, or clone the repository and add Markdown files yourself. More information to come here later. 
+
+Testing Editing Access
