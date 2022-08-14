@@ -1,9 +1,9 @@
 # Summary
 
-[Welcome to the SRL Docs](./welcome.md)
+[Welcome to the SRL Docs](welcome.md)
 
 # Avionics
 
-- [Overview](./avionics/avionics.md)
+- [Issue Tracker]()
 - [Software](avionics/software.md)
-- [Hardware](./avionics/hardware.md)
+- [Hardware](avionics/hardware.md)

@@ -6,16 +6,11 @@ If you are not yet a member of the CU SRL, please visit our site, at [https://so
 
 ## Editing the docs
 
-Click on the little Github icon on the top right of this page, or go to [https://cu-srl.github.io/docs/](https://cu-srl.github.io/docs/). 
+Click on the little Github icon on the top right of this page, or go to the repo at [https://github.com/CU-SRL/docs](https://github.com/CU-SRL/docs). 
 
-### Editing Pages
+If you're interested in doing heavy editing, we recommend you install `git` and work on the pages using a Markdown editor such as [Obsidian](https://obsidian.md/).
 
-For editing a page, all you'll need is your IdentiKey. Click on the "Suggest an edit" button on the top right, that looks like a pen on paper. This will take you to the Github edit page, where you can make your changes.
-
-Be sure to commit your changes (the green button at the bottom) after your edits. 
-
-### Adding Pages
-
-You can add pages on the GitHub repository itself, or clone the repository and add Markdown files yourself. More information to come here later. 
-
-Testing Editing Access
+1. Clone the repository using `git clone git@github.com:CU-SRL/docs.git` (Mac and Linux), or [Github Desktop](https://desktop.github.com/) on Windows.
+2. Open the `src/` folder in an editor of your choice.
+3. To create a new document, create a new file ending in `.md`, and enter its path into [SUMMARY.md](SUMMARY.md). To create a section header or subheader, use the Markdown header syntax (`#` for primary, `##` for secondary).
+4. To finalize your changes, run `git add .`, then `git commit -m "<change description>"`, followed by `git push origin main`. 
