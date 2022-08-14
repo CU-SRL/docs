@@ -4,7 +4,7 @@ These are some basic notes on the ARM Cortex M33 device we're using.
 
 ## Port Reference
 
-- **SPI_SSLAx**: Slave selection pins (x is 1-3)
+- **SPI_SSLAx**: Slave selection pins (x is 0-3)
 - **SPI_MOSI_A**: Data output from master (Master Out Slave In)
 - **SPI_MISO_A**: Data output from slave (Master In Slave Out)
 - **SPI_RSPCK_A**: Clock pin
