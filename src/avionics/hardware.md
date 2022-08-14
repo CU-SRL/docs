@@ -2,6 +2,12 @@
 
 This page describes our hardware layout.
 
+## Issue Tracker
+
+The hardware team has project tracker set up here: (https://github.com/orgs/CU-SRL/projects/1)[https://github.com/orgs/CU-SRL/projects/1]
+
+This should be used when new tasks are created, in progress, or completed. 
+
 ## Datasheets
 
 - [MCU (ARM Cortex M33)](https://www.renesas.com/us/en/document/dst/ra4m2-group-datasheet)

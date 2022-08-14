@@ -4,6 +4,5 @@
 
 # Avionics
 
-- [Issue Tracker]()
-- [Software](avionics/software.md)
 - [Hardware](avionics/hardware.md)
+- [Microcontroller](avionics/microcontroller.md)
