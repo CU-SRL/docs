@@ -11,4 +11,3 @@
 - [Current Projects](avionics/currentprojects/currentprojects.md)
     - [Testing Board](avionics/currentprojects/testingboard/testingboard.md)
         - [Microcontroller](avionics/currentprojects/testingboard/microcontroller.md)
-        - [Hardware](avionics/currentprojects/testingboard/hardware.md)
