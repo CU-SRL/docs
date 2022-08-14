@@ -1,13 +1,13 @@
 # Editing the docs
 
-Our documentation system is hosted on [GitHub Pages]([GitHub Pages](https://pages.github.com/), and uses Markdown files to show content. 
+Our documentation system is hosted on [GitHub Pages](https://pages.github.com/), and uses Markdown files to show content. 
 
 To edit the documentations, you may either:
 
 1. Clone the git repository these documents are hosted on, and edit using an editor of your choice.
 2. Edit the docs directly on GitHub, and commit your changes there. 
 
-If you're going to be doing a lot of editing, we recommend the first option.
+If you're going to be doing a lot of editing, we recommend the first option. Otherwise, click the "Edit" button on the top right of a page to edit it directly on GitHub. You may also add new pages on GitHub itself. 
 
 ## Cloning the repository
 
@@ -81,8 +81,6 @@ If you want to resize your image, use the following syntax instead:
 ```html
 <img src="images/your-image.png" width="150" height="280">
 ```
-
-<img src="avionics/overview/images/verificationcase1.png" width="150" height="280">
 
 ## Uploading changes
 
