@@ -83,3 +83,15 @@ If you want to resize your image, use the following syntax instead:
 ```
 
 <img src="avionics/overview/images/verificationcase1.png" width="150" height="280">
+
+## Uploading changes
+
+Using [GitHub Desktop](https://desktop.github.com/), simply add a change summary, commit, then push to the `main` branch.
+
+Using command-line git, navigate to the repository folder, then
+
+```bash
+git add .
+git commit -m "<change description>"
+git push origin main
+```

@@ -1,6 +1,7 @@
 # Summary
 
 [Welcome to the SRL Docs](welcome.md)
+[Editing the docs](editing.md)
 
 # Avionics
 - [Overview](avionics/overview/overview.md)
