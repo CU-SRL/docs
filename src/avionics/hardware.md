@@ -4,7 +4,7 @@ This page describes our hardware layout.
 
 ## Issue Tracker
 
-The hardware team has project tracker set up here: (https://github.com/orgs/CU-SRL/projects/1)[https://github.com/orgs/CU-SRL/projects/1]
+The hardware team has project tracker set up here: [https://github.com/orgs/CU-SRL/projects/1](https://github.com/orgs/CU-SRL/projects/1)
 
 This should be used when new tasks are created, in progress, or completed. 
 
