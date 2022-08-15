@@ -4,15 +4,15 @@
 
 The mission of Avionics is to create a reliable avionics system capable of verifying that a rocket has reached space while building a supportive community which develops us as engineers.
 
-# CU Sounding Rocket Laboratory Website Link
-
-- [Avionics Page](https://soundingrocketlab.com/avionics/)
-
-# Meeting Time
+## Meeting Time
 
 Avionics Meetings - TBD (Reach out to Andrew Lee if you don't think this is right and tell him he needs to update this)
 
-# Members
+## CU Sounding Rocket Laboratory Website Link
+
+- [Avionics Page](https://soundingrocketlab.com/avionics/)
+
+## Members
 
 Reach out to leads for any questions you may have! 
 
