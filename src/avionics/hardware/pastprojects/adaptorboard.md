@@ -10,4 +10,4 @@ Project Lead: Andrew Lee and Ben Pera
 
 Project Reviewers: Jason Popich and Zoe Roy
 
-<img src="images/adaptorboardpicture.jpg" width="650" height="400">
+<img src="images/adaptorboardpicture.JPG" width="650" height="400">

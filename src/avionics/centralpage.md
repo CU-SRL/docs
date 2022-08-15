@@ -17,16 +17,24 @@ Avionics Meetings - TBD (Reach out to Andrew Lee if you don't think this is righ
 Reach out to leads for any questions you may have! 
 
 Andrew Lee (anle7157@colorado.edu)    - Avionics Team Lead
+
 Winnie Regan (wire5926@colorado.edu)  - Software Engineering Lead of Avionics
+
 Tess Brodsky (jobr3597@colorado.edu)  - RF Engineering Lead of Avionics
+
 Nyah Baltazar (nyba7222@colorado.edu) - Electronics Hardware Engineering Lead of Avionics
 
+
 Andrew Scott (ansc2864@colorado.edu) - Senior Software Engineer
+
 Jacob Dean (jade7667@colorado.edu)   - Senior Software Engineer
 
 Parker Lamb (pala2784@colorado.edu)    - Electronics Hardware Engineer
+
 Nico Madrid (nima9911@colorado.edu)    - Software Engineer
+
 Daniil Garusov (daga9476@colorado.edu) - Software Engineer
+
 Briar Holmes (brho2218@colorado.edu)   - RF Engineer
 
 Chris Ladaw (chla2170@colorado.edu) - Morale Lead and Pizza-Eater
