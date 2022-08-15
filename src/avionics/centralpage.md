@@ -1,4 +1,4 @@
-<img src="images/yonixv2.png" width="450" height="280">
+<img src="images/yonixv2.png" width="600" height="280">
 
 # Mission Statement
 
