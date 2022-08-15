@@ -1,6 +1,8 @@
-# Hardware
+# Testing Board
 
-This page describes our hardware layout.
+The Testing Board project is a platform we design and test software and hardware on. It involves designing a custom Printed Circuit Board (PCB), writing software to work on sensors embedded on that PCB, and testing the system.
+
+It is designed primarily as a proof-of-concept demo platform, and will not be implemented on the final rocket. That said, practices and designs implemented on the Testing Board will likely see usage on the final product. 
 
 ## Issue Tracker
 
