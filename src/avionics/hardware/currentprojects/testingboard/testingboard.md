@@ -7,6 +7,7 @@ It is designed primarily as a proof-of-concept demo platform, and will not be im
 # Project Personnel
 
 Project Lead: Nyah Baltazar and Parker Lamb
+
 Project Reviewers: Andrew Lee
 
 ## Issue Tracker

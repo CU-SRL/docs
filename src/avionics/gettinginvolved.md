@@ -1,12 +1,18 @@
 Ready to get involved? Follow these steps!
 
+
 Do everything in this [New Member Checklist](https://soundingrocketlab.com/srl-new-member-checklist/).
 
 You can find an updated list of all the current members on the [Central Page](centralpage.md). Reach out to the current avionics team lead. Send them a nice message with the following (not actually required but for fun and letting the team lead get to know you!): 
+
     -year
+
     -major
+
     -what you like to do for fun
+
     -why you're interested in avionics
+
     -your favorite home-cooked meal (the current avionics lead needs inspiration for what to cook, recently been struggling)
 
 
