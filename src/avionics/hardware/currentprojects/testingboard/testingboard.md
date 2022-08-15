@@ -4,6 +4,11 @@ The Testing Board project is a platform we design and test software and hardware
 
 It is designed primarily as a proof-of-concept demo platform, and will not be implemented on the final rocket. That said, practices and designs implemented on the Testing Board will likely see usage on the final product. 
 
+# Project Personnel
+
+Project Lead: Nyah Baltazar and Parker Lamb
+Project Reviewers: Andrew Lee
+
 ## Issue Tracker
 
 The hardware team has project tracker set up here: [https://github.com/orgs/CU-SRL/projects/1](https://github.com/orgs/CU-SRL/projects/1)
@@ -18,3 +23,7 @@ This should be used when new tasks are created, in progress, or completed.
 - [Pressure sensor (DPS310XTSA1)](https://www.infineon.com/dgdl/Infineon-DPS310-DS-v01_00-EN.pdf?fileId=5546d462576f34750157750826c42242)
 - [Magnetometer (MLX90395KGO-BBA-101-SP)](https://www.melexis.com/-/media/files/documents/datasheets/mlx90395-datasheet-melexis.pdf)
 - [Temperature sensor (STTS75M2F)](https://www.st.com/content/ccc/resource/technical/document/datasheet/ea/c8/ee/86/71/81/4e/d0/CD00153513.pdf/files/CD00153513.pdf/jcr:content/translations/en.CD00153513.pdf)
+
+## Sub-pages
+
+- [Microcontroller Notes](microcontroller.md)
