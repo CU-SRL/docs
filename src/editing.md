@@ -25,6 +25,18 @@ git clone git@github.com:CU-SRL/docs.git
 
 then open the documentation in an editor.
 
+## Uploading changes
+
+Using [GitHub Desktop](https://desktop.github.com/), simply add a change summary, commit, then push to the `main` branch.
+
+Using command-line git, navigate to the repository folder, then
+
+```bash
+git add .
+git commit -m "<change description>"
+git push origin main
+```
+
 ## Working with the documentation
 
 The documentation root looks like this. 
@@ -36,6 +48,12 @@ book.toml       Backend parameters for the site generator.
 ```
 
 Most of the work you'll be doing will be inside the `src/` folder. 
+
+### Working with Markdown
+
+GitHub has good documentation on working with Markdown, [available here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). 
+
+There is also a guide specific for this book available on the [mdBook documentation](https://rust-lang.github.io/mdBook/format/markdown.html), with some unique features like strikethrough text and table syntax. 
 
 ### Structure
 
@@ -66,9 +84,9 @@ First, create the `.md` file for the page you want to create.
 
 Then, create a link to that Markdown file inside the `SUMMARY.md` file. Look inside `SUMMARY.md` for examples.
 
-### Working with Markdown
+### Removing or moving a page.
 
-GitHub has good documentation on working with Markdown, [available here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). 
+Modify the relevant page, and make sure to update `SUMMARY.md` accordingly to redo the link to that page.
 
 ### Working with images
 
@@ -80,16 +98,4 @@ If you want to resize your image, use the following syntax instead:
 
 ```html
 <img src="images/your-image.png" width="150" height="280">
-```
-
-## Uploading changes
-
-Using [GitHub Desktop](https://desktop.github.com/), simply add a change summary, commit, then push to the `main` branch.
-
-Using command-line git, navigate to the repository folder, then
-
-```bash
-git add .
-git commit -m "<change description>"
-git push origin main
 ```
