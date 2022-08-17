@@ -27,4 +27,5 @@ This should be used when new tasks are created, in progress, or completed.
 
 ## Sub-pages
 
+- [Requirements](testingboardrequirements.md)
 - [Microcontroller Notes](microcontroller.md)

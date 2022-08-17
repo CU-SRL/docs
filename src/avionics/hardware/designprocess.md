@@ -12,9 +12,8 @@ This phase begins the new project design process. Everything from this phase sho
 
 In the meeting, the following should be decided/discussed and/or documented:
 
--What requirements of the avionics system will this board address? OR How does this board bring us closer to developing the final avionics system?
-
--What are the requirements of this board? Start with functional requirements and then break it down. Some things that might be easy to miss include where human interfaces shall be, what connector interfaces shall exist, what sensors should be on the board, where is power sourced from, how much power should the board produce, cost, how many to produce, etc. (NOTE: This is not at all an all-inclusive list, think as far as your imagination will allow of things you might be asking yourself later in the design process, this does get a lot easier with experience, and no student is perfect at this by any means)
+- What requirements of the avionics system will this board address? OR How does this board bring us closer to developing the final avionics system?
+- What are the requirements of this board? Start with functional requirements and then break it down. Some things that might be easy to miss include where human interfaces shall be, what connector interfaces shall exist, what sensors should be on the board, where is power sourced from, how much power should the board produce, cost, how many to produce, etc. (NOTE: This is not at all an all-inclusive list, think as far as your imagination will allow of things you might be asking yourself later in the design process, this does get a lot easier with experience, and no student is perfect at this by any means)
 
 ## Phase 2: Preliminary Design Work
 
@@ -22,17 +21,12 @@ Here is the phase where you need to do the analysis that informs your design. Ev
 
 Here is a list of things that might be a part of this step (currently all I can think of off of the top of my head, potentially a lot that can be added here):
 
--Napkin drawings of the board and block diagrams
-
--Power budget
-
--Link budget (this is RF territory, just throwing it out there)
-
--Circuit simulation (LT Spice)
-
--Interface control document
-
--Efficiency calculations (maybe best done as a MATLAB script)
+- Napkin drawings of the board and block diagrams
+- Power budget
+- Link budget (this is RF territory, just throwing it out there)
+- Circuit simulation (LT Spice)
+- Interface control document
+- Efficiency calculations (maybe best done as a MATLAB script)
 
 ## Phase 3: The Fun Part! Design Time!
 
@@ -44,21 +38,14 @@ To add on a little more, the low priority parts (resistors, diodes, capacitors, 
 
 In broad strokes - and if may be worth breaking this process down further into seperate documents - the following should be done:
 
--As mentioned above, choose all major ICs and order them (do your due diligence, do not waste SRL money, you should write out justification for each part)
-
--Start making all schematic symbols and footprints. See if you can re-use footprints (or maybe even entire parts) from previous projects
-
--Create the structure of the PCB project, how will you organize your schematic sheets to make readability as easy as possible?
-
--Start and finish your schematic. Request review from the hardware team-lead and avionics lead
-
--Shape your PCB to the correct shape. Determine your layer stack-up. Place all components in such a way to minimize cross-talk, improve ease of routing, efficiently use space, make sure everything fits, isolate analog signals from digital signals, etc. Request review from hardware team-lead and avionics lead
-
--Route your PCB. Start with high-priority traces (i.e. high-speed signals). Request review from hardware team-lead and avionics lead
-
--Overall design review. Make sure the current design will address the requirements laid out in Phase 1.
-
--Bill of materials creation (BOM), and order the rest of the parts, and update inventory
+- As mentioned above, choose all major ICs and order them (do your due diligence, do not waste SRL money, you should write out justification for each part)
+- Start making all schematic symbols and footprints. See if you can re-use footprints (or maybe even entire parts) from previous projects
+- Create the structure of the PCB project, how will you organize your schematic sheets to make readability as easy as possible?
+- Start and finish your schematic. Request review from the hardware team-lead and avionics lead
+- Shape your PCB to the correct shape. Determine your layer stack-up. Place all components in such a way to minimize cross-talk, improve ease of routing, efficiently use space, make sure everything fits, isolate analog signals from digital signals, etc. Request review from hardware team-lead and avionics lead
+- Route your PCB. Start with high-priority traces (i.e. high-speed signals). Request review from hardware team-lead and avionics lead
+- Overall design review. Make sure the current design will address the requirements laid out in Phase 1.
+- Bill of materials creation (BOM), and order the rest of the parts, and update inventory
 
 ## Phase 4: The Bitter-Sweet Part! Board Bring-Up!
 
@@ -66,14 +53,9 @@ Good work getting to this phase. This is where you solder everything together an
 
 In another set of broad strokes...
 
--Make sure inventory is fully updated
-
--Find a time when the school lab is open and at least one other person on this project is available to help board assembly. If it's your first time, then ask the hardware team-lead to also help mentor.
-
--First solder on the surface mount parts using the reflow oven then hand-solder everything else. Update inventory as you go along soldering components on. This is why you want two people. One will solder and place components, the other will be on the computer telling the first person the design item ID and reference designator to place the part on and also updating inventory. It is encouraged that you switch-off to make sure that everyone gets the full experience. It's not extremely often that we are given the opportunity to actually get hands-on experience when it takes so long to develop our boards.
-
--Check solder joints using a microscope
-
--Check continuity on all power rails. Also check to make sure there are no shorts from a power rail to ground (that will ruin the board and potentially all the components as well if not caught at this stage)
-
--Probably at a later date, upload software and do a functional test. At this point, you should re-visit the requirements and validate that your entire project has met all the requirements listed. You're in big trouble if some of the requirements haven't (a costly mistake, but we will forgive you)
+- Make sure inventory is fully updated
+- Find a time when the school lab is open and at least one other person on this project is available to help board assembly. If it's your first time, then ask the hardware team-lead to also help mentor.
+- First solder on the surface mount parts using the reflow oven then hand-solder everything else. Update inventory as you go along soldering components on. This is why you want two people. One will solder and place components, the other will be on the computer telling the first person the design item ID and reference designator to place the part on and also updating inventory. It is encouraged that you switch-off to make sure that everyone gets the full experience. It's not extremely often that we are given the opportunity to actually get hands-on experience when it takes so long to develop our boards.
+- Check solder joints using a microscope
+- Check continuity on all power rails. Also check to make sure there are no shorts from a power rail to ground (that will ruin the board and potentially all the components as well if not caught at this stage)
+- Probably at a later date, upload software and do a functional test. At this point, you should re-visit the requirements and validate that your entire project has met all the requirements listed. You're in big trouble if some of the requirements haven't (a costly mistake, but we will forgive you)
