@@ -12,3 +12,9 @@ This guide is the one that Andrew Lee vouches for. This is how he began his jour
 - [Link For Student License](https://www.altium.com/education/student-licenses)
 
 Altium is a VERY expensive software for companies to use. Luckily, we get to use this industry standard ECAD tool as students for free.
+
+
+## Picking a GPS...
+- [uBlox neo-6m question](https://portal.u-blox.com/s/question/0D52p00009NRvHoCAL/neo6mv2-as-rocket-tracker)
+- [Correlator Notes](https://www.e-education.psu.edu/geog862/node/1756)
+- 
