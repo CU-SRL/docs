@@ -14,4 +14,4 @@
       - [Microcontroller Notes](avionics/hardware/currentprojects/testingboard/microcontroller.md)
   - [Past Projects](avionics/hardware/pastprojects/pastprojects.md)
       - [Adaptor Board](avionics/hardware/pastprojects/adaptorboard.md)
-  - [Application Notes](avionics/hardware/applicationnotes.md)
+  - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
