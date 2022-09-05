@@ -15,3 +15,4 @@
   - [Past Projects](avionics/hardware/pastprojects/pastprojects.md)
       - [Adaptor Board](avionics/hardware/pastprojects/adaptorboard.md)
   - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
+  - [New Member On-Boarding](avionics/hardware/newmember.md)
