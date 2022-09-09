@@ -6,7 +6,7 @@ The mission of Avionics is to create a reliable avionics system capable of verif
 
 ## Meeting Time
 
-Avionics Meetings - Sunday 2:00pm Engineering Lobby (Check Slack avionics channel to make sure the location has not changed for the week)
+Avionics Meetings - Sunday 3:00pm Engineering Lobby (Check Slack avionics channel to make sure the location has not changed for the week)
 
 ## CU Sounding Rocket Laboratory Website Link
 
