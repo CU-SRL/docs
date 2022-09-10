@@ -16,3 +16,6 @@
       - [Adaptor Board](avionics/hardware/pastprojects/adaptorboard.md)
   - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
   - [New Member On-Boarding](avionics/hardware/newmember.md)
+-[Software](avionics/software/software.md)
+  -[Development Notes](avionics/software/devnotes.md)
+  -[New Software Members](avionics/software/newmember.md)
