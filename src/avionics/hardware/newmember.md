@@ -8,4 +8,4 @@ Then Andrew Lee is planning on giving an introduction to Altium Designer lecture
 
 Then after assessing the amount of new members, we will cater our projects to match that. If there are a lot, we may begin with development of break-out boards just to help build basic experience, or kick-off a new sensor board project with GPS module which will be seperate from the testing board. Update the documentation after the first avionics meeting with new members to develop that plan.
 
-NOTE: ADD HERE HOW MANY PEOPLE JOINED BECAUSE WE SPOKE IN FRONT OF CLASSES
+NOTE: 7 out of 17ish people joined from talking at classes. In new member meeting during breakout, 3 new members went to hardware, 6 to software, 8 to RF
