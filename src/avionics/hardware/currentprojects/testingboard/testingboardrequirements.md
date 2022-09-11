@@ -1,11 +1,5 @@
 # Testing Board Requirements
 
-## Change Log
-
-#### Last edited: 09/04/2022
-
-Changes include adding GPS to the board, and adding layout requirements section to the bottom
-
 ## Sensor Requirements
 
 The following sensors should exist on the board.

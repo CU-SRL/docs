@@ -12,7 +12,9 @@ Project Reviewers: Andrew Lee
 
 ## Issue Tracker
 
-The hardware team has project tracker set up here: [https://github.com/orgs/CU-SRL/projects/1](https://github.com/orgs/CU-SRL/projects/1)
+Purchase order sheet: [sheets.google.com](https://docs.google.com/spreadsheets/d/1z67B3BZv8kECAg4vm3EaZBAK9T2SPx0HYJczIqo_mrw/edit#gid=0)
+
+Project tracker: [https://github.com/orgs/CU-SRL/projects/1](https://github.com/orgs/CU-SRL/projects/1)
 
 This should be used when new tasks are created, in progress, or completed. 
 
