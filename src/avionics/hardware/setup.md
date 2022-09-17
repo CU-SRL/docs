@@ -19,7 +19,7 @@ Follow the link to go to [LTSpice Download Link](https://www.analog.com/en/desig
 
 ## Getting Saleae Logic 2
 
-So an old avionics member named Brendan happened to have like 10 of these cheap knock-off logic analyzers. They work with [Saleae Logic 2](https://www.saleae.com/downloads/) software, which is nice beacuse the software will automatically talk interpret the one's and zero's on a signal line as long as it's not a proprietary communication method. This is really useful to debugging circuits, testing software, and bringing up our boards.
+So an old avionics member named Brendan happened to have like 10 of these cheap knock-off logic analyzers. He donated them all to the avionics team, and we will begin handing these out to people as soon as they are needed when we actually start testing. They work with [Saleae Logic 2](https://www.saleae.com/downloads/) software, which is nice beacuse the software will automatically talk interpret the one's and zero's on a signal line as long as it's not a proprietary communication method. This is really useful to debugging circuits, testing software, and bringing up our boards.
 
 ## Some cool resources and guides:
 
