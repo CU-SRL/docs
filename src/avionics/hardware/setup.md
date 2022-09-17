@@ -21,3 +21,11 @@ Follow the link to go to [LTSpice Download Link](https://www.analog.com/en/desig
 
 So an old avionics member named Brendan happened to have like 10 of these cheap knock-off logic analyzers. They work with [Saleae Logic 2](https://www.saleae.com/downloads/) software, which is nice beacuse the software will automatically talk interpret the one's and zero's on a signal line as long as it's not a proprietary communication method. This is really useful to debugging circuits, testing software, and bringing up our boards.
 
+## Some cool resources and guides:
+
+- [Eric Bogatin's Altium Workshop](https://sites.google.com/colorado.edu/practicalpcbdesignmanufacture/erics-altium-workshop)
+- [LTSpice Guide](https://www.youtube.com/watch?v=JRcyHuyb1V0&t=581s&ab_channel=FesZElectronics)
+- [Saleae User's Guide](http://downloads.saleae.com/Saleae+Users+Guide.pdf)
+
+These are all resources that past hardware leads have used to learn more about the tools in this page. They are all confirmed to be really really interesting. All of the tools we use have excellent documentation and finding more resources or guides on them is really easy (just search it up on google). Feel free to ask questions in the avionics hardware channel for any confusion on these topics, we are all here to help!
+
