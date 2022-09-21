@@ -16,3 +16,7 @@ There were also 3 more people that joined later.
 
 Sub-team leads are doing new member on-boarding meetings this week (hardware on friday and software on saturday night). The attendance to each was:
 
+- 5 new members showed up to the hardware meeting
+- 10-ish new members showed up to the software meeting
+
+The next avionics meeting, there was a lot less people who came, a lot of people sick and stuff. This was our first significant drop in retention. 

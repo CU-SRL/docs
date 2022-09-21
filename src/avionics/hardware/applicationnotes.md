@@ -22,3 +22,9 @@ Altium is a VERY expensive software for companies to use. Luckily, we get to use
 
 ## Logic Analyzer Guide
 - [Saleae Logic Analyzer](http://downloads.saleae.com/Saleae+Users+Guide.pdf)
+
+## Navigation Resources
+- [General Navigation Information](https://arxiv.org/pdf/1711.02508.pdf)
+- [Error In Navigation](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.pdf)
+
+These resources came from Lyon, the avionics lead of 2019, he gives the thumbs up of approval that these are good introductory ways to familiarize yourself with the basics of navigation.
