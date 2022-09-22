@@ -1,5 +1,7 @@
 # CU Sounding Rocket Lab Docs
 
+The current docs can be accessed at [https://cu-srl.github.io/docs/](https://cu-srl.github.io/docs/).
+
 Our documentation system is hosted on [GitHub Pages](https://pages.github.com/), and uses Markdown files to show content. 
 
 To edit the documentations, you may either:
