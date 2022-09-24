@@ -22,7 +22,7 @@
   - [Current Projects](avionics/software/currentprojects/currentprojects.md)
     - [Sensor Apps](avionics/software/currentprojects/sensorapps.md)
     - [GPS Testing](avionics/software/currentprojects/gpstesting.md)
-    - [BeagleBoneBlack Toolchain](avionics/software/currentprojects/bbbtoolchain.md)
+    - [BBB Toolchain](avionics/software/currentprojects/bbbtoolchain.md)
   - [Past Projects](avionics/software/currentprojects/pastprojects.md)
     - [cFS](avionics/software/pastprojects/cfs.md)
     - [COSMOS](avionics/software/pastprojects/cosmos.md)
