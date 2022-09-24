@@ -2,7 +2,7 @@
 
 This is where new members can look to find information about the steps taken, as well as future plans, for the software onboarding process.
 
-Currently the process for getting onboarded with avionics software will start with the following step: Get connected to the SRL vpn. In order to configure the vpn connection, a mac/linux user can go ahead and install OpenVPN on their own machine and reach out to @WinnieRegan on slack for the necessary files. If you use a windows machine, you can just go ahead and immediately reach out, and you'll get an installer that will set things up.
+Currently the process for getting onboarded with avionics software will start with the following step: Get connected to the SRL vpn. In order to configure the vpn connection, a mac/linux user can go ahead and install OpenVPN on their own machine and reach out to the current software lead on slack for the necessary files. If you use a windows machine, you can just go ahead and immediately reach out, and you'll get an installer that will set things up.
 
 From there, members will have a virtual machine that they are welcome to use. Only windows users will necessarily need to ssh into this vm, as mac/linux users are welcome to just develop on their own local machine. We made this decision because the OpenSUSE vm will provide a more consistent and reliable environment, as opposed to WSL (Windows Subsystem for Linux). The commands to ssh are as follows:
 
