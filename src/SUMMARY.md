@@ -23,7 +23,7 @@
     - [Sensor Apps](avionics/software/currentprojects/sensorapps.md)
     - [GPS Testing](avionics/software/currentprojects/gpstesting.md)
     - [BBB Toolchain](avionics/software/currentprojects/bbbtoolchain.md)
-  - [Past Projects](avionics/software/currentprojects/pastprojects.md)
+  - [Past Projects](avionics/software/pastprojects/pastprojects.md)
     - [cFS](avionics/software/pastprojects/cfs.md)
     - [COSMOS](avionics/software/pastprojects/cosmos.md)
 - [Notes for Future Avionics Leads](avionics/hardware/futurenotes.md)
