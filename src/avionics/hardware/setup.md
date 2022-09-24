@@ -1,17 +1,47 @@
 # New Member Set-Up Guide
 
-This is a page dedicated to making it easier for hardware new members to get set-up. This page provides excellent resources to learning the basics of the software tools we use, how to get access to those tools, etc. 
+This is a page dedicated to making it easier for hardware new members to get set-up and ready to develop hardware. 
 
 Here is a list of software that we use regularly:
-- Altium Designer
-- LTSpice
-- Saleae Logic 2
+- Altium Designer - Circuit & PCB design
+- LTSpice - IC circuit simulator
+- Saleae Logic 2 - Circuit debugging and logic analysis
 
-Note that Altium Designer and Saleae Logic 2 must operate on windows. For other OS's, talk to the team lead and they can help work out the details of how you can get involved with hardware.
+**Note**: Altium and Saleae Logic both require a Windows OS. 
+
+The majority of this guide will be dedicated to getting set up with our Altium workspace. 
 
 ## Getting set up with Altium
 
-Follow the link to go to Altium's [Link For Student License](https://www.altium.com/education/student-licenses). Because we are students, we are able to use Altium Designer for free, which is huge because Altium Designer is a REALLY expensive software to use for companies. This link should make it self-explanatory but if you are having trouble, reach out to the hardware sub-team lead.
+First, visit Altium's [Link For Student License](https://www.altium.com/education/student-licenses). This will allow you to get up and running with Altium - the student license allows you to install the software for free. 
+
+After Altium is installed, send your email to the hardware team lead. They'll add you to the Altium workspace we're using for Avionics. 
+
+Once you are added, in the top-right corner of your window you should see the workspaces button (it might read "Not Connected"). Click this, and look for "CU SRL Yonix".
+
+<center><img src="../images/altium_workspaces.png" width="500"></center>
+
+If you don't see it, restart Altium. If you still don't see it, contact the avionics hardware lead.
+
+After clicking on CU SRL Yonix, you should see a little blue cloud with CU SRL Yonix right next to it in the projects tab. Right click this and click "Open Project". 
+
+<center><img src="../images/open_project.png" width="300"></center>
+
+Select the project you'd like to open, and click the "Open" button.
+
+## Download new changes
+
+Whenever Altium first starts up, please **right-click the project name** and, under History & Version Control, click "**Update Whole Project**". This ensures you have any changes other members have uploaded. 
+
+## Adding changes
+
+If you've added work to the Altium document, you'll notice the little green checkmarks next to each file can change to orange or red marks. This indicates there's a pending change to be uploaded. 
+
+To upload your changes to the cloud, right-click the project name and, under version control, click "Commit". 
+
+<center><img src="../images/version_control.png" width="400"></center>
+
+If any errors come up, please get in touch with hardware lead - Altium's implementation of Git can be hard to work with sometimes. 
 
 ## Getting LTSpice
 
