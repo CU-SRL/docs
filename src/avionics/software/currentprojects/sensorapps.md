@@ -15,4 +15,4 @@ Link to hardware page for the future sensors, picked by the hardware team:
 
 Link to the datasheets for the current soldered sensors:
 - [MPL3115A2)](https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf)
-- [MCP9808] (https://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf)
+- [MCP9808](https://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf)
