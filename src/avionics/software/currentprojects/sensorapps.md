@@ -14,5 +14,5 @@ Link to hardware page for the future sensors, picked by the hardware team:
 [testing board links](https://cu-srl.github.io/docs/avionics/hardware/currentprojects/testingboard/testingboard.html)
 
 Link to the datasheets for the current soldered sensors:
-- [MPL3115A2)](https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf)
+- [MPL3115A2](https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf)
 - [MCP9808](https://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf)
