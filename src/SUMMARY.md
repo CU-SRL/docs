@@ -9,6 +9,7 @@
 - [Getting Involved](avionics/gettinginvolved.md)
 - [Hardware](avionics/hardware/hardware.md)
   - [Getting Set Up](avionics/hardware/setup.md)
+  - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
   - [Design Process](avionics/hardware/designprocess.md)
   - [Current Projects](avionics/hardware/currentprojects/currentprojects.md)
     - [Testing Board](avionics/hardware/currentprojects/testingboard/testingboard.md)
@@ -26,6 +27,5 @@
   - [Past Projects](avionics/software/pastprojects/pastprojects.md)
     - [cFS](avionics/software/pastprojects/cfs.md)
     - [COSMOS](avionics/software/pastprojects/cosmos.md)
-- [Notes for Future Avionics Leads](avionics/hardware/futurenotes.md)
-  - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
-  - [New Member On-Boarding](avionics/hardware/newmember.md)
+- [Future Recruitment Notes](avionics/futurenotes.md)
+
