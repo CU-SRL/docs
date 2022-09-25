@@ -13,8 +13,6 @@ The following sensors should exist on the board.
 
 There shall be at least one sensor that is used for SPI AND I2C.
 
-There shall be switches to change which microcontroller (BBB or Renesas) the sensors are isolated to.
-
 Each sensor shall be broken out into their own respective connectors.
 
 ## Other ICs
