@@ -16,3 +16,8 @@ Both of these links are useful in learning Fprime, as the SrlFp repo grows more 
 
 The Fpp wiki provieds a very well documented resource for learning, modifying, and developing fpp files. We use fpp to automate most of the boiler plate required for F Prime code to run.
 
+# Fixed point to Floating point conversions
+
+[Fixed to Float](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)
+
+When dealing with sensors, we commonly see output in fixed point format as opposed to the more common computing floating point format. To convert between fixed point(Also called Q format) the link above provides plenty of background on the topic.
