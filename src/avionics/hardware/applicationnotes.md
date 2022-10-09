@@ -19,6 +19,9 @@ Altium is a VERY expensive software for companies to use. Luckily, we get to use
 ## Picking a GPS...
 - [uBlox neo-6m question](https://portal.u-blox.com/s/question/0D52p00009NRvHoCAL/neo6mv2-as-rocket-tracker)
 - [Correlator Notes](https://www.e-education.psu.edu/geog862/node/1756)
+- [Interesting Basic Info Post](https://shop.bigredbee.com/blogs/news/high-altitude-gps-operation)
+- [Possible Solution?](https://www.highaltitudescience.com/products/eagle-flight-computer)
+- 
 
 ## Logic Analyzer Guide
 - [Saleae Logic Analyzer](http://downloads.saleae.com/Saleae+Users+Guide.pdf)
