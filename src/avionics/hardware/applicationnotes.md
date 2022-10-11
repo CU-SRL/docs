@@ -19,9 +19,15 @@ Altium is a VERY expensive software for companies to use. Luckily, we get to use
 ## Picking a GPS...
 - [uBlox neo-6m question](https://portal.u-blox.com/s/question/0D52p00009NRvHoCAL/neo6mv2-as-rocket-tracker)
 - [Correlator Notes](https://www.e-education.psu.edu/geog862/node/1756)
-- [Interesting Basic Info Post](https://shop.bigredbee.com/blogs/news/high-altitude-gps-operation)
-- [Possible Solution?](https://www.highaltitudescience.com/products/eagle-flight-computer)
-- 
+
+Documentation of how we are picking our GPS... so this [link](https://shop.bigredbee.com/blogs/news/high-altitude-gps-operation) shows some basic information on GPS. Main take-aways are that u-blox MAX gps's do implement stuff as AND logic (when you exceed 1000 knots (1150mph or 514m/s) AND 18km (altitude) then your GPS shuts down). Note that for a lot of GPS modules that are sold out there, it is implemented as OR logic (which won't work because then we won't be able to get GPS data any point above 18km and therefore we can't confirm if we made it to space or not). Another important thing to consider is that it seems that basically the industry standard is to limit GPS tracking to 50km altitude, not because of COCOM limits but just because companies feel like it lmao (which once again doesn't work for us, we need something that can record up to at the very least 110km or something). Therefore we probably need to come up with a seperate solution. Right now Parker Lamb is working on a GNSS-SDR receiver which would get around both of those limitations. **NOTE - This is ITAR restricted, no non-US-citizen may help him**. 
+
+One other point of confusion is the specifics of COCOM limits... Andrew Lee will look at the official document (hopefully soon) and see if he can figure out what exactly are the limitations. He will add that to the documentation soon. Maybe we could ask a big company super-duper-nicely and promise to advertise their company without our club and as a student org to get them to adjust one of their gps modules so that it's no longer limited to 50km. Or we can ask them if they can offer any sort of mentorship on finding any other types of solutions that we can try to implement that allow us to bypass this all. 
+
+On the possibility that the GNSS-SDR is later determined to not be an actual solution, maybe we look into using a GPS module like the one in this [link](https://www.highaltitudescience.com/products/eagle-flight-computer) and forget about this for a while. This is still cheaper than the Kate (COTS solution we are currently going to rely on for SpaceShot and Mamba) and therefore still leaves a ton of room for us to create a custom avionics unit that does everything else besides collecting GPS data. 
+
+The last option that we currently can think of is getting as many data points before our GPS shuts off and relying completely on accelerometer data for our position after that, and then getting a position fix as we are coming down again and comparing both of those models.
+
 
 ## Logic Analyzer Guide
 - [Saleae Logic Analyzer](http://downloads.saleae.com/Saleae+Users+Guide.pdf)

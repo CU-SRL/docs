@@ -32,12 +32,23 @@ Andrew Scott [ansc2864@colorado.edu](mailto:ansc2864@colorado.edu) - Senior Soft
 
 Jacob Dean [jade7667@colorado.edu](mailto:jade7667@colorado.edu)   - Senior Software Engineer
 
-Parker Lamb [pala2784@colorado.edu](mailto:pala2784@colorado.edu)    - Electronics Hardware Engineer
+Parker Lamb [pala2784@colorado.edu](mailto:pala2784@colorado.edu)    - Senior Electronics Hardware Engineer
 
 Nico Madrid [nima9911@colorado.edu](mailto:nima9911@colorado.edu)    - Software Engineer
 
 Daniil Garusov [daga9476@colorado.edu](mailto:daga9476@colorado.edu) - Software Engineer
 
+Erick White [erwh9458@colorado.edu](mailto:erwh9458@colorado.edu)    - Software Engineer
+
 Briar Holmes [brho2218@colorado.edu](mailto:brho2218@colorado.edu)   - RF Engineer
+
+David Li [dali6448@colorado.edu](mailto:dali6448@colorado.edu)       - Electronics Hardware Engineer
+
+Tsuening Lee [tsle8661@colorado.edu](mailto:tsle8661@colorado.edu)   - Electronics Hardware Engineer
+
+Anton Vandenburge [anva1564@colorado.edu](mailto:anva1564@colorado.edu) - Electronics Hardware Engineer
+
+Kofi Asare [koas3551@colorado.edu](mailto:koas3551@colorado.edu)    - Electronics Hardware Engineer
+
 
 Chris Ladaw [chla2170@colorado.edu](mailto:chla2170@colorado.edu) - Morale Lead and Pizza-Eater
