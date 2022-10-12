@@ -50,5 +50,6 @@ Anton Vandenburge [anva1564@colorado.edu](mailto:anva1564@colorado.edu) - Electr
 
 Kofi Asare [koas3551@colorado.edu](mailto:koas3551@colorado.edu)    - Electronics Hardware Engineer
 
+Andrew Hamamji [anha2039@colorado.edu](mailto:anha2039@colorado.edu)   - Electronics Hardware Engineer
 
 Chris Ladaw [chla2170@colorado.edu](mailto:chla2170@colorado.edu) - Morale Lead and Pizza-Eater
