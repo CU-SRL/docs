@@ -1,6 +1,10 @@
 # ARM Cortex M33 Notes
 
-These are some basic notes on the ARM Cortex M33 device we're using.
+These are some basic notes on the ARM Cortex M33 device we're using. 
+
+## Cortex Details
+
+We're using the 48-pin QFN ARM Cortex M33 - the pinout is available on figure 1.6 on page 15 of the [datasheet](https://www.renesas.com/us/en/document/dst/ra4m2-group-datasheet).
 
 ## Port Reference
 
@@ -8,6 +12,9 @@ These are some basic notes on the ARM Cortex M33 device we're using.
 - **SPI_MOSI_A**: Data output from master (Master Out Slave In)
 - **SPI_MISO_A**: Data output from slave (Master In Slave Out)
 - **SPI_RSPCK_A**: Clock pin
+- **I2C_SDA2**: **S**erial **Da**ta line
+- **I2C_SCL2**: **S**erial **Cl**ock line
+
 
 ## Our Setup
 
