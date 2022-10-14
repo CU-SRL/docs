@@ -37,3 +37,6 @@ The last option that we currently can think of is getting as many data points be
 - [Error In Navigation](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.pdf)
 
 These resources came from Lyon, the avionics lead of 2019, he gives the thumbs up of approval that these are good introductory ways to familiarize yourself with the basics of navigation.
+
+## NASA Handbook on Sounding Rockets
+
