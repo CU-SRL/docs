@@ -40,3 +40,6 @@ These resources came from Lyon, the avionics lead of 2019, he gives the thumbs u
 
 ## NASA Handbook on Sounding Rockets
 
+Zoe Roy found this amazing resource for NASA's takes on how sounding rockets should be made.
+
+- [NASA - Sounding Rockets](hardware_appnotesORresources/nasa_soundingrockets.pdf)

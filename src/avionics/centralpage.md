@@ -16,9 +16,13 @@ Hardware Meetings - Friday 4:30PM Engineering Lobby
 
 - [Avionics Page](https://soundingrocketlab.com/avionics/)
 
+## Join the Avionics Discord!
+
+- [Discord Server Invite Link](https://discord.gg/xGnZSS5szC)
+
 ## Members
 
-Reach out to leads for any questions you may have! 
+Reach out to leads for any questions you may have! (Also if you don't see your name up here, let the avionics team lead know and they will add you! It's an important part of avionics to take pride in and show off what you've done, the experience you've gained, and what you've learned!)
 
 Andrew Lee [anle7157@colorado.edu](mailto:anle7157@colorado.edu)    - Avionics Team Lead
 
