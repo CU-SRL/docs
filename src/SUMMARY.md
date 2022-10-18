@@ -5,7 +5,6 @@
 
 # Avionics
 - [About Avionics](avionics/centralpage.md)
-- [Useful Links and Notes](avionics/hardware/applicationnotes.md)
 - [Getting Involved](avionics/gettinginvolved.md)
 - [Resume Advice](avionics/resumeadvice.md)
 - [Avionics Test Rocket](avionics/avionics_testrocket/testingrocket.md)
