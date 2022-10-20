@@ -16,6 +16,10 @@ Both of these links are useful in learning Fprime, as the SrlFp repo grows more 
 
 The Fpp wiki provieds a very well documented resource for learning, modifying, and developing fpp files. We use fpp to automate most of the boiler plate required for F Prime code to run.
 
+Notes for getting familiar with Fpp (some subsections to be particularly aware of) :
+ - [Formatting and setting up topologies](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Topologies_Connection-Graphs)
+
+
 # Fixed point to Floating point conversions
 
 [Fixed to Float](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)
