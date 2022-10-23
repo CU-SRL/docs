@@ -28,6 +28,23 @@ On the possibility that the GNSS-SDR is later determined to not be an actual sol
 
 The last option that we currently can think of is getting as many data points before our GPS shuts off and relying completely on accelerometer data for our position after that, and then getting a position fix as we are coming down again and comparing both of those models.
 
+# Picking a TVS Diode
+
+The reason why you would use a TVS diode is to protect from ESD discharge. This is an important thing to protect from as it has destroyed some of our past custom designed boards. The basics of ESD can be read in this [ESD Basics](hardware_appnotesORresources/esdbasics.pdf)
+
+A TVS Diode basically a zener diode with a slightly adjusted slope that is specially made to protect electronics systems.
+
+The most important parameter of a TVS diode (transient voltage suppressor diode) is the **clamping** voltage AKA V_(clamp). This is the parameter which MUST be beneath the tolerable voltage of the system. This is the voltage that the TVS Diode will regulate to when exposed to a transient current waveform that is detailed by the datasheet usually.
+
+V_(rwm) is the same thing as V_(reverse standoff), which is the same as the reverse working maximum voltage. This describes the voltage that you can sit at and you would only have a tiny amount of leakage current (on the order of singular nano-amps which is something that no one cares about). This is generally where you want the nominal voltage of your system to sit at.
+
+V_(breakdown) or V_(br) is the voltage at which you get 1mA (at DC) of current through the diode, and it beings to shunt current through it (provide an almost zero resistance path for current to flow through it). Usually this ends up being way higher than what your system can tolerate. 
+
+Note, be careful of the polarity of TVS diodes. Sometimes they work both directions, sometimes they don't.
+
+
+Here's an application note from Texas Instruments which describe the most important things to consider when choosing a TVS diode. 
+[TI AppNote TVS Diodes](hardware_appnotesORresources/tvsdiode.pdf)
 
 ## Logic Analyzer Guide
 - [Saleae Logic Analyzer](http://downloads.saleae.com/Saleae+Users+Guide.pdf)
