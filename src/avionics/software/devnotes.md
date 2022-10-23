@@ -33,3 +33,7 @@ FPrime GDS - Version Problems
     - Ref/build-artifacts/Linux/dict
     - The dictionary file will be the xml file in there. At the top, there is a framework_version, set that version to 3.1.0
     - [Relevant github issue](https://github.com/nasa/fprime/issues/1456)
+
+# Need to Fix in Autocoders
+- Impl file names
+- Groundstation version fallback
