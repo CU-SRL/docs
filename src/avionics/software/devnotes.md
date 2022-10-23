@@ -16,8 +16,20 @@ Both of these links are useful in learning Fprime, as the SrlFp repo grows more 
 
 The Fpp wiki provieds a very well documented resource for learning, modifying, and developing fpp files. We use fpp to automate most of the boiler plate required for F Prime code to run.
 
+Notes for getting familiar with Fpp (some subsections to be particularly aware of) :
+ - [Formatting and setting up topologies](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Topologies_Connection-Graphs)
+
+
 # Fixed point to Floating point conversions
 
 [Fixed to Float](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)
 
 When dealing with sensors, we commonly see output in fixed point format as opposed to the more common computing floating point format. To convert between fixed point(Also called Q format) the link above provides plenty of background on the topic.
+
+# Common Issues Faced
+
+FPrime GDS - Version Problems
+ - First purge, generate, and build. You should see a build-artifacts folder: this indicates that it built correctly. Go into this folder:
+    - Ref/build-artifacts/Linux/dict
+    - The dictionary file will be the xml file in there. At the top, there is a framework_version, set that version to 3.1.0
+    - [Relevant github issue](https://github.com/nasa/fprime/issues/1456)
