@@ -28,7 +28,7 @@ On the possibility that the GNSS-SDR is later determined to not be an actual sol
 
 The last option that we currently can think of is getting as many data points before our GPS shuts off and relying completely on accelerometer data for our position after that, and then getting a position fix as we are coming down again and comparing both of those models.
 
-# Picking a TVS Diode
+## Picking a TVS Diode
 
 The reason why you would use a TVS diode is to protect from ESD discharge. This is an important thing to protect from as it has destroyed some of our past custom designed boards. The basics of ESD can be read in this [ESD Basics](hardware_appnotesORresources/esdbasics.pdf)
 
