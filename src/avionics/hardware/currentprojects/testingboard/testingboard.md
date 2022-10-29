@@ -26,6 +26,7 @@ This should be used when new tasks are created, in progress, or completed.
 - [Pressure sensor (DPS310XTSA1)](https://www.infineon.com/dgdl/Infineon-DPS310-DS-v01_00-EN.pdf?fileId=5546d462576f34750157750826c42242)
 - [Magnetometer (MLX90395KGO-BBA-101-SP)](https://www.melexis.com/-/media/files/documents/datasheets/mlx90395-datasheet-melexis.pdf)
 - [Temperature sensor (STTS75M2F)](https://www.st.com/content/ccc/resource/technical/document/datasheet/ea/c8/ee/86/71/81/4e/d0/CD00153513.pdf/files/CD00153513.pdf/jcr:content/translations/en.CD00153513.pdf)
+- [Voltage regulator (LT3080EDD\#TRPBF)](https://www.analog.com/media/en/technical-documentation/data-sheets/3080fc.pdf)
 
 ## Sub-pages
 
