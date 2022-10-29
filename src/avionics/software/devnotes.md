@@ -49,7 +49,7 @@ FPrime GDS - Version Problems
     
     - From there you need to make sure you give it the appropriate permissions to be able to run it:
 
-            sudo chmod -x Ref
+            sudo chmod +x Ref
 - Setting up said VM:
     - After cloning the repo, installing the tools, then building on the machine, run the following to get the proper tools installed:
 
