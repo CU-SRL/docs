@@ -4,7 +4,7 @@
 
 <img src="cappics/capacitor.png" width="100">
 
-In an ideal capacitor, the impedance is: $Z = \frac{1}{\omega C}$. Plotted logarithmically, this looks like:
+In an ideal capacitor, the impedance is: \\( Z = \frac{1}{\omega C} \\). Plotted logarithmically, this looks like:
 
 <img src="cappics/idealcapplot.png" width="300">
 
@@ -34,9 +34,9 @@ The ESR, above all, is an approximation. It is a value that changes with respect
 
 $$ \text{ESR} = \frac{\text{D.F.}}{2\pi fC} $$
 
-- The Dissipation Factor could also be given as: $\text{D.F.} = \tan (\delta)$ where $\delta$ is the “Loss angle”
-    - $f$ is the frequency in which the value of $\delta$ was measured
-- $C$ is the listed capacitance
+- The Dissipation Factor could also be given as: \\( \text{D.F.} = \tan (\delta) \\) where \\( \delta\\) is the “Loss angle”
+    - $f$ is the frequency in which the value of \\(\delta\\) was measured
+- \\(C\\) is the listed capacitance
 
 The "loss angle" is a representation of how inaccurately the capacitor is able to get its desired impedance.
 
@@ -44,13 +44,13 @@ The "loss angle" is a representation of how inaccurately the capacitor is able t
 
 ### Single ESR value
 
-If there is a single value given to represent the ESR, the frequency of the input is the capacitor's self-resonant frequency. At this point, the impedance of the real capacitor is $|Z| = \text{ESR}$
+If there is a single value given to represent the ESR, the frequency of the input is the capacitor's self-resonant frequency. At this point, the impedance of the real capacitor is \\( |Z| = \text{ESR} \\)
 
 This can be seen through a provided plot that shows the ESR value and measured impedance of a capacitor with respect to the input frequency. Notice how they intersect at the self-resonant frequency, the "bottom of the hump":
 
 <img src="cappics/esr_z_plot.jpg" width="300">
 
-*[MCASL168SB5225MTNA01](https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=MCASL168SB5225MTNA01&u=M) Capacitor's impedance compared with ESR.'*
+*[MCASL168SB5225MTNA01](https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=MCASL168SB5225MTNA01&u=M) Capacitor's impedance compared with ESR.*
 
 LTSpice has a database of capacitors if a single ESR or ESL value is needed. Just create a capacitor, right click it, and click on "Select Capacitor". 
 
@@ -78,13 +78,13 @@ Temperature coefficients are generally separated by classes. The most common cla
 
 The main Class I capacitor still in production is the C0G(NP0).
 
-<img src="cappics/C0GNP0.png" width="500">
+<img src="cappics/C0GNP0.PNG" width="500">
 
 ### Class II Capacitors
 
 The temperature coefficients of Class II capacitors are organized as such:
 
-<img src="cappics/classiitable.png" width="500">
+<img src="cappics/classiitable.PNG" width="500">
 
 For example, the X5R capacitor will operate from 10 C(**Z**) to 85 C(**5**) with a capacitance change of at most ±15%(**R**). This can be seen with the example below:
 
