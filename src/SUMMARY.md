@@ -13,6 +13,7 @@
 - [RF](avionics/RF/RF.md)
 - [Hardware](avionics/hardware/hardware.md)
   - [Getting Set Up](avionics/hardware/setup.md)
+  - [License Renewal](avionics/hardware/altiumlicensing.md)
   - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
   - [Design Process](avionics/hardware/designprocess.md)
   - [Free Samples](avionics/hardware/freesampleslist.md)
