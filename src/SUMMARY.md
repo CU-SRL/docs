@@ -24,6 +24,7 @@
       - [LDO (LT3080)](avionics/hardware/currentprojects/testingboard/LT3080.md)
       - [Ceramic Capacitors Notes](avionics/hardware/currentprojects/testingboard/ceramiccapacitors.md)
       - [Simulations and Calcs](avionics/hardware/currentprojects/testingboard/testingboard_calcsANDsims.md)
+      - [Power Budget](avionics/hardware/currentprojects/testingboard/powerbudget.md)
   - [Past Projects](avionics/hardware/pastprojects/pastprojects.md)
       - [Adaptor Board](avionics/hardware/pastprojects/adaptorboard.md)
 - [Software](avionics/software/software.md)
