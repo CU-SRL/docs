@@ -63,3 +63,4 @@ FPrime GDS - Version Problems
         - Install bison
         - [Installing gawk](https://installati.one/debian/10/gawk/)
         - [If you run the bash version problem with the configure.ac file, this could be a potential fix](https://github.com/pfalcon/esp-open-sdk/issues/365)
+    - This is entirely on hold and not a priority. We have a vm image that everyone can use wil all the right tools and version installed to be able to run on the bbb.
