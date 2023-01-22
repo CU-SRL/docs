@@ -9,6 +9,7 @@ title = "CU Sounding Rocket Lab Documentation"
 git-repository-url = "https://github.com/CU-SRL/docs"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/CU-SRL/docs/edit/main/{path}"
+mathjax-support = true
 
 [output.html.redirect]
 "/avionics/parts.html" = "https://docs.google.com/spreadsheets/d/1X3WgHvC2RSnOTu4vKU69ObROU78tgbLtDpSS68GCq5Q/edit?usp=sharing"

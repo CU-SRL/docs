@@ -24,19 +24,11 @@ Hardware Meetings - Friday 4:30PM Engineering Lobby
 
 Reach out to leads for any questions you may have! (Also if you don't see your name up here, let the avionics team lead know and they will add you! It's an important part of avionics to take pride in and show off what you've done, the experience you've gained, and what you've learned!)
 
-Andrew Lee [anle7157@colorado.edu](mailto:anle7157@colorado.edu)    - Avionics Team Lead
+Winnie Regan [wire5926@colorado.edu](mailto:wire5926@colorado.edu)  - Avionics Team Lead
 
-Winnie Regan [wire5926@colorado.edu](mailto:wire5926@colorado.edu)  - Software Engineering Lead of Avionics
-
-Tess Brodsky [jobr3597@colorado.edu](mailto:jobr3597@colorado.edu)  - RF Engineering Lead of Avionics
-
-Nyah Baltazar [nyba7222@colorado.edu](mailto:nyba7222@colorado.edu) - Electronics Hardware Engineering Lead of Avionics
-
-Andrew Scott [ansc2864@colorado.edu](mailto:ansc2864@colorado.edu) - Senior Software Engineer
+Andrew Scott [ansc2864@colorado.edu](mailto:ansc2864@colorado.edu) - Software Engineering Lead of Avionics
 
 Jacob Dean [jade7667@colorado.edu](mailto:jade7667@colorado.edu)   - Senior Software Engineer
-
-Parker Lamb [pala2784@colorado.edu](mailto:pala2784@colorado.edu)    - Senior Electronics Hardware Engineer
 
 Nico Madrid [nima9911@colorado.edu](mailto:nima9911@colorado.edu)    - Software Engineer
 
