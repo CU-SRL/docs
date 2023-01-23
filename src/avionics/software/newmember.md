@@ -164,7 +164,7 @@ I recomend installing the following plugins to your VSCode, along with connectin
 - [FPPTools](https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools)
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
-For using VSCode in conjunection with F' the recomended way is opening the srlFp directory in VSCode, and `cd` your shell into the `srlFp/Ref` directory.
+For using VSCode in conjunection with F' the recomended way is opening the `srlFp` directory in VSCode, and `cd` your shell into the `srlFp/Ref` directory.
 ## **FPrime Install**
 
 Note that all commands should be executed within the virtual enviroment created above
