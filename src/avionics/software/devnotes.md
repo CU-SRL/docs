@@ -1,66 +1,90 @@
-# Development Notes
+# Developing Fprime
 
-Collection of links to useful resources
-
-# F prime Documentation
-
-[Our own documentation](https://github.com/CU-SRL/srlFp/blob/documentation/docs/UsersGuide/api/c%2B%2B/latex/refman.pdf)
-
-[JPL's documentation v3.1.0](https://nasa.github.io/fprime/v3.1.0/UsersGuide/guide.html)
-
-Both of these links are useful in learning Fprime, as the SrlFp repo grows more sensor documentation will be present for review. 
-
-# Fprimeprime User's Guide
-
-[F Prime Prime Wiki](https://fprime-community.github.io/fpp/fpp-users-guide.html)
-
-The Fpp wiki provieds a very well documented resource for learning, modifying, and developing fpp files. We use fpp to automate most of the boiler plate required for F Prime code to run.
-
-Notes for getting familiar with Fpp (some subsections to be particularly aware of) :
- - [Formatting and setting up topologies](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Topologies_Connection-Graphs)
+This page will act as a top-down walkthrough of what the deployment development process looks like. New deployments can be created for any intended purpose, however for the time-being we make our changes in Ref for simplicity, as much of the setup is already done. Within the deployment, there are a variety of components, connected with a topology. When adding a new component (say, for a sensor), we need to create a directory within the deployment:
 
 
-# Fixed point to Floating point conversions
 
-[Fixed to Float](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)
+# Adding a new sensor
 
-When dealing with sensors, we commonly see output in fixed point format as opposed to the more common computing floating point format. To convert between fixed point(Also called Q format) the link above provides plenty of background on the topic.
+The process for adding a new sensor can be broken down as follows
+1. Create sensor dir with fpp, CMake, cpp, and hpp files
+2. Add it to the deployment CMake file, and fill out component CMake file
+3. After fully filling out the fpp, `fprime-util impl` the component (it should build without error at this point)
+   - The Tlm is recomended to run with `on change` [link](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Components_Telemetry_Update-Frequency)
+4. Include the component in `Top/Components.hpp` along with the extern reference
+5. Include the compeonet in `Top/RefTopologyAc.hpp`
+6. Add the instance to `Top/instances.fpp`
+7. Add the instance and connections to `Top/topology.fpp`
+8. Fill out and complete the cpp and hpp files
+9. Comment the functionality, then make sure it builds
 
-# Common Issues Faced
 
-FPrime GDS - Version Problems
- - First purge, generate, and build. You should see a build-artifacts folder: this indicates that it built correctly. Go into this folder:
-    - Ref/build-artifacts/Linux/dict
-    - The dictionary file will be the xml file in there. At the top, there is a framework_version, set that version to 3.1.0
-    - [Relevant github issue](https://github.com/nasa/fprime/issues/1456)
+# Configuring Drivers
 
-# Beaglebone Black Setup (Debian OS)
-- When compiling and building on your local machine, it is possible that you have a different compiler version being used compared to that used by the bbb.
-    - The beaglebone black runs Debian 10, and by default uses GLIBC version 2.28
-    - To check this on any machine, run the following command:
-
-            ldd --version
-
-    - The compiler version of the machine that the code is compiled on needs to match the version that the executable is being run on. Currently we have a virtual machine set up with the correct compiler version being run, from which we can send over the generated binary executable
-    - It is bad practice and potentially dangerous to downgrade the compiler version being used on your machine, so if you for example run GLIBC version 2.35, don't try to change what version your computer uses. Your operating system is meant to run on the compiler version that it comes with, so don't try to change it. That is why we use a VM to compile with the correct version.
-    - To get the executable onto the beaglebone black, use scp:
-
-            scp {RELEVANT DIR}/Ref debian@192.168.7.2:~
+When implementing drivers, be sure to do the following:
+1. Look into the both the driver function handlers, as well as the driver ports
+2. In the component fpp file, include the corresponding driver ports, and add any relevant events if desired
+3. In `topology.fpp`, include the instance of the driver, as well as add the connections for whichever devices are using it
+4. In `instances.fpp`, again create the instance of the driver, but also add any and all specifications for initialization such as base id, type, and location (remember to leave room for offset for ids)
+    - In this file we also chose to make our open calls for said driver,using the following syntax to insert cpp code into our fpp file:
     
-    - From there you need to make sure you give it the appropriate permissions to be able to run it:
-
-            sudo chmod +x Ref
-- Setting up said VM:
-    - After cloning the repo, installing the tools, then building on the machine, run the following to get the proper tools installed:
-
-            sudo apt install crossbuild-essential-armhf
-
-    - The beagleboneblack toolchain on the github has the correct path of CMAKE already set up, so use that toolchain to generate and build
+        `phase Fpp.ToCpp.Phases.configComponents """ {insert code here} """`
+    - Look [here](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Component-Instances_Init-Specifiers) for more information on every phase, and their intended uses
+5. In `Component.hpp`, include componentimpl header file for the driver and add the driver extern
+6. In `Topology.cpp`, add the component impl, initialize the component, and do any necessary checks for the previously metioned open call
 
 
-- We did try to upgrade the GLIBC version on the beaglebone, which involved several of the following tools. We never finished this process however because we got a VM working sooner. Therefore it isn't necessary, but potentially worth finishing in the future:
-    - [Installing a newer GLIBC version](https://stackoverflow.com/questions/10412684/how-to-compile-my-own-glibc-c-standard-library-from-source-and-use-it)
-        - Install bison
-        - [Installing gawk](https://installati.one/debian/10/gawk/)
-        - [If you run the bash version problem with the configure.ac file, this could be a potential fix](https://github.com/pfalcon/esp-open-sdk/issues/365)
-    - This is entirely on hold and not a priority. We have a vm image that everyone can use wil all the right tools and version installed to be able to run on the bbb.
+# Cross-Compilation
+The bbb toolchain is now missing from the dev branches, if you are using a Deb 10 VM provided in the new user guide and [HERE](VMLINK) add the following to `srlFp/cmake/toolchain/bbb.cmake`
+
+```cmake
+set(CMAKE_SYSTEM_NAME           Linux)
+SET(CMAKE_SYSTEM_VERSION        1)
+SET(CMAKE_SYSTEM_PROCESSOR      arm)
+
+set(CMAKE_C_COMPILER "/opt/gcc-arm-linux/bin/arm-linux-gnueabihf-gcc")
+set(CMAKE_CXX_COMPILER "/opt/gcc-arm-linux/bin/arm-linux-gnueabihf-g++")
+
+set(CMAKE_FIND_ROOT_PATH  "/opt/gcc-arm-linux/arm-linux-gnueabihf")
+
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+```
+> assumes the installed binutils are found in /opt but can be installed anywhere as long as the path is adjusted
+
+If you are interested in using Clang, look at [this](https://stackoverflow.com/questions/7031126/switching-between-gcc-and-clang-llvm-using-cmake). Currently we use gcc and the arm binutils to cross-compile but are interested in eventually switichng to clang for both performance and convenience.
+
+# Documentation
+We have a history of poor documentation in SRL, and as developers in general. We are solving that with 2 exersices: 1. Suggesting that people comment their code using the doxygen style, using plugins and 2. Realizing that FPrime is complex enough that trying to remember why you did something is hard.
+
+Our standard style for funciton comments uses the `JAVADOC`/`C-STYLE` as shown here with a simple addition function:
+```c++
+/**
+* \brief (Short description here)
+* (Longer in depth description here)
+* 
+* \param x (what is this input)
+* \param y (what is this input)
+* \return (what is the return)
+*/ 
+int function(int x, int y){
+        int temp; /*  What does this member var do   */
+        tmp = x+y
+        return tmp;
+}
+```
+
+It is also important to use annotations in the fpp code in order for the autocoder to create comments for you, see [here](https://fprime-community.github.io/fpp/fpp-users-guide.html#Writing-Comments-and-Annotations) for more information.
+
+When merged into main, doxygen automatically runs and executes on the documentation branch.
+
+## Buffers
+
+An important aspecto to note about the linux communication drivers provided by Fprime is that they take Fprime Buffers as inputs, as opposed to standard buffers made in C. Using Fprime Buffers is a three step process: allocating out the required space, serializing it with the relevant data, then deallocating said memory. A more in depth explanation on this process can be found  [here](https://nasa.github.io/fprime/UsersGuide/best/dynamic-memory.html).
+
+
+## Toplogies
+
+Depending on how old the documentation you are looking at, a topology may be using direct graph specifiers. For most connections however (in the `topology.fpp`), you can use pattern graph specifiers. This will make your life a whole lot easier.
