@@ -31,8 +31,7 @@ Andrew Lee [anle7157@colorado.edu](mailto:anle7157@colorado.edu)    - Avionics H
 
 Andrew Scott [ansc2864@colorado.edu](mailto:ansc2864@colorado.edu) - Avionics Software Lead
 
-Jacob Dean [jade7667@colorado.edu](mailto:jade7667@colorado.edu)   - Senior Software Engineer
-
+Jacob Dean [jade7667@colorado.edu](mailto:jade7667@colorado.edu)   -  Software Engineer
 
 Nico Madrid [nima9911@colorado.edu](mailto:nima9911@colorado.edu)    - Software Engineer
 
