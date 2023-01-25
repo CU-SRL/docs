@@ -35,7 +35,7 @@ When implementing drivers, be sure to do the following:
 
 
 # Cross-Compilation
-The bbb toolchain is now missing from the dev branches, if you are using a Deb 10 VM provided in the new user guide and [HERE](VMLINK) add the following to `srlFp/cmake/toolchain/bbb.cmake`
+The bbb toolchain is now missing from the dev branches, if you are using the Deb 10 VM provided by avionics add the following to `srlFp/cmake/toolchain/bbb.cmake`
 
 ```cmake
 set(CMAKE_SYSTEM_NAME           Linux)

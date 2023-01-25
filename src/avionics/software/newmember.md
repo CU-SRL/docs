@@ -14,7 +14,7 @@
 
 For software development we are using the FPrime framework (sometimes written as F') for C++ developed by JPL. In order to develop software you must first understand the basics of C++ as the more advaced concepts can be learened as you work through the tutorial. If you have completed CSCI1300(or equivalent) and CSCI2270(or activly taking 2270) than you will learn all the basics you need in class. If you have not completed 2270 [this video](https://www.youtube.com/watch?v=5UNuR7_hot8) is recommended for learning all of the basics. 
 
-Windows users will have a virtualbox image provided [here](LINK). It will include all of the needed software, and users can skip to the [Github Setup](#github-setup) steps. To use the image follow the installation section of [this guide](http://download.virtualbox.org/virtualbox/UserManual.pdf) to install virtualbox. 
+Windows users will have a virtualbox image provided by the Software Lead(or Avionics Lead). It will include all of the needed software, and users can skip to the [Github Setup](#github-setup) steps. To use the image follow the installation section of [this guide](http://download.virtualbox.org/virtualbox/UserManual.pdf) to install virtualbox. 
 
 This guide will use macOS as an example, but the commands in linux will be the same unless otherwise specified.
 
@@ -25,7 +25,7 @@ This guide will use macOS as an example, but the commands in linux will be the s
 1. Unix based OS (macOS or Linux)
     
     - Windows can use wsl with a debian based image, or a virtual machine
-    - (VM IMAGE LINK HERE)
+    - See Avionics lead or Software lead for a copy of the vm image
 
 2. git
     - [Here](https://git-scm.com/docs/gittutorial) is a good tutorial for git
