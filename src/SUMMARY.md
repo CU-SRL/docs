@@ -30,6 +30,7 @@
 - [Software](avionics/software/software.md)
   - [New Software Members](avionics/software/newmember.md) 
   - [Development Notes](avionics/software/devnotes.md)
+  - [Useful Links](avionics/software/usefullinks.md)
   - [Current Projects](avionics/software/currentprojects/currentprojects.md)
     - [Sensor Apps](avionics/software/currentprojects/sensorapps.md)
     - [GPS Testing](avionics/software/currentprojects/gpstesting.md)
