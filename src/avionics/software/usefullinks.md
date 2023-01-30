@@ -63,3 +63,8 @@ FPrime GDS - Version Problems
         - Install bison
         - [Installing gawk](https://installati.one/debian/10/gawk/)
         - [If you run the bash version problem with the configure.ac file, this could be a potential fix](https://github.com/pfalcon/esp-open-sdk/issues/365)
+
+
+# Internet access with host for bbb
+
+- Checkout this [walkthrough](internet-sharaing-usb.md)

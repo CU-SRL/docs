@@ -7,6 +7,7 @@ This page will act as a top-down walkthrough of what the deployment development 
 # Adding a new sensor
 
 The process for adding a new sensor can be broken down as follows
+
 1. Create sensor dir with fpp, CMake, cpp, and hpp files
 2. Add it to the deployment CMake file, and fill out component CMake file
 3. After fully filling out the fpp, `fprime-util impl` the component (it should build without error at this point)
@@ -22,6 +23,7 @@ The process for adding a new sensor can be broken down as follows
 # Configuring Drivers
 
 When implementing drivers, be sure to do the following:
+
 1. Look into the both the driver function handlers, as well as the driver ports
 2. In the component fpp file, include the corresponding driver ports, and add any relevant events if desired
 3. In `topology.fpp`, include the instance of the driver, as well as add the connections for whichever devices are using it
