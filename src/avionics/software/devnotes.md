@@ -18,7 +18,7 @@ The process for adding a new sensor can be broken down as follows
 7. Add the instance and connections to `Top/topology.fpp`
 8. Fill out and complete the cpp and hpp files
 9. Comment the functionality, then make sure it builds
-
+10. Ensure the pins are configured correctly with `pin-config`
 
 # Configuring Drivers
 
