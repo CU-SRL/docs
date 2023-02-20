@@ -68,7 +68,7 @@ We now pick a location to install the virtual enviroment, for the purposes of th
 
 ```bash
 python3 -m venv $HOME/fprime-venv
-source $Home/fprime-venv/bin/activate
+source $HOME/fprime-venv/bin/activate
 pip install -U setuptools setuptools_scm wheel pip
 ```
 
@@ -185,6 +185,8 @@ fprime-util generate
 fprime-util build
 fprime-gds -g html
 ```
+> use `git checkout <branch>` to switch branches
+
 
 ## Learning FPrime
 

@@ -3,7 +3,6 @@
 This page will act as a top-down walkthrough of what the deployment development process looks like. New deployments can be created for any intended purpose, however for the time-being we make our changes in Ref for simplicity, as much of the setup is already done. Within the deployment, there are a variety of components, connected with a topology. When adding a new component (say, for a sensor), we need to create a directory within the deployment:
 
 
-
 # Adding a new sensor
 
 The process for adding a new sensor can be broken down as follows
@@ -34,6 +33,9 @@ When implementing drivers, be sure to do the following:
     - Look [here](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Component-Instances_Init-Specifiers) for more information on every phase, and their intended uses
 5. In `Component.hpp`, include componentimpl header file for the driver and add the driver extern
 6. In `Topology.cpp`, add the component impl, initialize the component, and do any necessary checks for the previously metioned open call
+
+# BBB bashrc
+
 
 
 # Cross-Compilation
