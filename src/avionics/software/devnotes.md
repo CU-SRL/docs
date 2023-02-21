@@ -34,13 +34,19 @@ When implementing drivers, be sure to do the following:
 5. In `Component.hpp`, include componentimpl header file for the driver and add the driver extern
 6. In `Topology.cpp`, add the component impl, initialize the component, and do any necessary checks for the previously metioned open call
 
-# BBB bashrc
-
+# BBB Notes
+The bashrc used:
 ```bash
 alias route="sudo route add default g2 192.168.7.1"
 alias runDep"chmod 777 ~/Ref; ./Ref -1 192.168.7.1 -p 50000"
 ```
 > make sure pins are configured properly with config-pin \<pin number> \<pin mode>
+
+check i2c device connections with 
+```bash
+i2c-detect -y -r <bus-number>
+```
+
 # Cross-Compilation
 The bbb toolchain is now missing from the dev branches, if you are using the Deb 10 VM provided by avionics add the following to `srlFp/cmake/toolchain/bbb.cmake`
 
