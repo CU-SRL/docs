@@ -36,8 +36,11 @@ When implementing drivers, be sure to do the following:
 
 # BBB bashrc
 
-
-
+```bash
+alias route="sudo route add default g2 192.168.7.1"
+alias runDep"chmod 777 ~/Ref; ./Ref -1 192.168.7.1 -p 50000"
+```
+> make sure pins are configured properly with config-pin \<pin number> \<pin mode>
 # Cross-Compilation
 The bbb toolchain is now missing from the dev branches, if you are using the Deb 10 VM provided by avionics add the following to `srlFp/cmake/toolchain/bbb.cmake`
 
@@ -86,7 +89,7 @@ When merged into main, doxygen automatically runs and executes on the documentat
 
 ## Buffers
 
-An important aspecto to note about the linux communication drivers provided by Fprime is that they take Fprime Buffers as inputs, as opposed to standard buffers made in C. Using Fprime Buffers is a three step process: allocating out the required space, serializing it with the relevant data, then deallocating said memory. A more in depth explanation on this process can be found  [here](https://nasa.github.io/fprime/UsersGuide/best/dynamic-memory.html).
+An important aspect to note about the linux communication drivers provided by Fprime is that they take Fprime Buffers as inputs, as opposed to standard buffers made in C. Using Fprime Buffers is a three step process: allocating out the required space, serializing it with the relevant data, then deallocating said memory. A more in depth explanation on this process can be found  [here](https://nasa.github.io/fprime/UsersGuide/best/dynamic-memory.html).
 
 
 ## Toplogies
