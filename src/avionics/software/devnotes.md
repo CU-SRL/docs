@@ -9,15 +9,17 @@ The process for adding a new sensor can be broken down as follows
 
 1. Create sensor dir with fpp, CMake, cpp, and hpp files
 2. Add it to the deployment CMake file, and fill out component CMake file
-3. After fully filling out the fpp, `fprime-util impl` the component (it should build without error at this point)
+3. Run `touch <componentname>ComponentImpl.cpp` and `touch <componentname>ComponentImpl.hpp`. This creates "invisible" versions of the file, so that they exist. Trying to implement without these files touched could cause issues.
+4. After fully filling out the fpp, `fprime-util impl` the component (it should build without error at this point)
    - The Tlm is recomended to run with `on change` [link](https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Components_Telemetry_Update-Frequency)
-4. Include the component in `Top/Components.hpp` along with the extern reference
-5. Include the compeonet in `Top/RefTopologyAc.hpp`
-6. Add the instance to `Top/instances.fpp`
-7. Add the instance and connections to `Top/topology.fpp`
-8. Fill out and complete the cpp and hpp files
-9. Comment the functionality, then make sure it builds
-10. Ensure the pins are configured correctly with `config-pin`
+5. This should have produced cpp and hpp file templates. Just rename these to the ComponentImpl.cpp and hpp files you had previously created.
+6. Include the component in `Top/Components.hpp` along with the extern reference
+7. Include the compeonet in `Top/RefTopologyAc.hpp`
+8. Add the instance to `Top/instances.fpp`
+9. Add the instance and connections to `Top/topology.fpp`
+10. Fill out and complete the cpp and hpp files
+11. Comment the functionality, then make sure it builds
+12. Ensure the pins are configured correctly with `config-pin`
 
 # Configuring Drivers
 
