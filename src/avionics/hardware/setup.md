@@ -13,11 +13,13 @@ The majority of this guide will be dedicated to getting set up with our Altium w
 
 ## Getting set up with Altium
 
-First, visit Altium's [Link For Student License](https://www.altium.com/education/student-licenses). This will allow you to get up and running with Altium - the student license allows you to install the software for free. 
+First, visit Altium's [Link For Student License](https://www.altium.com/education/student-licenses). This will allow you to get up and running with Altium - the student license allows you to install the software for free.
 
-After Altium is installed, send your email to the hardware team lead. They'll add you to the Altium workspace we're using for Avionics. 
+You will need to verify your email to receive your student license. Once you've received the verification email and clicked the link to verify your email, Altium will send you another email, this time containing your licensing information. You will need to activate your AltiumLive account and sign in to be able to download and use the installers. Once you have downloaded the executable, follow the installation [instructions](https://www.altium.com/documentation/altium-designer/installing) to fully install Altium.
 
-Once you are added, in the top-right corner of your window you should see the workspaces button (it might read "Not Connected"). Click this, and look for "CU SRL Yonix".
+After Altium is installed, send your email to the hardware team lead. They'll add you to the Altium workspace we're using for Avionics. In the meantime, you can follow some Altium tutorials to get familiar with the software, and the PCB design process in general! Here is a very good intro to PCB design that I highly suggest: [Altium Tutorial](https://education.altium.com/courses/). It explains what PCB design is, why we use it, all of the terminology used, and walks through making a simple project to get used to Altium.
+
+Now back to getting setup, once you are added to our Altium workspace, in the top-right corner of your window you should see the workspaces button (it might read "Not Connected"). Click this, and look for "CU SRL Yonix".
 
 <center><img src="../images/altium_workspaces.png" width="500"></center>
 
