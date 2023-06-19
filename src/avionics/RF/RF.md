@@ -12,8 +12,8 @@ Nontheless, in general, you're in RF land once your longest wire/trace length is
 
 Here are a list of resources that may be useful if you want to learn more about RF.
 
-- [TI - RF Basics for Non-RF Engineers](https://www.ti.com/lit/ml/slap127/slap127.pdf)
 - [RF Fundamentals](https://www.hwe.design/design-fundamentals/rf-basics/rf-fundamentals)
+- [TI - RF Basics for Non-RF Engineers](https://www.ti.com/lit/ml/slap127/slap127.pdf)
 - [dB, Antenna Gain, Propagation, Attenuation, SNR, Sensitivity, ETC.](https://higherlogicdownload.s3.amazonaws.com/HPE/MigratedAttachments/C2402EC5-0E66-4CF4-ABE3-69EFA57AE547-1-RF-Basics_Part1.pdf)
 - [Paper On Basics of RF Electronics](https://cds.cern.ch/record/1407402/files/p223.pdf)
 - [ASEN3300 - Frequency Domain Circuits](RF_appnotesORresources/2021F-ASEN-3300-Lab04-Lecture-completed.pdf)
