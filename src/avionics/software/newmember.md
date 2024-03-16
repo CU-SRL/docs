@@ -65,7 +65,7 @@ Pick a location to install the virtual enviroment. For the purposes of this guid
 ```bash
 python3 -m venv $HOME/fprime-venv
 . $HOME/fprime-venv/bin/activate
-pip install -U setuptools setuptools_scm wheel
+pip install -U setuptools setuptools_scm wheel pip
 ```
 
 The first command creates the venv, the second command activates the venv, and the third command installs some needed packages.
