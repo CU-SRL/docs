@@ -103,3 +103,18 @@ An important aspect to note about the linux communication drivers provided by Fp
 ## Toplogies
 
 Depending on how old the documentation you are looking at, a topology may be using direct graph specifiers. For most connections however (in the `topology.fpp`), you can use pattern graph specifiers. This will make your life a whole lot easier.
+
+## Running the Groundstation on Windows
+
+If you are trying to connect to the beaglebone and run the groundstation on your local machine, and then collect data, you will need to do a couple of things. Go to Windows Defender Firewall, then advanced settings, adn from there Inbound Rules. Select the four rules that contain
+
+## Nice aliases to have
+
+There are certain aliases that are nice to have that make quality life a lot better in terms of running the avionics:
+
+For all aliases, these are just example paths, use whatever works best for you.
+
+alias fprime="source ~/fprime-venv/bin/activate"
+alias bbbconnect="ssh debian@192.168.7.2"
+alias sendover="scp ~/SRL/RefTopologyAppDictionary.xml debian@192.168.7.2:~/deployment/dict; scp $HOME/SRL/Ref debian@192.168.7.2:~/deployment/bin;"
+alias runGDS="fprime-gds -n --dictionary ~/SRL/RefTopologyAppDictionary.xml"
