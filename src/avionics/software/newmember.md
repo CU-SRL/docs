@@ -58,17 +58,13 @@ sudo apt install git cmake default-jre python3 python3-pip python3-venv
 We can now begin the virtual enviroment creation
 
 
-```shell
-python3 -m pip install --user virtualenv
-```
-
 > A virtual enviroment (venv) allows for different packages to be installed at different versions within python and mitigate version conflict errors
 
-We now pick a location to install the virtual enviroment, for the purposes of this guide we will use the `$HOME` directory as our root. If you would rather use another location feel free.
+Pick a location to install the virtual enviroment. For the purposes of this guide we will use the `$HOME` directory as our root. If you would rather use another location feel free.
 
 ```bash
 python3 -m venv $HOME/fprime-venv
-source $HOME/fprime-venv/bin/activate
+. $HOME/fprime-venv/bin/activate
 pip install -U setuptools setuptools_scm wheel pip
 ```
 
@@ -86,9 +82,9 @@ To exit the virtual enviroment simply enter `deactivate` while the venv is activ
 > linux users will need to modifly the file `~/.bashrc` 
 > Add the following line at the end of the file and save
 > ```sh
-> alias fpvenv="source $HOME/fprime-venv/bin/activate"
+> alias fpvenv=". $HOME/fprime-venv/bin/activate"
 >```
-> Ensure to update your terminal with `source ~/.zshrc`
+> Ensure to update your terminal with `. ~/.zshrc`
 > Now typing fpvenv will activate your virtual enviroment
 
 
@@ -173,7 +169,7 @@ In your prefered directory(`$HOME` or `Desktop` is recomended) clone the srl FPr
 ```bash
 git clone git@github.com:CU-SRL/srlFp.git
 cd srlFp
-pip install -r fprime/requirements.txt
+pip install -r requirements.txt
 ```
 
 #### Verify install
