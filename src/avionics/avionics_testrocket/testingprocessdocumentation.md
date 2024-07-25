@@ -6,14 +6,12 @@ This page is to develop a test plan so that we make the most out of each launch.
 
 ## List of Tests To Perform For 
 
-- ESD Tests (want to start off by shocking a board that only has 1 cheap component soldered onto it (hopefully the most sensitive device to voltage), no need to shock a fully populated board)
+- RF Signal Integrity
 - Accelerometer Drift (as we integrate to get our position)
 - GPS functionality
 - Pressure readings
 - Data logging capabilities
 - Chute deployment tests
 - Physical shock/vibration
-
-## Testing ESD
-
+- ESD Tests (want to start off by shocking a board that only has 1 cheap component soldered onto it (hopefully the most sensitive device to voltage), no need to shock a fully populated board)
 

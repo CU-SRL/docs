@@ -1,5 +1,7 @@
 ## This is a page to document how we made decisions on the avionics test rocket
 
+\[NOT CURRENTLY UP TO DATE\]
+
 # Reasoning Behind Not Using Smaller Rocket
 
 It's cheaper to use a smaller rocket, but here is our engineering justification behind not going with that. The main goal of these flights is to test our avionics system to see if it will achieve proper performance on space shot. As far as basic functionality, we will do that on the ground, read data sheets carefully, and be thorough with documentation of our system. For survivability and reliability, this is where we need to test on a real rocket. The goal is to get our system to break. Our system is cheap enough to where we don’t have to care about testing slowly and upwards. We already know we have hardware that, if properly soldered together, can survive an obsidian level flight as well (our previous big rocket flight). Thus, I still believe the cheapest and most time efficient way to have accurate testing is to get our system to break as fast as possible and fix problems from there.
@@ -30,7 +32,7 @@ For the speed, we want to reach the COCOM limit of the GPS module we are using (
 
 PARACHUTE MECHANISM - 
 
-For the parachute, we won't be able to deploy them on our early on. For first few flights we want to record when we WOULD deploy our drogue and see how accurate we are with the actual deployment of the COTS solution. The avionics test rocket will have COTS avionics system as the main avionics system until we deem ourselves capable of doing it ourselves.
+For the parachute, we won't be able to deploy them on our early on. For first few flights we want to record when we WOULD deploy our drogue and see how accurate we are with the actual deployment of the COTS solution. The avionics test rocket will have COTS avionics system as the main avionics system until we deem ourselves capable of doing it in-house.
 
 HEAT - 
 
