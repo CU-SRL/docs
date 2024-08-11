@@ -2,6 +2,8 @@
 
 Documenting the on-boarding processes have been used in the past, noting what has gone right and what should be changed.
 
+
+\[PAST YEARS\]
 For hardware, this year we will begin with a soldering workshop using cheap solderable breadboards, basic LEDs, resistors, and anything else the team needs to be soldered right now. The goal of the workshop is to get new members excited about creating something, introduce electronics concepts to people who have no experience, give them a framework for how they can imagine the design that they will be doing in Altium Designer.
 
 The workshop will cover the topics of through-hole soldering, surface mount soldering, multimeter usage, circuit basics if there are new members not familiar with those concepts, explanation of what parts look like, what the parts do, what an IC is, maybe some wire stripping, splicing, etc.
