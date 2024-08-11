@@ -17,6 +17,8 @@
   - [Useful Links and Application Notes](avionics/hardware/applicationnotes.md)
   - [Design Process](avionics/hardware/designprocess.md)
   - [Free Samples](avionics/hardware/freesampleslist.md)
+  - [Past Projects](avionics/hardware/pastprojects/pastprojects.md)
+    - [Adaptor Board](avionics/hardware/pastprojects/adaptorboard.md)
 - [Software](avionics/software/software.md)
   - [New Software Members](avionics/software/newmember.md) 
   - [Development Notes](avionics/software/devnotes.md)
@@ -37,7 +39,5 @@
       - [Ceramic Capacitors Notes](avionics/archive/currentprojects/testingboard/ceramiccapacitors.md)
       - [Simulations and Calcs](avionics/archive/currentprojects/testingboard/testingboard_calcsANDsims.md)
       - [Power Budget](avionics/archive/currentprojects/testingboard/powerbudget.md)
-  - [Past Projects](avionics/archive/pastprojects/pastprojects.md)
-    - [Adaptor Board](avionics/archive/pastprojects/adaptorboard.md)
   - [Future Recruitment Notes](avionics/archive/futurenotes.md)
 

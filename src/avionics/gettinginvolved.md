@@ -2,13 +2,12 @@
 
 Ready to get involved? Follow these steps!
 
-Do everything on the [new member checklist](https://soundingrocketlab.com/srl-new-member-checklist/).
+Do everything on the [new member checklist](https://cusrl.com/join).
 
-You can find an updated list of all the current members on the [central page](centralpage.md). Reach out to the current avionics team lead or the sub-team lead with the topic you're most interested in (electronics hardware, software, RF-specific engineering). You can find who the sub-team leads are on the [central page](centralpage.md).
+You can find an updated list of all the current members on the [central page](centralpage.md). Reach out to the current avionics team lead or the sub-team lead with the topic you're most interested in (electronics hardware, software, RF-specific engineering).
 
 
 <!-- Send them a nice message with the following (not actually required but for fun and letting the team lead get to know you!): 
-<!--
 - year
 - major
 - what you like to do for fun

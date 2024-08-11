@@ -8,6 +8,16 @@ Nontheless, in general, you're in RF land once your longest wire/trace length is
 
 ![xkcd1457](https://imgs.xkcd.com/comics/feedback.png)
 
+## Our project
+
+The end goal of this system is to have it fly on Spaceshot. Since the Karman Line is 100km from the surface, that is our required range. We want to stay in the ISM (Industrial, Scientific, and Medical) frequency range (902-928 MHz). We also can assume that we will have "line-of-sight", since the rocket will be in the air. The legal limit for ISM broadcasting is 1 Watt supplied to the antenna, and a maximum power transmitted from the antenna is 4W. Assuming a 30 dBm broadcasting intensity, and free space path loss over 100km to be ~ -130 dBm, we know the reciever has to be sensitive down to -100dBm, at least. 
+
+Therefore, we are considering [this](https://www.sparkfun.com/products/18572) transciever module. More details to come soon.
+
+Antenna design considerations to come soon.
+
+Video downlink has been postponed to be a very long term goal, considering how expensive and complex a dev campaign for that would be.
+
 ## Resources
 
 Here are a list of resources that may be useful if you want to learn more about RF.

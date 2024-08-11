@@ -14,9 +14,11 @@
 
 For software development we are using the FPrime framework (sometimes written as F') for C++ developed by JPL. In order to develop software you must first understand the basics of C++ as the more advaced concepts can be learened as you work through the tutorial. If you have completed CSCI1300(or equivalent) and CSCI2270(or activly taking 2270) than you will learn all the basics you need in class. If you have not completed 2270 [this video](https://www.youtube.com/watch?v=5UNuR7_hot8) is recommended for learning all of the basics. 
 
-Windows users will have a virtualbox image provided by the Software Lead(or Avionics Lead). It will include all of the needed software, and users can skip to the [Github Setup](#github-setup) steps. To use the image follow the installation section of [this guide](http://download.virtualbox.org/virtualbox/UserManual.pdf) to install virtualbox. 
+A Linux operating system or image is required for self installation. Because many of our new members will be using windows, we are working on hosting a server which will run linux and solve all the issues that come with VMs and things. Updates to come.
 
-This guide will use macOS as an example, but the commands in linux will be the same unless otherwise specified.
+<!-- Windows users will have a virtualbox image provided by the Software Lead(or Avionics Lead). It will include all of the needed software, and users can skip to the [Github Setup](#github-setup) steps. To use the image follow the installation section of [this guide](http://download.virtualbox.org/virtualbox/UserManual.pdf) to install virtualbox.  -->
+
+If you want to install FPrime on your own computer, use the following instructions. This guide will use macOS as an example, but the commands in linux will be the same unless otherwise specified. Windows users should install WSL to follow these commands.
 
 
 ## Pre-Install Setup
@@ -160,7 +162,7 @@ I recomend installing the following plugins to your VSCode, along with connectin
 - [FPPTools](https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools)
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
-For using VSCode in conjunection with F' the recomended way is opening the `srlFp` directory in VSCode, and `cd` your shell into the `srlFp/Ref` directory.
+For using VSCode in conjunction with F', the recomended way is opening the `srlFp` directory in VSCode, and `cd` your shell into the `srlFp/Ref` directory.
 ## **FPrime Install**
 
 Note that all commands should be executed within the virtual enviroment created above
@@ -204,4 +206,4 @@ There are a few extra terms that are common that should be highlighted:
 - Os: short for Operating System, provides the Operating System Abstraction Layer([OSAL](https://en.wikipedia.org/wiki/Operating_system_abstraction_layer)) for fprime
 
 
-For working on the **Math Component Tutorial** found [Here](https://nasa.github.io/fprime/v3.1.0/Tutorials/MathComponent/Tutorial.html) I recomend focusing on following the steps given in in sections 1-4, then reading the goals in section 5 and attempting to impliment them without copying from the tutorial until needed.
+For working on the **Math Component Tutorial** found [Here](https://nasa.github.io/fprime/v3.1.0/Tutorials/MathComponent/Tutorial.html) I recomend focusing on following the steps given in in sections 1-4, then reading the goals in section 5 and attempting to implement them without copying from the tutorial until needed.

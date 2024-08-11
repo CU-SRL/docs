@@ -52,6 +52,10 @@ i2c-detect -y -r <bus-number>
 ```
 
 # Cross-Compilation
+The BeagleBone uses an arm-32 architecture. As such, the cross compilation steps from [this tutorial](https://nasa.github.io/fprime/Tutorials/CrossCompilationSetup/CrossCompilationSetupTutorial.html).
+
+FURTHER NOTES:
+
 The bbb toolchain is now missing from the dev branches, if you are using the Deb 10 VM provided by avionics add the following to `srlFp/cmake/toolchain/bbb.cmake`
 
 ```cmake

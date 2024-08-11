@@ -4,7 +4,7 @@
 
 # Reasoning Behind Not Using Smaller Rocket
 
-It's cheaper to use a smaller rocket, but here is our engineering justification behind not going with that. The main goal of these flights is to test our avionics system to see if it will achieve proper performance on space shot. As far as basic functionality, we will do that on the ground, read data sheets carefully, and be thorough with documentation of our system. For survivability and reliability, this is where we need to test on a real rocket. The goal is to get our system to break. Our system is cheap enough to where we don’t have to care about testing slowly and upwards. We already know we have hardware that, if properly soldered together, can survive an obsidian level flight as well (our previous big rocket flight). Thus, I still believe the cheapest and most time efficient way to have accurate testing is to get our system to break as fast as possible and fix problems from there.
+It's cheaper to use a smaller rocket, but here is our engineering justification behind not going with that. The main goal of these flights is to test our avionics system to see if it will achieve proper performance on space shot. As far as basic functionality, we will do that on the ground, read data sheets carefully, and be thorough with documentation of our system. For survivability and reliability, this is where we need to test on a real rocket. The goal is to get our system to break. Our system is cheap enough to where we don’t have to care about testing slowly and upwards. We already know we have hardware that, if properly soldered together, can survive an obsidian level flight as well (our previous big rocket flight). Thus, we still believe the cheapest and most time efficient way to have accurate testing is to get our system to break as fast as possible and fix problems from there.
 
 # List of considerations:
 
@@ -17,8 +17,20 @@ It's cheaper to use a smaller rocket, but here is our engineering justification 
 - ESD Requirements
 - Timeline
 
+# Current Considerations
 
-# Discussion about considerations...
+The general plan is that we will coordinate with the L1 launch team and use one of their launches, in order to save money for the club. They have generously offered to help us with this, but first we need to provide them with our expected parameters like size, apogee, acceleration etc. to give them an idea of what we need. 
+
+SIZE:
+
+As previous years suggested, the diameter should be at least 3 inches, but ideally 4 or 5 so that the components can rest comfortably. This is something that we will have to design once we have all of our components laid out.
+
+MORE TO BE DOCUMENTED LATER
+
+
+# Previous Years' Discussion
+
+## Considerations...
 
 SIZE - 
 
