@@ -2,7 +2,7 @@
 
 # Mission Statement
 
-The mission of SRL Avionics is to create a reliable avionics system capable of verifying that a rocket has reached space while building a supportive community which develops us as engineers.
+The mission of SRL Avionics is to create a reliable avionics system capable of verifying that a rocket has reached space while building a supportive community which develops us as engineers. We welcome members of all skill levels and are dedicated to using rocketry avionics as a way to deepen our technical ability.
 
 <!-- ## Meeting Time -->
 
