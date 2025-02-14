@@ -47,7 +47,12 @@ jobs:
 
     # Install markdown book
     - name: Install mdBook
-      run: cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
+      run: |
+        if ! command -v mdbook &> /dev/null; then
+          cargo install mdbook --no-default-features --features search --vers "^0.4" --locked;
+        else
+          echo "mdBook is already installed, skipping installation."
+        fi
 
     # Run mdBook Rust code tests
     - name: Test Rust code
@@ -64,18 +69,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Cache mdBook binary in deploy job as well
-      - name: Cache mdBook binary
+      # Restore the mdBook binary from the cache
+      - name: Restore mdBook binary
         uses: actions/cache@v4
         with:
           path: ~/.cargo/bin/mdbook
           key: ${{ runner.os }}-mdbook-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-mdbook-
-
-      # Installation again (should be cached)
-      - name: Install mdBook
-        run: cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
 
       # Build the book and deploy to GitHub Pages
       - name: Deploy to GitHub Pages
