@@ -39,7 +39,9 @@ FPrime GDS - Version Problems
     - The beaglebone black runs Debian 10, and by default uses GLIBC version 2.28
     - To check this on any machine, run the following command:
 
-            ldd --version
+        ```shell
+        ldd --version
+        ```
 
     - The compiler version of the machine that the code is compiled on needs to match the version that the executable is being run on. Currently we have a virtual machine set up with the correct compiler version being run, from which we can send over the generated binary executable
     - It is bad practice and potentially dangerous to downgrade the compiler version being used on your machine, so if you for example run GLIBC version 2.35, don't try to change what version your computer uses. Your operating system is meant to run on the compiler version that it comes with, so don't try to change it. That is why we use a VM to compile with the correct version.
