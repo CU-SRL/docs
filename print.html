@@ -1,0 +1,1329 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CU Sounding Rocket Lab Avionics Documentation</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CU Sounding Rocket Lab Avionics Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="welcome-to-the-cu-sounding-rocket-lab-docs"><a class="header" href="#welcome-to-the-cu-sounding-rocket-lab-docs">Welcome to the CU Sounding Rocket Lab Docs</a></h1>
+<p>Welcome to the CU SRL Avionics Documentation!</p>
+<p>If you are not yet a member of the CU SRL, please visit our site, at <a href="https://cusrl.com/">https://cusrl.com/</a>, for more information on getting involved. You can also check out any pages on this site called "Getting Involved" under each of the sub-teams.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="editing-the-docs"><a class="header" href="#editing-the-docs">Editing the docs</a></h1>
+<p>Our documentation system is hosted on <a href="https://pages.github.com/">GitHub Pages</a>, and uses Markdown files to show content.</p>
+<p>To edit the documentations, you may either:</p>
+<ol>
+<li>Clone the git repository these documents are hosted on, and edit using an editor of your choice.</li>
+<li>Edit the docs directly on GitHub, and commit your changes there.</li>
+</ol>
+<p>If you're going to be doing a lot of editing, we recommend the first option. Otherwise, click the "Edit" button on the top right of a page to edit it directly on GitHub. You may also add new pages on GitHub itself.</p>
+<h2 id="cloning-the-repository"><a class="header" href="#cloning-the-repository">Cloning the repository</a></h2>
+<p>First, you must be added to the <a href="https://github.com/CU-SRL">Github SRL organization</a>. Get in touch with a team leader to do this.</p>
+<p>Next, clone the repository.</p>
+<p>For first-time Git users, we recommend you use <a href="https://desktop.github.com/">GitHub Desktop</a>, with an editor of your choice (such as <a href="https://code.visualstudio.com/">Visual Studio Code</a>).</p>
+<p>For command line users, or those who want to familiarize themselves with git, use the following command in a folder of your choice:</p>
+<pre><code class="language-bash">git clone git@github.com:CU-SRL/docs.git
+</code></pre>
+<p>then open the documentation in an editor.</p>
+<h2 id="uploading-changes"><a class="header" href="#uploading-changes">Uploading changes</a></h2>
+<p>Using <a href="https://desktop.github.com/">GitHub Desktop</a>, simply add a change summary, commit, then push to the <code>main</code> branch.</p>
+<p>Using command-line git, navigate to the repository folder, then</p>
+<pre><code class="language-bash">git add .
+git commit -m "&lt;change description&gt;"
+git push origin main
+</code></pre>
+<h2 id="working-with-the-documentation"><a class="header" href="#working-with-the-documentation">Working with the documentation</a></h2>
+<p>The documentation root looks like this.</p>
+<pre><code class="language-markdown">book/           The theme and styling of the website itself.
+src/            The folder containing site content.
+book.toml       Backend parameters for the site generator.
+</code></pre>
+<p>Most of the work you'll be doing will be inside the <code>src/</code> folder.</p>
+<h3 id="working-with-markdown"><a class="header" href="#working-with-markdown">Working with Markdown</a></h3>
+<p>GitHub has good documentation on working with Markdown, <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">available here</a>.</p>
+<p>There is also a guide specific for this book available on the <a href="https://rust-lang.github.io/mdBook/format/markdown.html">mdBook documentation</a>, with some unique features like strikethrough text and table syntax.</p>
+<h3 id="structure"><a class="header" href="#structure">Structure</a></h3>
+<p>The documentation inside the <code>src/</code> folder is structured as shown below.</p>
+<pre><code class="language-markdown">SUMMARY.md
+avionics/
+- currentprojects/
+    - currentprojects.md
+    - testboard.md
+- overview/
+    - images/
+    - overview.md
+    - ...
+- gettinginvolved.md
+</code></pre>
+<p>All pages are Markdown (<code>.md</code>) files.</p>
+<p>Section headings are folders. Inside each folder, you might find some subheadings. If you want a subheading to be clickable, create that subheading inside its folder (such as <code>overview/overview.md</code>).</p>
+<p>We recommend you explore a bit and get familiarized.</p>
+<h3 id="adding-a-page"><a class="header" href="#adding-a-page">Adding a page</a></h3>
+<p>First, create the <code>.md</code> file for the page you want to create.</p>
+<p>Then, create a link to that Markdown file inside the <code>SUMMARY.md</code> file. Look inside <code>SUMMARY.md</code> for examples.</p>
+<h3 id="removing-or-moving-a-page"><a class="header" href="#removing-or-moving-a-page">Removing or moving a page.</a></h3>
+<p>Modify the relevant page, and make sure to update <code>SUMMARY.md</code> accordingly to redo the link to that page.</p>
+<h3 id="working-with-images"><a class="header" href="#working-with-images">Working with images</a></h3>
+<p>To add an image to a page, create an <code>images/</code> folder if it does not already exist, in the same directory as the page you want to add an image to. Copy the image to that images folder.</p>
+<p>Then, inside the <code>.md</code> file, use <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images">Markdown image syntax</a> to link to it. Links are relative, so use <code>images/your-image.png</code> for the link.</p>
+<p>If you want to resize your image, use the following syntax instead:</p>
+<pre><code class="language-html">&lt;img src="images/your-image.png" width="150" height="280"&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><img src="avionics/images/yonixv2.png" width="600" height="280">
+<h1 id="mission-statement"><a class="header" href="#mission-statement">Mission Statement</a></h1>
+<p>The mission of SRL Avionics is to create a reliable avionics system capable of verifying that a rocket has reached space while building a supportive community which develops us as engineers. We welcome members of all skill levels and are dedicated to using rocketry avionics as a way to deepen our technical ability.</p>
+<!-- ## Meeting Time -->
+<p><strong>Join us for the full team new member meeting on 9/2!</strong></p>
+<!-- Avionics Meetings - Sunday 3:00pm Engineering Lobby (Check Slack avionics channel to make sure the location has not changed for the week)
+
+Software Meetings - Saturday 5:00PM Engineering Lobby
+
+Hardware Meetings - Friday 4:30PM Engineering Lobby -->
+<h2 id="cu-sounding-rocket-laboratory-website-link"><a class="header" href="#cu-sounding-rocket-laboratory-website-link">CU Sounding Rocket Laboratory Website Link</a></h2>
+<ul>
+<li><a href="https://cusrl.com/avionics/">Avionics Page</a></li>
+</ul>
+<h2 id="join-the-srl-slack-and-notion"><a class="header" href="#join-the-srl-slack-and-notion">Join the SRL Slack and Notion!</a></h2>
+<ul>
+<li><a href="https://join.slack.com/t/soundingrocketlab/shared_invite/zt-2n9ciw4h3-sb49brFFkLlJb3Cov8K31A">Slack Invite Link</a></li>
+<li>Notion Invite Link - Coming Soon</li>
+</ul>
+<h2 id="members"><a class="header" href="#members">Members</a></h2>
+<p>Reach out to leads for any questions you may have! (Also if you don't see your name up here, let the avionics team lead know and they will add you! It's an important part of avionics to take pride in and show off what you've done, the experience you've gained, and what you've learned!)</p>
+<p>Alex Reich <a href="mailto:alre8317@colorado.edu">alre8317@colorado.edu</a>  - Avionics Team Lead</p>
+<p>Allison Byrnes <a href="mailto:allison.byrnes@colorado.edu">allison.byrnes@colorado.edu</a> - Avionics Hardware Lead</p>
+<p>Winnie Regan <a href="mailto:wire5926@colorado.edu">wire5926@colorado.edu</a></p>
+<!-- Nico Madrid [nima9911@colorado.edu](mailto:nima9911@colorado.edu)  -->
+<p>Kofi Asare <a href="mailto:koas3551@colorado.edu">koas3551@colorado.edu</a></p>
+<p>To be updated in the fall!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-involved"><a class="header" href="#getting-involved">Getting Involved!</a></h1>
+<p>Ready to get involved? Follow these steps!</p>
+<p>Do everything on the <a href="https://cusrl.com/join">new member checklist</a>.</p>
+<p>You can find an updated list of all the current members on the <a href="avionics/centralpage.html">central page</a>. Reach out to the current avionics team lead or the sub-team lead with the topic you're most interested in (electronics hardware, software, RF-specific engineering).</p>
+<!-- Send them a nice message with the following (not actually required but for fun and letting the team lead get to know you!): 
+- year
+- major
+- what you like to do for fun
+- why you're interested in avionics (can be: I don't know anything about avionics and want to learn more!)
+- your favorite home-cooked meal (the current avionics lead needs inspiration for what to cook, recently been struggling)
+-->
+<p>On the slack, join the <code>#avionics</code> channel, <code>#avionics-hardware</code>, and <code>#avionics-software</code> channels.</p>
+<p>The leads will have a list of things you need to do to get set up with the team, ask about this! Also let them know how much experience you are coming in with so they can cater the onboarding process to you individually.</p>
+<p>Jot down the time and date of the next avionics meeting in your planner! (Also should be on the <a href="avionics/centralpage.html">central page</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="this-is-a-page-for-avionics-members-to-list-out-resume-and-career-tips"><a class="header" href="#this-is-a-page-for-avionics-members-to-list-out-resume-and-career-tips">This is a page for avionics members to list out resume and career tips!</a></h2>
+<p>First off, feel free to reach out to your avionics lead if you want to meet 1-on-1 for resume advice or simply send them/him/her your current resume. Whatever your comfortable with! Your sub-team leads and team lead will always be willing to help you out, and you can gain a lot of meaning from getting feedback from peers on your resume. This will be a page that gets updated as time moves forward, and hopefully it can be a great additional resource for your professional development!</p>
+<ul>
+<li><a href="https://www.reddit.com/r/EngineeringResumes/comments/m2cc65/new_and_improved_wiki/">Reddit Engineering Resume Advice</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="documentation-on-avionics-testing-rocket"><a class="header" href="#documentation-on-avionics-testing-rocket">Documentation on Avionics Testing Rocket</a></h2>
+<p>We will document our design process from an avionics perspective on these pages!</p>
+<p>Our intention is to fly an L1 or L2 cert rocket with our current board in conjunction with the planned L1 launches for the club. This will allow us to have an early, lower-stakes test flight than on Mamba III.</p>
+<p>More to come soon.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="this-is-a-page-to-document-how-we-made-decisions-on-the-avionics-test-rocket"><a class="header" href="#this-is-a-page-to-document-how-we-made-decisions-on-the-avionics-test-rocket">This is a page to document how we made decisions on the avionics test rocket</a></h2>
+<p>[NOT CURRENTLY UP TO DATE]</p>
+<h1 id="reasoning-behind-not-using-smaller-rocket"><a class="header" href="#reasoning-behind-not-using-smaller-rocket">Reasoning Behind Not Using Smaller Rocket</a></h1>
+<p>It's cheaper to use a smaller rocket, but here is our engineering justification behind not going with that. The main goal of these flights is to test our avionics system to see if it will achieve proper performance on space shot. As far as basic functionality, we will do that on the ground, read data sheets carefully, and be thorough with documentation of our system. For survivability and reliability, this is where we need to test on a real rocket. The goal is to get our system to break. Our system is cheap enough to where we don’t have to care about testing slowly and upwards. We already know we have hardware that, if properly soldered together, can survive an obsidian level flight as well (our previous big rocket flight). Thus, we still believe the cheapest and most time efficient way to have accurate testing is to get our system to break as fast as possible and fix problems from there.</p>
+<h1 id="list-of-considerations"><a class="header" href="#list-of-considerations">List of considerations:</a></h1>
+<ul>
+<li>Size</li>
+<li>Speed</li>
+<li>Parachute Mechanism?</li>
+<li>Heat</li>
+<li>Pressure Range</li>
+<li>g-loading</li>
+<li>ESD Requirements</li>
+<li>Timeline</li>
+</ul>
+<h1 id="current-considerations"><a class="header" href="#current-considerations">Current Considerations</a></h1>
+<p>The general plan is that we will coordinate with the L1 launch team and use one of their launches, in order to save money for the club. They have generously offered to help us with this, but first we need to provide them with our expected parameters like size, apogee, acceleration etc. to give them an idea of what we need.</p>
+<p>SIZE:</p>
+<p>As previous years suggested, the diameter should be at least 3 inches, but ideally 4 or 5 so that the components can rest comfortably. This is something that we will have to design once we have all of our components laid out.</p>
+<p>MORE TO BE DOCUMENTED LATER</p>
+<h1 id="previous-years-discussion"><a class="header" href="#previous-years-discussion">Previous Years' Discussion</a></h1>
+<h2 id="considerations"><a class="header" href="#considerations">Considerations...</a></h2>
+<p>SIZE -</p>
+<p>For the size, we must be able to fit our entire avionics system, a back-up avionics system (the one that will deploy parachutes and stuff for the first few flights while we are testing basic functionality), and have space to route any thermistors, connectors, battteries, etc.</p>
+<p>The Beagle Bone Black (hereby referred to as BBB in this document) has dimensions of 3.4 inches x 2.15 inches x ~ 1 inch. We wanted a 5-inch diameter rocket at first, but soon realized that this would be extremely expensive in terms of the quality of the fuel, amount of fuel, and cost of rocket kit in order to make and launch this rocket (look to the next section about speed for more details on this). Thus, we are going to use a 4-inch diameter rocket which will be able to fit the BBB and BBB cape board (custom electronics attatched onto the BBB) extremely easily when they are positioned vertically. This should offer enough space for even testing more boards at once as well.</p>
+<p>SPEED -</p>
+<p>For the speed, we want to reach the COCOM limit of the GPS module we are using (which is 1000 knots, or 514m/s, or 1150mph) in order to be able to see how the GPS will turn off, and then also see if it will turn back on again by the time we reach apogee. We originally wanted to see this rocket go above that speed for over 10 seconds. This is because typical GPS modules have a refresh rate of 1 second. We will have to look deeper into the datasheet of the GPS we currently have, determine if we need one with a higher refresh rate or not. The simulations of the 4-inch diameter rocket we are likely to choose results in a speed above 514m/s for only about 1.5 seconds.</p>
+<p>PARACHUTE MECHANISM -</p>
+<p>For the parachute, we won't be able to deploy them on our early on. For first few flights we want to record when we WOULD deploy our drogue and see how accurate we are with the actual deployment of the COTS solution. The avionics test rocket will have COTS avionics system as the main avionics system until we deem ourselves capable of doing it in-house.</p>
+<p>HEAT -</p>
+<p>We want to be able to survive the ambient heat. Not much to consider here for now, the avionics bay of our rocket likely won't get that hot. We will have temperature sensors to measure exactly how hot things are getting.</p>
+<p>PRESSURE RANGE -</p>
+<p>We want to test what our pressure readings are at each height, while we are moving at the speed we are. This will offer very valuable information on how we can use pressure data readings in the future, and how accurate of a model they may provide of our trajectory if we don't adjust them for the speed we move at, or if we do, or if we need to make additional considerations when we reach speeds higher than mach 1.</p>
+<p>G-LOADING -</p>
+<p>The g-loading requirement is still up for debate. Current rockets we are looking at will have a max-g of around 22g. Currently, we should figure out how we can coat the board, make sure thermals won't go crazy if we do that, and then also test another board inside the rocket that doesn't have coating and see how each performs (do parts fly off during flight).</p>
+<p>ESD REQUIREMENTS -</p>
+<p>Previous flights have taught us that ESD protection is important for our system (duh, my bad for not implementing something like that on the last board - Andrew Lee), but because this is the first time we are designing something like this, we don't have a perfectly informed idea of the current counter-measures are going to work, and perfectly protect our electronics. Thus, we will first do testing on the ground of the effects of ESD on our system, and then we will decide whether we need some sort of grounding to the rocket frame or something like that.</p>
+<p>TIMELINE -</p>
+<p>The intention of this rocket is to be able to fly and test custom avionics. It offers some type of real-situation testing without costing the club an arm and leg, and allows us to test more frequently, as opposed to waiting for the yearly big rocket launch. Currently, the team allocates around 1500 dollars a year for our avionics test rocket launches. Each reload of the motor costs around 400 dollars. The first rocket launch will ideally occur at the beginning of the spring semester of 2022. This will be for the absolute minimum viable product, with the core requirement that we are able to take and log data. Afterwards, we will do a lot of testing on the avionics electronics and software (plan in our testing process documentation), and then hopefully launch again with an avionics system we are confident of operating correctly by the end of the semester.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-documentation"><a class="header" href="#testing-documentation">Testing Documentation</a></h1>
+<p>NOTE, THIS PAGE IS STILL UNDER HEAVY DISCUSSION AND UPDATES WILL BE COMING SOON, WE WANT TO BE VERY DETAILED ABOUT THIS</p>
+<p>This page is to develop a test plan so that we make the most out of each launch. SRL is not rich and we should do our due diligence to make sure we don't waste each opportunity we get to launch!</p>
+<h2 id="list-of-tests-to-perform-for"><a class="header" href="#list-of-tests-to-perform-for">List of Tests To Perform For</a></h2>
+<ul>
+<li>RF Signal Integrity</li>
+<li>Accelerometer Drift (as we integrate to get our position)</li>
+<li>GPS functionality</li>
+<li>Pressure readings</li>
+<li>Data logging capabilities</li>
+<li>Chute deployment tests</li>
+<li>Physical shock/vibration</li>
+<li>ESD Tests (want to start off by shocking a board that only has 1 cheap component soldered onto it (hopefully the most sensitive device to voltage), no need to shock a fully populated board)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p>Here is the main page for the RF (Radio Frequency) subteam on avionics. The RF team is mainly responsible for enabling wireless communications between our avionics systems.</p>
+<h2 id="what-is-rf"><a class="header" href="#what-is-rf">What is RF?</a></h2>
+<p>Do you remember learning about Ohm's Law in your electronics classes? V=IR? Guess what––your professors lied to you! (sort of). In the RF world of high frequency signals, suddenly voltage is now also a function of position. If you could instantenously measure the voltage of a 2.4 GHz Wi-Fi signal at one point to be some positive voltage, a few centimeters away, you would measure 0 volts, and another few centimeters away, the voltage might be negative! All at the same point in time! With DC or low frequency AC signals (e.g. your 60 Hz 120 Vrms wall power), this isn't an issue, because the wavelength of light at 60Hz is almost 5000 km, or slightly over the distance from New York City to Los Angeles. So your instantenous voltage drop at different points in space is in the nanovolt range for practical circuits. In fact, the miniscule non-zero resistance of copper wire is far more significant than low frequency RF effects.</p>
+<p>Nontheless, in general, you're in RF land once your longest wire/trace length is an appreciable fraction of the signal wavelength (roughly 10%). For reference, an 8 kHz audio signal has a wavelength of about 37 km, a 1700 kHz AM radio signal has a wavelength of about 175 m, a 99.9 MHz FM radio signal has a wavelength of about 3 m, and a 1575.42 MHz GPS signal has a wavelength of about 2 mm. Keep in mind, the wavelength of light is longest in a vacuum and decreases slightly through a medium such as copper or air.</p>
+<p><img src="https://imgs.xkcd.com/comics/feedback.png" alt="xkcd1457" /></p>
+<h2 id="our-project"><a class="header" href="#our-project">Our project</a></h2>
+<p>The end goal of this system is to have it fly on Spaceshot. Since the Karman Line is 100km from the surface, that is our required range. We want to stay in the ISM (Industrial, Scientific, and Medical) frequency range (902-928 MHz). We also can assume that we will have "line-of-sight", since the rocket will be in the air. The legal limit for ISM broadcasting is 1 Watt supplied to the antenna, and a maximum power transmitted from the antenna is 4W. Assuming a 30 dBm broadcasting intensity, and free space path loss over 100km to be ~ -130 dBm, we know the reciever has to be sensitive down to -100dBm, at least.</p>
+<p>Therefore, we are considering <a href="https://www.sparkfun.com/products/18572">this</a> transciever module. More details to come soon.</p>
+<p>Antenna design considerations to come soon.</p>
+<p>Video downlink has been postponed to be a very long term goal, considering how expensive and complex a dev campaign for that would be.</p>
+<h2 id="resources"><a class="header" href="#resources">Resources</a></h2>
+<p>Here are a list of resources that may be useful if you want to learn more about RF.</p>
+<ul>
+<li><a href="https://www.hwe.design/design-fundamentals/rf-basics/rf-fundamentals">RF Fundamentals</a></li>
+<li><a href="https://www.ti.com/lit/ml/slap127/slap127.pdf">TI - RF Basics for Non-RF Engineers</a></li>
+<li><a href="https://higherlogicdownload.s3.amazonaws.com/HPE/MigratedAttachments/C2402EC5-0E66-4CF4-ABE3-69EFA57AE547-1-RF-Basics_Part1.pdf">dB, Antenna Gain, Propagation, Attenuation, SNR, Sensitivity, ETC.</a></li>
+<li><a href="https://cds.cern.ch/record/1407402/files/p223.pdf">Paper On Basics of RF Electronics</a></li>
+<li><a href="avionics/RF/RF_appnotesORresources/2021F-ASEN-3300-Lab04-Lecture-completed.pdf">ASEN3300 - Frequency Domain Circuits</a></li>
+<li><a href="avionics/RF/RF_appnotesORresources/ASEN3300_Lab10a_Wireless_Communications_ann.pdf">ASEN3300 - Wireless Communications</a></li>
+<li><a href="avionics/RF/RF_appnotesORresources/ASEN3300_Lab10b_Frequency_Mixing_ann.pdf">ASEN3300 - Frequency Mixing</a></li>
+<li><a href="avionics/RF/RF_appnotesORresources/ASEN3300_Lab10c_Amplitude_Modulation_ann.pdf">ASEN3300 - Amplitude Modulation</a></li>
+<li><a href="avionics/RF/RF_appnotesORresources/ASEN3300_Lab10d_Active_Filters_ann.pdf">ASEN3300 - Active Filters</a></li>
+<li><a href="avionics/RF/RF_appnotesORresources/ASEN3300_Lab10e_Frequency_Modulation_ann.pdf">ASEN3300 - Frequency Modulation</a></li>
+</ul>
+<p>Very much a work in progress...</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hardware-team"><a class="header" href="#hardware-team">Hardware Team</a></h1>
+<p>The avionics hardware sub-team develops custom printed circuit boards (PCBs) which gives the software a platform from which they may run on small form-factor hardware, collect and store important data, and eventually implement controls.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="new-member-set-up-guide"><a class="header" href="#new-member-set-up-guide">New Member Set-Up Guide</a></h1>
+<p>This is a page dedicated to making it easier for hardware new members to get set-up and ready to develop hardware.</p>
+<p>Here is a list of software that we use regularly:</p>
+<ul>
+<li>Altium Designer - Circuit &amp; PCB design</li>
+<li>LTSpice - IC circuit simulator</li>
+<li>Saleae Logic 2 - Circuit debugging and logic analysis</li>
+</ul>
+<p><strong>Note</strong>: Altium and Saleae Logic both require a Windows OS.</p>
+<p>The majority of this guide will be dedicated to getting set up with our Altium workspace.</p>
+<h2 id="getting-set-up-with-altium"><a class="header" href="#getting-set-up-with-altium">Getting set up with Altium</a></h2>
+<p>First, visit Altium's <a href="https://www.altium.com/education/student-licenses">Link For Student License</a>. This will allow you to get up and running with Altium - the student license allows you to install the software for free.</p>
+<p>You will need to verify your email to receive your student license. Once you've received the verification email and clicked the link to verify your email, Altium will send you another email, this time containing your licensing information. You will need to activate your AltiumLive account and sign in to be able to download and use the installers. Once you have downloaded the executable, follow the installation <a href="https://www.altium.com/documentation/altium-designer/installing">instructions</a> to fully install Altium.</p>
+<p>After Altium is installed, send your email to the hardware team lead. They'll add you to the Altium workspace we're using for Avionics. In the meantime, you can follow some Altium tutorials to get familiar with the software, and the PCB design process in general! Here is a very good intro to PCB design that I highly suggest: <a href="https://education.altium.com/courses/">Altium Tutorial</a>. It explains what PCB design is, why we use it, all of the terminology used, and walks through making a simple project to get used to Altium.</p>
+<p>Now back to getting setup, once you are added to our Altium workspace, in the top-right corner of your window you should see the workspaces button (it might read "Not Connected"). Click this, and look for "CU SRL Yonix".</p>
+<center><img src="avionics/hardware/../images/altium_workspaces.png" width="500"></center>
+<p>If you don't see it, restart Altium. If you still don't see it, contact the avionics hardware lead.</p>
+<p>After clicking on CU SRL Yonix, you should see a little blue cloud with CU SRL Yonix right next to it in the projects tab. Right click this and click "Open Project".</p>
+<center><img src="avionics/hardware/../images/open_project.png" width="300"></center>
+<p>Select the project you'd like to open, and click the "Open" button.</p>
+<h2 id="download-new-changes"><a class="header" href="#download-new-changes">Download new changes</a></h2>
+<p>Whenever Altium first starts up, please <strong>right-click the project name</strong> and, under History &amp; Version Control, click "<strong>Update Whole Project</strong>". This ensures you have any changes other members have uploaded.</p>
+<h2 id="adding-changes"><a class="header" href="#adding-changes">Adding changes</a></h2>
+<p>If you've added work to the Altium document, you'll notice the little green checkmarks next to each file can change to orange or red marks. This indicates there's a pending change to be uploaded.</p>
+<p>To upload your changes to the cloud, right-click the project name and, under version control, click "Commit".</p>
+<center><img src="avionics/hardware/../images/version_control.png" width="400"></center>
+<p>If any errors come up, please get in touch with hardware lead - Altium's implementation of Git can be hard to work with sometimes.</p>
+<h2 id="getting-ltspice"><a class="header" href="#getting-ltspice">Getting LTSpice</a></h2>
+<p>Follow the link to go to <a href="https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html">LTSpice Download Link</a>. This is a useful circuit simulation software. No one in industry will almost ever touch a differential equation because there are so many circuit simulation software things out there. This one is a really good basic circuit simulation software.</p>
+<h2 id="getting-saleae-logic-2"><a class="header" href="#getting-saleae-logic-2">Getting Saleae Logic 2</a></h2>
+<p>So an old avionics member named Brendan happened to have like 10 of these cheap knock-off logic analyzers. He donated them all to the avionics team, and we will begin handing these out to people as soon as they are needed when we actually start testing. They work with <a href="https://www.saleae.com/downloads/">Saleae Logic 2</a> software, which is nice beacuse the software will automatically talk interpret the one's and zero's on a signal line as long as it's not a proprietary communication method. This is really useful to debugging circuits, testing software, and bringing up our boards.</p>
+<h2 id="some-cool-resources-and-guides"><a class="header" href="#some-cool-resources-and-guides">Some cool resources and guides:</a></h2>
+<ul>
+<li><a href="https://sites.google.com/colorado.edu/practicalpcbdesignmanufacture/erics-altium-workshop">Eric Bogatin's Altium Workshop</a></li>
+<li><a href="https://www.youtube.com/watch?v=JRcyHuyb1V0&amp;t=581s&amp;ab_channel=FesZElectronics">LTSpice Guide</a></li>
+<li><a href="http://downloads.saleae.com/Saleae+Users+Guide.pdf">Saleae User's Guide</a></li>
+</ul>
+<p>These are all resources that past hardware leads have used to learn more about the tools in this page. They are all confirmed to be really really interesting. All of the tools we use have excellent documentation and finding more resources or guides on them is really easy (just search it up on google). Feel free to ask questions in the avionics hardware channel for any confusion on these topics, we are all here to help!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="altium-licensing"><a class="header" href="#altium-licensing">Altium Licensing</a></h1>
+<p>If your license has <em>expired</em>, or you are looking to get a new license, follow this guide. The steps for both refreshing a license and acquiring a new one are the same.</p>
+<ol>
+<li>Navigate to <a href="https://www.altium.com/education/student-licenses">this page on Altium Student Licensing</a>.</li>
+<li>Fill out the form, being sure to use the account you signed up for Altium with.</li>
+<li>Look for an email from Altium. For both renewal and new licenses, the email will look the same - it will ask you to verify your account first, then, once your account is verified (even if it already has been), there will be another email within a few minutes with a subject along the lines of "Student License Information".</li>
+</ol>
+<p>Once you get the email for student license information, go to the account symbol in the top right of Altium, and click "Licenses", as shown below.</p>
+<p><img src="avionics/hardware/../images/altiumlicense.png" alt="Licenses button visualization" /></p>
+<p>There should be a new license visible, with an expiration date sometime in the future. Click it and click the "Use" button below.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="development-resources"><a class="header" href="#development-resources">Development Resources</a></h1>
+<p>Here is a list of useful resources that the EE team has used in the past to aid in their development. They are organized by topic.</p>
+<h2 id="altium-designer-guides"><a class="header" href="#altium-designer-guides">Altium Designer Guides</a></h2>
+<ul>
+<li><a href="https://sites.google.com/colorado.edu/practicalpcbdesignmanufacture/erics-altium-workshop">Eric Bogatin's Online Altium Course</a></li>
+</ul>
+<p>This guide is the one that Andrew Lee vouches for. This is how he began his journey learning about electronics design. Eric Bogatin is a professor at CU who is incredibly knowledgeable and famous for his publishings on signal integrity and high speed digital design among many other topics. Altium Designer has had him as a keynote speaker at several of their AltiumLive events. With diligent work, this course will probably take around 2 weeks to complete (or beat Andrew and do it faster, I bet you won't).</p>
+<h2 id="altium-education-student-license"><a class="header" href="#altium-education-student-license">Altium Education Student License</a></h2>
+<ul>
+<li><a href="https://www.altium.com/education/student-licenses">Link For Student License</a></li>
+</ul>
+<p>Altium is a VERY expensive software for companies to use. Luckily, we get to use this industry standard ECAD tool as students for free.</p>
+<h2 id="understanding-the-i2c-bus"><a class="header" href="#understanding-the-i2c-bus">Understanding the I2C Bus</a></h2>
+<ul>
+<li><a href="https://www.ti.com/lit/an/slva704/slva704.pdf?ts=1652533258322&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTCA9555%253Futm_source%253Dgoogle%2526utm_medium%253Dcpc%2526utm_campaign%253Dasc-int-null-prodfolderdynamic-cpc-pf-google-wwe%2526utm_content%253Dprodfolddynamic%2526ds_k%253DDYNAMIC%2BSEARCH%2BADS%2526DCM%253Dyes%2526gclid%253DCj0KCQjwpv2TBhDoARIsALBnVnk8O5KMyhALKIDlnBGjJ7HfEqzObzi_JllaoqqcZwmt-ouwSHQ_jfIaAliSEALw_wcB%2526gclsrc%253Daw.ds#:~:text=Reading%20From%20a%20Slave%20On%20The%20I2C%20Bus&amp;text=This%20is%20done%20by%20the,it%20wishes%20to%20read%20from.">I2C guide (TI)</a></li>
+</ul>
+<h2 id="picking-a-gps"><a class="header" href="#picking-a-gps">Picking a GPS...</a></h2>
+<ul>
+<li><a href="https://portal.u-blox.com/s/question/0D52p00009NRvHoCAL/neo6mv2-as-rocket-tracker">uBlox neo-6m question</a></li>
+<li><a href="https://www.e-education.psu.edu/geog862/node/1756">Correlator Notes</a></li>
+</ul>
+<p>Documentation of how we are picking our GPS... so this <a href="https://shop.bigredbee.com/blogs/news/high-altitude-gps-operation">link</a> shows some basic information on GPS. Main take-aways are that u-blox MAX gps's do implement stuff as AND logic (when you exceed 1000 knots (1150mph or 514m/s) AND 18km (altitude) then your GPS shuts down). Note that for a lot of GPS modules that are sold out there, it is implemented as OR logic (which won't work because then we won't be able to get GPS data any point above 18km and therefore we can't confirm if we made it to space or not). Another important thing to consider is that it seems that basically the industry standard is to limit GPS tracking to 50km altitude, not because of COCOM limits but just because companies feel like it lmao (which once again doesn't work for us, we need something that can record up to at the very least 110km or something). Therefore we probably need to come up with a seperate solution. Right now Parker Lamb is working on a GNSS-SDR receiver which would get around both of those limitations. <strong>NOTE - This is ITAR restricted, no non-US-citizen may help him</strong>.</p>
+<p>One other point of confusion is the specifics of COCOM limits... Andrew Lee will look at the official document (hopefully soon) and see if he can figure out what exactly are the limitations. He will add that to the documentation soon. Maybe we could ask a big company super-duper-nicely and promise to advertise their company without our club and as a student org to get them to adjust one of their gps modules so that it's no longer limited to 50km. Or we can ask them if they can offer any sort of mentorship on finding any other types of solutions that we can try to implement that allow us to bypass this all.</p>
+<p>On the possibility that the GNSS-SDR is later determined to not be an actual solution, maybe we look into using a GPS module like the one in this <a href="https://www.highaltitudescience.com/products/eagle-flight-computer">link</a> and forget about this for a while. This is still cheaper than the Kate (COTS solution we are currently going to rely on for SpaceShot and Mamba) and therefore still leaves a ton of room for us to create a custom avionics unit that does everything else besides collecting GPS data.</p>
+<p>The last option that we currently can think of is getting as many data points before our GPS shuts off and relying completely on accelerometer data for our position after that, and then getting a position fix as we are coming down again and comparing both of those models.</p>
+<h2 id="picking-a-tvs-diode"><a class="header" href="#picking-a-tvs-diode">Picking a TVS Diode</a></h2>
+<p>The reason why you would use a TVS diode is to protect from ESD discharge. This is an important thing to protect from as it has destroyed some of our past custom designed boards. The basics of ESD can be read in this <a href="avionics/hardware/hardware_appnotesORresources/esdbasics.pdf">ESD Basics</a></p>
+<p>A TVS Diode basically a zener diode with a slightly adjusted slope that is specially made to protect electronics systems.</p>
+<p>The most important parameter of a TVS diode (transient voltage suppressor diode) is the <strong>clamping</strong> voltage AKA V_(clamp). This is the parameter which MUST be beneath the tolerable voltage of the system. This is the voltage that the TVS Diode will regulate to when exposed to a transient current waveform that is detailed by the datasheet usually.</p>
+<p>V_(rwm) is the same thing as V_(reverse standoff), which is the same as the reverse working maximum voltage. This describes the voltage that you can sit at and you would only have a tiny amount of leakage current (on the order of singular nano-amps which is something that no one cares about). This is generally where you want the nominal voltage of your system to sit at.</p>
+<p>V_(breakdown) or V_(br) is the voltage at which you get 1mA (at DC) of current through the diode, and it beings to shunt current through it (provide an almost zero resistance path for current to flow through it). Usually this ends up being way higher than what your system can tolerate.</p>
+<p>Note, be careful of the polarity of TVS diodes. Sometimes they work both directions, sometimes they don't.</p>
+<p>Here's an application note from Texas Instruments which describe the most important things to consider when choosing a TVS diode.
+<a href="avionics/hardware/hardware_appnotesORresources/tvsdiode.pdf">TI AppNote TVS Diodes</a></p>
+<h2 id="logic-analyzer-guide"><a class="header" href="#logic-analyzer-guide">Logic Analyzer Guide</a></h2>
+<ul>
+<li><a href="http://downloads.saleae.com/Saleae+Users+Guide.pdf">Saleae Logic Analyzer</a></li>
+</ul>
+<h2 id="navigation-resources"><a class="header" href="#navigation-resources">Navigation Resources</a></h2>
+<ul>
+<li><a href="https://arxiv.org/pdf/1711.02508.pdf">General Navigation Information</a></li>
+<li><a href="https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-696.pdf">Error In Navigation</a></li>
+</ul>
+<p>These resources came from Lyon, the avionics lead of 2019, he gives the thumbs up of approval that these are good introductory ways to familiarize yourself with the basics of navigation.</p>
+<h2 id="nasa-handbook-on-sounding-rockets"><a class="header" href="#nasa-handbook-on-sounding-rockets">NASA Handbook on Sounding Rockets</a></h2>
+<p>Zoe Roy found this amazing resource for NASA's takes on how sounding rockets should be made.</p>
+<ul>
+<li><a href="avionics/hardware/hardware_appnotesORresources/nasa_soundingrockets.pdf">NASA - Sounding Rockets</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="design-process"><a class="header" href="#design-process">Design Process</a></h1>
+<p>This is the page which explains how avionics will organize its hardware projects. The objective of documenting this general process is to give students an idea of how electronics product development is often carried out by industry. Learning and becoming familiar with the design process is just as important as learning how to use Altium Designer to design a PCB.</p>
+<p>Currently this is still considered a draft. Avionics members are encouraged to critically think about the existing design process and constantly consider ways to improve the effectiveness and robustness (if that's a word) of it. Reach out to a team lead if you think something may be improved and they will let you know if you should add it to the documentation.</p>
+<h2 id="phase-1-requirements-breakdown"><a class="header" href="#phase-1-requirements-breakdown">Phase 1: Requirements Breakdown</a></h2>
+<p>This beginning phase is to make sure everyone is on the same page of what the board should look like and do. This is an important step for any kind of project, even if you are not working on a team because you will come to realize that there is a TON of gray space. It's important to define the scope of the project before it begins.</p>
+<p>This phase begins the new project design process. Everything from this phase should be able to be accomplished in one kick-off meeting with everyone involved with the project (team lead and any other oversight included).</p>
+<p>In the meeting, the following should be decided/discussed and/or documented:</p>
+<ul>
+<li>What requirements of the avionics system will this board address? OR How does this board bring us closer to developing the final avionics system?</li>
+<li>What are the requirements of this board? Start with functional requirements and then break it down. Some things that might be easy to miss include where human interfaces shall be, what connector interfaces shall exist, what sensors should be on the board, where is power sourced from, how much power should the board produce, cost, how many to produce, etc. (NOTE: This is not at all an all-inclusive list, think as far as your imagination will allow of things you might be asking yourself later in the design process, this does get a lot easier with experience, and no student is perfect at this by any means)</li>
+</ul>
+<h2 id="phase-2-preliminary-design-work"><a class="header" href="#phase-2-preliminary-design-work">Phase 2: Preliminary Design Work</a></h2>
+<p>Here is the phase where you need to do the analysis that informs your design. Every single thing done in this step should be documented for later reference. Any MATLAB scripts or simulation files need to be stored. As of writing this, the google drive will the expiring soon, so we need to figure out a better way to do that... ask Andrew to update this once he figures that out (which should be soon).</p>
+<p>Here is a list of things that might be a part of this step (currently all I can think of off of the top of my head, potentially a lot that can be added here):</p>
+<ul>
+<li>Napkin drawings of the board and block diagrams</li>
+<li>Power budget</li>
+<li>Link budget (this is RF territory, just throwing it out there)</li>
+<li>Circuit simulation (LT Spice)</li>
+<li>Interface control document</li>
+<li>Efficiency calculations (maybe best done as a MATLAB script)</li>
+</ul>
+<h2 id="phase-3-the-fun-part-design-time"><a class="header" href="#phase-3-the-fun-part-design-time">Phase 3: The Fun Part! Design Time!</a></h2>
+<p>Here is where you actually begin designing. Hopefully the prior steps have prepared you enough to tackle this comfortably... My one piece of advice is if it's your first time reading a datasheet or designing something then pick a big semiconductor manufacturer and read one of their datasheets back-to-back. It's really annoying, but just trust that I wish I had told myself that long ago. The small text and notes under tables are SO useful and can really be make-or-break in some cases.</p>
+<p>Because of the chip shortage, one more tip during this step is to start with all of the major ICs but don't even place them on schematics. Just pick them all out, make sure that all of the specs match (i.e. if you need all of your ICs on this board to be powered from 3.3V, then make sure that is true for all of the ICs you choose), that we can actually solder the package, that the part is going to work. Place all of the parts on a purchase order document and buy them. Often, you will be in the middle of a design and lose supply of a part, and then become stuck in a hell-loop of remaking all of your schematic symbols and footprints over and over again. It is honestly not worth stressing over 5 dollars of shipping. Make sure you update inventory as soon as you recieve the parts!</p>
+<p>To add on a little more, the low priority parts (resistors, diodes, capacitors, etc.) should be chosen with a very common standard footprint and have huge in-stock amounts (hundreds of thousands preferred). This means that these parts will be unlikely to go out of stock, and if they do when it comes time to order them, you can just replace them with another part with the same exact footprint without having to change your design (make sure you update the BOM to match the new design item ID you are using though).</p>
+<p>In broad strokes - and if may be worth breaking this process down further into seperate documents - the following should be done:</p>
+<ul>
+<li>As mentioned above, choose all major ICs and order them (do your due diligence, do not waste SRL money, you should write out justification for each part)</li>
+<li>Start making all schematic symbols and footprints. See if you can re-use footprints (or maybe even entire parts) from previous projects</li>
+<li>Create the structure of the PCB project, how will you organize your schematic sheets to make readability as easy as possible?</li>
+<li>Start and finish your schematic. Request review from the hardware team-lead and avionics lead</li>
+<li>Shape your PCB to the correct shape. Determine your layer stack-up. Place all components in such a way to minimize cross-talk, improve ease of routing, efficiently use space, make sure everything fits, isolate analog signals from digital signals, etc. Request review from hardware team-lead and avionics lead</li>
+<li>Route your PCB. Start with high-priority traces (i.e. high-speed signals). Request review from hardware team-lead and avionics lead</li>
+<li>Overall design review. Make sure the current design will address the requirements laid out in Phase 1.</li>
+<li>Bill of materials creation (BOM), and order the rest of the parts, and update inventory</li>
+</ul>
+<h2 id="phase-4-the-bitter-sweet-part-board-bring-up"><a class="header" href="#phase-4-the-bitter-sweet-part-board-bring-up">Phase 4: The Bitter-Sweet Part! Board Bring-Up!</a></h2>
+<p>Good work getting to this phase. This is where you solder everything together and get it to actually work. The soldering part is pretty sweet. It's a lot of fun to see the project you've been working on come to life. The bitter part is when you have to debug the board if there are any issues... if any issues do arise, it may potentially takes hours upon hours to figure out where the issue really lies.</p>
+<p>In another set of broad strokes...</p>
+<ul>
+<li>Make sure inventory is fully updated</li>
+<li>Find a time when the school lab is open and at least one other person on this project is available to help board assembly. If it's your first time, then ask the hardware team-lead to also help mentor.</li>
+<li>First solder on the surface mount parts using the reflow oven then hand-solder everything else. Update inventory as you go along soldering components on. This is why you want two people. One will solder and place components, the other will be on the computer telling the first person the design item ID and reference designator to place the part on and also updating inventory. It is encouraged that you switch-off to make sure that everyone gets the full experience. It's not extremely often that we are given the opportunity to actually get hands-on experience when it takes so long to develop our boards.</li>
+<li>Check solder joints using a microscope</li>
+<li>Check continuity on all power rails. Also check to make sure there are no shorts from a power rail to ground (that will ruin the board and potentially all the components as well if not caught at this stage)</li>
+<li>Probably at a later date, upload software and do a functional test. At this point, you should re-visit the requirements and validate that your entire project has met all the requirements listed. You're in big trouble if some of the requirements haven't (a costly mistake, but we will forgive you)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="list-of-companies-that-often-hand-out-free-samples"><a class="header" href="#list-of-companies-that-often-hand-out-free-samples">List of Companies that Often Hand Out Free Samples</a></h2>
+<p>Credit to Brendan Haines for coming up with this list! This is a list of companies who are usually willing to give out free stuff as samples!</p>
+<ul>
+<li><a href="avionics/hardware/www.samtec.com">Samtec</a></li>
+</ul>
+<p>Connectors (sample anything)</p>
+<ul>
+<li><a href="avionics/hardware/www.te.com">TE</a></li>
+</ul>
+<p>Connectors (limited selection)</p>
+<ul>
+<li><a href="avionics/hardware/www.amphenol-icc.com">Amphenol</a></li>
+</ul>
+<p>Connectors (limited selection?, limited quantity, sometimes very long lead times without notification, I think I've had sample orders disappear silently)</p>
+<ul>
+<li><a href="avionics/hardware/www.analog.com">Analog</a></li>
+</ul>
+<p>Power and RF ICs (limited selection, limited quantity)</p>
+<ul>
+<li><a href="avionics/hardware/www.ti.com">Texas Instruments</a></li>
+</ul>
+<p>ICs (I'm not clear on their sample policy but lately have had good success lately)</p>
+<ul>
+<li><a href="avionics/hardware/www.minicircuits.com">MiniCircuits</a></li>
+</ul>
+<p>RF filters and ICs (limited selection, limited quantity)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-of-past-projects"><a class="header" href="#list-of-past-projects">List of Past Projects</a></h1>
+<ul>
+<li><a href="avionics/hardware/pastprojects/adaptorboard.html">Adaptor Board</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adaptor-board"><a class="header" href="#adaptor-board">Adaptor Board</a></h1>
+<p>The purpose of this project was to develop and test a sensor system on the Obsidian rocket flight. The adaptor board was meant to be one that connected the main microcontroller (Beaglebone Black) to the rest of the stack, but was re-purposed when the team decided to push to launch Obsidian.</p>
+<p>We did not start good documentation practices back in the day, so the only thing we have from this is past purchase orders, and a zipped file with our Altium Designer project.</p>
+<h1 id="project-personnel"><a class="header" href="#project-personnel">Project Personnel</a></h1>
+<p>Project Lead: Andrew Lee and Ben Pera</p>
+<p>Project Reviewers: Jason Popich and Zoe Roy</p>
+<img src="avionics/hardware/pastprojects/images/adaptorboardpicture.JPG" width="650" height="400"><div style="break-before: page; page-break-before: always;"></div><h1 id="software-team"><a class="header" href="#software-team">Software Team</a></h1>
+<p>The avionics software sub-team develops custom software to run on a beaglebone black and additional hardware, with the goals of telemetry collection and storage, drogue and parachute deployment, and telemetry downlink software.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="new-member-guide"><a class="header" href="#new-member-guide">New Member Guide</a></h1>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of contents</a></h2>
+<ol>
+<li><a href="avionics/software/newmember.html#background-requirements">Background</a></li>
+<li><a href="avionics/software/newmember.html#pre-install-setup">Pre-Install Prep</a>
+<ul>
+<li><a href="avionics/software/newmember.html#software-requirements">Required Software</a></li>
+<li><a href="avionics/software/newmember.html#python-venv">Python install</a></li>
+<li><a href="avionics/software/newmember.html#github-setup">Github setup</a></li>
+</ul>
+</li>
+<li><a href="avionics/software/newmember.html#fprime-install">Installing FPrime</a></li>
+<li><a href="avionics/software/newmember.html#learning-fprime">Learning FPrime</a></li>
+</ol>
+<h2 id="background-information"><a class="header" href="#background-information">Background Information</a></h2>
+<p>For software development we are using the FPrime framework (sometimes written as F') for C++ developed by JPL. In order to develop software you must first understand the basics of C++ as the more advaced concepts can be learened as you work through the tutorial. If you have completed CSCI1300(or equivalent) and CSCI2270(or activly taking 2270) than you will learn all the basics you need in class. If you have not completed 2270 <a href="https://www.youtube.com/watch?v=5UNuR7_hot8">this video</a> is recommended for learning all of the basics.</p>
+<p>A Linux operating system or image is required for self installation. Because many of our new members will be using windows, we are working on hosting a server which will run linux and solve all the issues that come with VMs and things. Updates to come.</p>
+<!-- Windows users will have a virtualbox image provided by the Software Lead(or Avionics Lead). It will include all of the needed software, and users can skip to the [Github Setup](#github-setup) steps. To use the image follow the installation section of [this guide](http://download.virtualbox.org/virtualbox/UserManual.pdf) to install virtualbox.  -->
+<p>If you want to install FPrime on your own computer, use the following instructions. This guide will use macOS as an example, but the commands in linux will be the same unless otherwise specified. Windows users should install WSL to follow these commands.</p>
+<h2 id="pre-install-setup"><a class="header" href="#pre-install-setup">Pre-Install Setup</a></h2>
+<h3 id="software-requirements"><a class="header" href="#software-requirements">Software Requirements</a></h3>
+<ol>
+<li>
+<p>Unix based OS (macOS or Linux)</p>
+<ul>
+<li>Windows can use wsl with a debian based image, or a virtual machine</li>
+<li>See Avionics lead or Software lead for a copy of the vm image</li>
+</ul>
+</li>
+<li>
+<p>git</p>
+<ul>
+<li><a href="https://git-scm.com/docs/gittutorial">Here</a> is a good tutorial for git</li>
+</ul>
+</li>
+<li>
+<p>CMake 3.16 or higher</p>
+</li>
+<li>
+<p>GCC or Clang</p>
+</li>
+<li>
+<p>Python 3.7+ with pip</p>
+</li>
+<li>
+<p>Vim</p>
+<ul>
+<li>In depth knowledge is not really need, just understand how to edit a few lines and save</li>
+<li><a href="https://www.youtube.com/watch?v=RZ4p-saaQkc">Here</a> is a good vim tutorial</li>
+</ul>
+</li>
+<li>
+<p>VSCode</p>
+<ul>
+<li>While another editor could be used, most developers use VSCode and a list of recomended plugins will be provided</li>
+</ul>
+</li>
+</ol>
+<h3 id="software-install"><a class="header" href="#software-install">Software install</a></h3>
+<h4 id="needed-software"><a class="header" href="#needed-software">Needed software</a></h4>
+<p>Ensure all software listed above is installed with your package manager of choice. On macOS brew is recomended.</p>
+<pre><code class="language-bash">brew install CMake gcc git python@3.10 vim
+</code></pre>
+<h4 id="python-venv"><a class="header" href="#python-venv"><strong>Python venv</strong></a></h4>
+<p>If using a debian based image it is possible not all needed python packages are installed, fix this by installing them with</p>
+<pre><code class="language-shell">sudo apt install git cmake default-jre python3 python3-pip python3-venv
+</code></pre>
+<p>We can now begin the virtual enviroment creation</p>
+<blockquote>
+<p>A virtual enviroment (venv) allows for different packages to be installed at different versions within python and mitigate version conflict errors</p>
+</blockquote>
+<p>Pick a location to install the virtual enviroment. For the purposes of this guide we will use the <code>$HOME</code> directory as our root. If you would rather use another location feel free.</p>
+<pre><code class="language-bash">python3 -m venv $HOME/fprime-venv
+. $HOME/fprime-venv/bin/activate
+pip install -U setuptools setuptools_scm wheel pip
+</code></pre>
+<p>The first command creates the venv, the second command activates the venv, and the third command installs some needed packages.</p>
+<p>To exit the virtual enviroment simply enter <code>deactivate</code> while the venv is active.</p>
+<blockquote>
+<p>Adding an alias to your shell profile can be useful to quickly activate the venv from any directory
+Using macOS and zsh as an example we can execute the following commands to add it as an alias</p>
+<pre><code class="language-sh">cd $HOME
+vim .zshrc
+</code></pre>
+<p>linux users will need to modifly the file <code>~/.bashrc</code>
+Add the following line at the end of the file and save</p>
+<pre><code class="language-sh">alias fpvenv=". $HOME/fprime-venv/bin/activate"
+</code></pre>
+<p>Ensure to update your terminal with <code>. ~/.zshrc</code>
+Now typing fpvenv will activate your virtual enviroment</p>
+</blockquote>
+<h4 id="github-setup"><a class="header" href="#github-setup"><strong>Github Setup</strong></a></h4>
+<p>We recomend linking your student email to Github for the student pro benefits <a href="https://education.github.com/discount_requests/pack_application">Found Here</a>.</p>
+<p><em>If you already have a working git and github with 2FA setup skip to <a href="avionics/software/newmember.html#fprime-install"><strong>FPrime Install</strong></a></em></p>
+<h5 id="generating-ssh-keys"><a class="header" href="#generating-ssh-keys">Generating SSH keys</a></h5>
+<p>We first generate a ssh key with the line below</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C "your_email@example.com"
+</code></pre>
+<p>When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. When prompted for a passphrase you can press Enter to skip.</p>
+<p>Ensure the ssh agent is running</p>
+<pre><code class="language-bash">eval "$(ssh-agent -s)"
+</code></pre>
+<p>For macOS verify the <code>~/.ssh/config</code> file exists</p>
+<blockquote>
+<pre><code class="language-bash">open ~/.ssh/config
+</code></pre>
+<p>and add this information the the config file.</p>
+<pre><code class="language-text">Host *.github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  IgnoreUnknown UseKeychain
+</code></pre>
+<p>If the file does not exist create it with and then add the information</p>
+<pre><code class="language-bash">touch ~/.ssh/config
+</code></pre>
+</blockquote>
+<p>For both macOS and Linux</p>
+<pre><code class="language-bash">ssh-add ~/.ssh/id_ed25519
+</code></pre>
+<h5 id="adding-the-ssh-key-to-github"><a class="header" href="#adding-the-ssh-key-to-github">Adding the SSH key to Github</a></h5>
+<p>copy the ssh key public information to your clipboard</p>
+<pre><code class="language-bash">pbcopy &lt; ~/.ssh/id_ed25519.pub
+</code></pre>
+<p>In Github go to <code>settings &gt; Access&gt; SSH and GPG Keys</code> and select new SSH key. Give it a meaningful title, ensure it is an authentication key, and paste your clipboard into the key box. Then press the <code>Add Key</code> button.</p>
+<p>To verify that it has worked run and type <code>yes</code> when prompted</p>
+<pre><code class="language-bash">ssh -T git@github.com
+</code></pre>
+<p>You should see</p>
+<pre><code class="language-bash">&gt; Hi USERNAME! You've successfully authenticated, but GitHub does not
+&gt; provide shell access.
+</code></pre>
+<blockquote>
+<p>if this does not display check <a href="https://docs.github.com/en/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign">here</a></p>
+</blockquote>
+<h4 id="vscode-setup"><a class="header" href="#vscode-setup"><strong>VSCode Setup</strong></a></h4>
+<p>I recomend installing the following plugins to your VSCode, along with connecting your github to VSCode for sync between devices.</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C++ Tools</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax">Better C++ Syntax</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C++ extension pack</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes">C++ Themes</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen">Doxygen Documentation Generator</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools">FPPTools</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense">Path Intellisense</a></li>
+</ul>
+<p>For using VSCode in conjunction with F', the recomended way is opening the <code>srlFp</code> directory in VSCode, and <code>cd</code> your shell into the <code>srlFp/Ref</code> directory.</p>
+<h2 id="fprime-install"><a class="header" href="#fprime-install"><strong>FPrime Install</strong></a></h2>
+<p>Note that all commands should be executed within the virtual enviroment created above</p>
+<h4 id="clone-the-repo"><a class="header" href="#clone-the-repo">Clone the repo</a></h4>
+<p>In your prefered directory(<code>$HOME</code> or <code>Desktop</code> is recomended) clone the srl FPrime repo</p>
+<pre><code class="language-bash">git clone git@github.com:CU-SRL/srlFp.git
+cd srlFp
+pip install -r requirements.txt
+</code></pre>
+<h4 id="verify-install"><a class="header" href="#verify-install">Verify install</a></h4>
+<p>On the <strong>tutorials branch</strong> verify that the Ref deployment builds</p>
+<pre><code class="language-bash">cd Ref
+fprime-util generate
+fprime-util build
+fprime-gds -g html
+</code></pre>
+<blockquote>
+<p>use <code>git checkout &lt;branch&gt;</code> to switch branches</p>
+</blockquote>
+<h2 id="learning-fprime"><a class="header" href="#learning-fprime">Learning FPrime</a></h2>
+<p>Before begining the tutorials checkout a branch for your work from tutorials. There is no need to push this branch, this will just be for your personal use.</p>
+<pre><code class="language-bash">git fetch -a
+git switch tutorials
+git checkout -b &lt;BRANCH NAME HERE&gt;
+</code></pre>
+<p>You are able to now start on the <strong>Getting Started Tutorial</strong> found <a href="https://nasa.github.io/fprime/v3.1.0/Tutorials/README.html">here</a>.</p>
+<p>There are a few extra terms that are common that should be highlighted:</p>
+<ul>
+<li>Drv: short for driver, contains a variety of different drivers including uart, i2c, and spi drivers for linux</li>
+<li>Fw: short for framework, provides a large number of useful data types and routines</li>
+<li>Fpp: short for FPrimePrime, a modeling language to make F' development quicker and easier than before</li>
+<li>Svc: short for Service, provides useful runtime tools for fprime deployments</li>
+<li>Os: short for Operating System, provides the Operating System Abstraction Layer(<a href="https://en.wikipedia.org/wiki/Operating_system_abstraction_layer">OSAL</a>) for fprime</li>
+</ul>
+<p>For working on the <strong>Math Component Tutorial</strong> found <a href="https://nasa.github.io/fprime/v3.1.0/Tutorials/MathComponent/Tutorial.html">Here</a> I recomend focusing on following the steps given in in sections 1-4, then reading the goals in section 5 and attempting to implement them without copying from the tutorial until needed.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="developing-fprime"><a class="header" href="#developing-fprime">Developing Fprime</a></h1>
+<p>[TO BE UPDATED]</p>
+<p>This page will act as a top-down walkthrough of what the deployment development process looks like. New deployments can be created for any intended purpose, however for the time-being we make our changes in Ref for simplicity, as much of the setup is already done. Within the deployment, there are a variety of components, connected with a topology. When adding a new component (say, for a sensor), we need to create a directory within the deployment:</p>
+<h1 id="adding-a-new-sensor"><a class="header" href="#adding-a-new-sensor">Adding a new sensor</a></h1>
+<p>The process for adding a new sensor can be broken down as follows</p>
+<ol>
+<li>Create sensor dir with fpp, CMake, cpp, and hpp files</li>
+<li>Add it to the deployment CMake file, and fill out component CMake file</li>
+<li>Run <code>touch &lt;componentname&gt;ComponentImpl.cpp</code> and <code>touch &lt;componentname&gt;ComponentImpl.hpp</code>. This creates "invisible" versions of the file, so that they exist. Trying to implement without these files touched could cause issues.</li>
+<li>After fully filling out the fpp, <code>fprime-util impl</code> the component (it should build without error at this point)
+<ul>
+<li>The Tlm is recomended to run with <code>on change</code> <a href="https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Components_Telemetry_Update-Frequency">link</a></li>
+</ul>
+</li>
+<li>This should have produced cpp and hpp file templates. Just rename these to the ComponentImpl.cpp and hpp files you had previously created.</li>
+<li>Include the component in <code>Top/Components.hpp</code> along with the extern reference</li>
+<li>Include the compeonet in <code>Top/RefTopologyAc.hpp</code></li>
+<li>Add the instance to <code>Top/instances.fpp</code></li>
+<li>Add the instance and connections to <code>Top/topology.fpp</code></li>
+<li>Fill out and complete the cpp and hpp files</li>
+<li>Comment the functionality, then make sure it builds</li>
+<li>Ensure the pins are configured correctly with <code>config-pin</code></li>
+</ol>
+<h1 id="configuring-drivers"><a class="header" href="#configuring-drivers">Configuring Drivers</a></h1>
+<p>When implementing drivers, be sure to do the following:</p>
+<ol>
+<li>Look into the both the driver function handlers, as well as the driver ports</li>
+<li>In the component fpp file, include the corresponding driver ports, and add any relevant events if desired</li>
+<li>In <code>topology.fpp</code>, include the instance of the driver, as well as add the connections for whichever devices are using it</li>
+<li>In <code>instances.fpp</code>, again create the instance of the driver, but also add any and all specifications for initialization such as base id, type, and location (remember to leave room for offset for ids)
+<ul>
+<li>
+<p>In this file we also chose to make our open calls for said driver,using the following syntax to insert cpp code into our fpp file:</p>
+<p><code>phase Fpp.ToCpp.Phases.configComponents """ {insert code here} """</code></p>
+</li>
+<li>
+<p>Look <a href="https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Component-Instances_Init-Specifiers">here</a> for more information on every phase, and their intended uses</p>
+</li>
+</ul>
+</li>
+<li>In <code>Component.hpp</code>, include componentimpl header file for the driver and add the driver extern</li>
+<li>In <code>Topology.cpp</code>, add the component impl, initialize the component, and do any necessary checks for the previously metioned open call</li>
+</ol>
+<h1 id="bbb-notes"><a class="header" href="#bbb-notes">BBB Notes</a></h1>
+<p>The bashrc used:</p>
+<pre><code class="language-bash">alias route="sudo route add default g2 192.168.7.1"
+alias runDep"chmod 777 ~/Ref; ./Ref -1 192.168.7.1 -p 50000"
+</code></pre>
+<blockquote>
+<p>make sure pins are configured properly with config-pin &lt;pin number&gt; &lt;pin mode&gt;</p>
+</blockquote>
+<p>check i2c device connections with</p>
+<pre><code class="language-bash">i2c-detect -y -r &lt;bus-number&gt;
+</code></pre>
+<h1 id="cross-compilation"><a class="header" href="#cross-compilation">Cross-Compilation</a></h1>
+<p>The BeagleBone uses an arm-32 architecture. As such, the cross compilation steps from <a href="https://nasa.github.io/fprime/Tutorials/CrossCompilationSetup/CrossCompilationSetupTutorial.html">this tutorial</a>.</p>
+<p>FURTHER NOTES:</p>
+<p>The bbb toolchain is now missing from the dev branches, if you are using the Deb 10 VM provided by avionics add the following to <code>srlFp/cmake/toolchain/bbb.cmake</code></p>
+<pre><code class="language-cmake">set(CMAKE_SYSTEM_NAME           Linux)
+SET(CMAKE_SYSTEM_VERSION        1)
+SET(CMAKE_SYSTEM_PROCESSOR      arm)
+
+set(CMAKE_C_COMPILER "/opt/gcc-arm-linux/bin/arm-linux-gnueabihf-gcc")
+set(CMAKE_CXX_COMPILER "/opt/gcc-arm-linux/bin/arm-linux-gnueabihf-g++")
+
+set(CMAKE_FIND_ROOT_PATH  "/opt/gcc-arm-linux/arm-linux-gnueabihf")
+
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+</code></pre>
+<blockquote>
+<p>assumes the installed binutils are found in /opt but can be installed anywhere as long as the path is adjusted</p>
+</blockquote>
+<p>If you are interested in using Clang, look at <a href="https://stackoverflow.com/questions/7031126/switching-between-gcc-and-clang-llvm-using-cmake">this</a>. Currently we use gcc and the arm binutils to cross-compile but are interested in eventually switichng to clang for both performance and convenience.</p>
+<h1 id="documentation"><a class="header" href="#documentation">Documentation</a></h1>
+<p>We have a history of poor documentation in SRL, and as developers in general. We are solving that with 2 exersices: 1. Suggesting that people comment their code using the doxygen style, using plugins and 2. Realizing that FPrime is complex enough that trying to remember why you did something is hard.</p>
+<p>Our standard style for funciton comments uses the <code>JAVADOC</code>/<code>C-STYLE</code> as shown here with a simple addition function:</p>
+<pre><code class="language-c++">/**
+* \brief (Short description here)
+* (Longer in depth description here)
+* 
+* \param x (what is this input)
+* \param y (what is this input)
+* \return (what is the return)
+*/ 
+int function(int x, int y){
+        int temp; /*  What does this member var do   */
+        tmp = x+y
+        return tmp;
+}
+</code></pre>
+<p>It is also important to use annotations in the fpp code in order for the autocoder to create comments for you, see <a href="https://fprime-community.github.io/fpp/fpp-users-guide.html#Writing-Comments-and-Annotations">here</a> for more information.</p>
+<p>When merged into main, doxygen automatically runs and executes on the documentation branch.</p>
+<h2 id="buffers"><a class="header" href="#buffers">Buffers</a></h2>
+<p>An important aspect to note about the linux communication drivers provided by Fprime is that they take Fprime Buffers as inputs, as opposed to standard buffers made in C. Using Fprime Buffers is a three step process: allocating out the required space, serializing it with the relevant data, then deallocating said memory. A more in depth explanation on this process can be found  <a href="https://nasa.github.io/fprime/UsersGuide/best/dynamic-memory.html">here</a>.</p>
+<h2 id="toplogies"><a class="header" href="#toplogies">Toplogies</a></h2>
+<p>Depending on how old the documentation you are looking at, a topology may be using direct graph specifiers. For most connections however (in the <code>topology.fpp</code>), you can use pattern graph specifiers. This will make your life a whole lot easier.</p>
+<h2 id="running-the-groundstation-on-windows"><a class="header" href="#running-the-groundstation-on-windows">Running the Groundstation on Windows</a></h2>
+<p>If you are trying to connect to the beaglebone and run the groundstation on your local machine, and then collect data, you will need to do a couple of things. Go to Windows Defender Firewall, then advanced settings, adn from there Inbound Rules. Select the four rules that contain</p>
+<h2 id="nice-aliases-to-have"><a class="header" href="#nice-aliases-to-have">Nice aliases to have</a></h2>
+<p>There are certain aliases that are nice to have that make quality life a lot better in terms of running the avionics:</p>
+<p>For all aliases, these are just example paths, use whatever works best for you.</p>
+<p>alias fprime="source <del>/fprime-venv/bin/activate"
+alias bbbconnect="ssh debian@192.168.7.2"
+alias sendover="scp <del>/SRL/RefTopologyAppDictionary.xml debian@192.168.7.2:</del>/deployment/dict; scp $HOME/SRL/Ref debian@192.168.7.2:</del>/deployment/bin;"
+alias runGDS="fprime-gds -n --dictionary ~/SRL/RefTopologyAppDictionary.xml"</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="development-notes"><a class="header" href="#development-notes">Development Notes</a></h1>
+<p>Collection of links to useful resources</p>
+<h1 id="f-prime-documentation"><a class="header" href="#f-prime-documentation">F prime Documentation</a></h1>
+<p><a href="https://github.com/CU-SRL/srlFp/blob/documentation/docs/UsersGuide/api/c%2B%2B/latex/refman.pdf">Our own documentation</a></p>
+<p><a href="https://nasa.github.io/fprime/v3.1.0/UsersGuide/guide.html">JPL's documentation v3.1.0</a></p>
+<p>Both of these links are useful in learning Fprime, as the SrlFp repo grows more sensor documentation will be present for review.</p>
+<h1 id="fprimeprime-users-guide"><a class="header" href="#fprimeprime-users-guide">Fprimeprime User's Guide</a></h1>
+<p><a href="https://fprime-community.github.io/fpp/fpp-users-guide.html">F Prime Prime Wiki</a></p>
+<p>The Fpp wiki provieds a very well documented resource for learning, modifying, and developing fpp files. We use fpp to automate most of the boiler plate required for F Prime code to run.</p>
+<p>Notes for getting familiar with Fpp (some subsections to be particularly aware of) :</p>
+<ul>
+<li><a href="https://fprime-community.github.io/fpp/fpp-users-guide.html#Defining-Topologies_Connection-Graphs">Formatting and setting up topologies</a></li>
+</ul>
+<h1 id="fixed-point-to-floating-point-conversions"><a class="header" href="#fixed-point-to-floating-point-conversions">Fixed point to Floating point conversions</a></h1>
+<p><a href="https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/">Fixed to Float</a></p>
+<p>When dealing with sensors, we commonly see output in fixed point format as opposed to the more common computing floating point format. To convert between fixed point(Also called Q format) the link above provides plenty of background on the topic.</p>
+<h1 id="common-issues-faced"><a class="header" href="#common-issues-faced">Common Issues Faced</a></h1>
+<p>FPrime GDS - Version Problems</p>
+<ul>
+<li>First purge, generate, and build. You should see a build-artifacts folder: this indicates that it built correctly. Go into this folder:
+<ul>
+<li>Ref/build-artifacts/Linux/dict</li>
+<li>The dictionary file will be the xml file in there. At the top, there is a framework_version, set that version to 3.1.0</li>
+<li><a href="https://github.com/nasa/fprime/issues/1456">Relevant github issue</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="beaglebone-black-setup-debian-os"><a class="header" href="#beaglebone-black-setup-debian-os">Beaglebone Black Setup (Debian OS)</a></h1>
+<ul>
+<li>
+<p>When compiling and building on your local machine, it is possible that you have a different compiler version being used compared to that used by the bbb.</p>
+<ul>
+<li>
+<p>The beaglebone black runs Debian 10, and by default uses GLIBC version 2.28</p>
+</li>
+<li>
+<p>To check this on any machine, run the following command:</p>
+<pre><code class="language-shell">ldd --version
+</code></pre>
+</li>
+<li>
+<p>The compiler version of the machine that the code is compiled on needs to match the version that the executable is being run on. Currently we have a virtual machine set up with the correct compiler version being run, from which we can send over the generated binary executable</p>
+</li>
+<li>
+<p>It is bad practice and potentially dangerous to downgrade the compiler version being used on your machine, so if you for example run GLIBC version 2.35, don't try to change what version your computer uses. Your operating system is meant to run on the compiler version that it comes with, so don't try to change it. That is why we use a VM to compile with the correct version.</p>
+</li>
+<li>
+<p>To get the executable onto the beaglebone black, use scp:</p>
+<pre><code class="language-shell">scp {RELEVANT DIR}/Ref debian@192.168.7.2:~
+</code></pre>
+</li>
+<li>
+<p>From there you need to make sure you give it the appropriate permissions to be able to run it:</p>
+<pre><code class="language-shell">sudo chmod +x Ref
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Setting up said VM:</p>
+<ul>
+<li>
+<p>After cloning the repo, installing the tools, then building on the machine, run the following to get the proper tools installed:</p>
+<pre><code class="language-shell">sudo apt install crossbuild-essential-armhf
+</code></pre>
+</li>
+<li>
+<p>The beagleboneblack toolchain on the github has the correct path of CMAKE already set up, so use that toolchain to generate and build</p>
+</li>
+</ul>
+</li>
+<li>
+<p>We did try to upgrade the GLIBC version on the beaglebone, which involved several of the following tools. We never finished this process however because we got a VM working sooner. Therefore it isn't necessary, but potentially worth finishing in the future:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/10412684/how-to-compile-my-own-glibc-c-standard-library-from-source-and-use-it">Installing a newer GLIBC version</a>
+<ul>
+<li>Install bison</li>
+<li><a href="https://installati.one/debian/10/gawk/">Installing gawk</a></li>
+<li><a href="https://github.com/pfalcon/esp-open-sdk/issues/365">If you run the bash version problem with the configure.ac file, this could be a potential fix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="internet-access-with-host-for-bbb"><a class="header" href="#internet-access-with-host-for-bbb">Internet access with host for bbb</a></h1>
+<ul>
+<li>Checkout this <a href="avionics/software/internet-sharaing-usb.html">walkthrough</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-of-current-projects"><a class="header" href="#list-of-current-projects">List of Current Projects</a></h1>
+<p>Here you can see the different directions we will be taking over the course of the semester!</p>
+<h2 id="in-progress"><a class="header" href="#in-progress">In Progress</a></h2>
+<ul>
+<li><a href="avionics/software/currentprojects/">RF Downlink</a> - It is important that we get live data from the rocket streamed to the ground in-flight. Further documentation at the link.</li>
+<li><a href="avionics/software/currentprojects/">Sensor Suite</a> - The sensor suite has been mostly completed by the team in years past. Our job this year is to diagnose and fix any of the lingering issues to increase the robustness of the board.</li>
+<li><a href="avionics/software/currentprojects/">Recovery</a> - The goal of the flight computer is to be able to control the entire rocket, which includes recovery. This year we will be adding pyro channels to the board to fulfill this requirement.</li>
+</ul>
+<!--
+- [Sensor Apps](sensorapps.md) - See this [list](../../hardware/currentprojects/testingboard/testingboard.md) for all of the sensors we are writing apps for. See the github projects page for the progress on all the individual apps.
+- [GPS Testing](gpstesting.md) - We are at the point where we need to see the behavior of our current startup command. This will give us a good idea of where the problem is, as right now it appears that the serialReceiver isn't being properly called.
+- Fix autocoders (see dev notes for more info)
+    - Impl file names
+    - Groundstation version fallback
+-->
+<h2 id="completed"><a class="header" href="#completed">Completed</a></h2>
+<ul>
+<li><a href="avionics/software/currentprojects/bbbtoolchain.html">BBB Toolchain</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sensor-apps-in-development"><a class="header" href="#sensor-apps-in-development">Sensor Apps in Development</a></h1>
+<!-- {TO BE UPDATED}
+
+Currently we have soldered two components onto breadboards for the sake of easy testing via jumper wires hooked up to a rasberry pi. These sensors are the MPL3115A2 and the MCP9808, whose datasheets are listed below.
+
+The topology will consist of a single deployment with all sensor apps containted within the deployment. Work for sensors specifically will be done in the sensorDev branch, which when finalized will be merged with the dev branch. After testing is completed on the dev branch and we feel confident in a final version of our code, it can be merged into main. Be careful when merging to main, as these should be finalized versions of our programs and will autogenerate documentation. The code that goes here should also be properly commented following C-style guidelines. -->
+<p>Currently, we have developed an adaptor board for the BeagleBone Black which houses several sensors including pressure/temp, accelerometer, gyro, and magnetometer. This coming semester (F2024) we will be fixing some remaining bugs on that board, as well as adding a GPS. Work for sensors specifically will be done in the sensorDev branch, which when finalized will be merged with the dev branch. After testing is completed on the dev branch and we feel confident in a final version of our code, it can be merged into main. Be careful when merging to main, as these should be finalized versions of our programs and will autogenerate documentation. The code that goes here should also be properly commented following C-style guidelines.</p>
+<p>Our sensor suite topology will consist of a deployment in conjunction with the FPrime groundstation running on the BeagleBone Black.</p>
+<h2 id="project-assignments"><a class="header" href="#project-assignments">Project Assignments</a></h2>
+<p>The assignment process will entail the creation of a GitHub issue that will be assigned to an individual/group of individuals. They will then create a branch from the development that will contain all the code needed. Upon completion of the work a pr will be opened and meeting with software lead to review code.</p>
+<h2 id="datasheets"><a class="header" href="#datasheets">Datasheets</a></h2>
+<p>Link to hardware page for the future sensors, picked by the hardware team:
+<a href="https://cu-srl.github.io/docs/avionics/hardware/currentprojects/testingboard/testingboard.html">testing board links</a></p>
+<p>Datasheets will be added here soon.</p>
+<!-- Link to the datasheets for the current soldered sensors:
+- [MPL3115A2](https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf)
+- [MCP9808](https://ww1.microchip.com/downloads/en/DeviceDoc/25095A.pdf) -->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gps-testing"><a class="header" href="#gps-testing">GPS testing</a></h1>
+<p>{TO BE UPDATED}</p>
+<p>We will be incorporating a GPS module into our avionics setup, with the main purpose of using the data we pull from it, as well as data we pull from an altimiter, and cross compare the two sources. It will be a means of verifying whether we are collecting reasonable and accurate data, especially the peak altitude that we hit.</p>
+<p>With using a GPS, velocity and altitude lockouts will be very prevelant, and be a reason that it doesn't go onto the final rocket. However, for intermediate testing it will serve a very important role. We currently have gps code on the repo that is provided by JPL, that will run as a sanity-check of sorts. This will be a way for the software team to start cross-compilation and deploying code as soon as possible.</p>
+<h2 id="datasheet"><a class="header" href="#datasheet">Datasheet</a></h2>
+<p>Link to the datasheet of the gps we will be testing:</p>
+<ul>
+<li><a href="https://content.u-blox.com/sites/default/files/products/documents/NEO-6_ProductSummary_%28GPS.G6-HW-09003%29.pdf">NEO-6 GPS module</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="beaglebone-black-toolchain"><a class="header" href="#beaglebone-black-toolchain">BeagleBone Black Toolchain</a></h1>
+<p>The beaglebone black toolchain will allow us to cross compile on our local machines or vm connections, allowing for execution of fprime on the beagle bone black. We currently have a raspberry pi toolchain already on the fprime repo, but in order to test on the hardware we develop, we will need to write a toolchain for the beaglebone black.</p>
+<p>Immediate testing can be done on a raspberry pi, as the immediate priority is to write apps for reading data from sensors. Once we hit this development benchmark and know we are able to get some data, we can make the switch from the raspberry pi to beaglebone black.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-of-past-projects-1"><a class="header" href="#list-of-past-projects-1">List of Past Projects</a></h1>
+<p>Here you can see the past iteration of the avionics software framework that had been in development over the past few years.</p>
+<ul>
+<li><a href="avionics/software/pastprojects/cfs.html">SRL_cFS</a></li>
+<li><a href="avionics/software/pastprojects/cosmos.html">SRL_COSMOS</a></li>
+</ul>
+<p>Over the 2022 summer, the software team came to the decision to pursue an alternative path for software development, that being switching which framework we use. The reason we've diverged from using cFS is fairly lengthy, but can be summed up like this: F' is much more lightweight and suited for our intended purposes, unlike cFS which had many aspects that we were nowhere close to using in terms of our laid out timeline. This made cFS not only difficult to program for, but even led to hardware troubles since our micrcontroller didn't have enough processing power to properly run it. If you have any questions about that decision, or just want to know more about it, feel free to reach out to the current software lead on slack.</p>
+<p>Note: On the CUSRL github, there are even older versions of the avionics systems created in the past, such as the CUSRL_Avionics repo, that you're welcome to browse if interested.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="core-flight-system-cfs"><a class="header" href="#core-flight-system-cfs">Core Flight System (cFS)</a></h1>
+<p>The cFS system was a collection of sensor applications built off of NASA's cFS to read and write to/from sensors. It failed to run properly on the BeagleBone Black board due to a suspected scheduler degredation surrounding the linux install.</p>
+<p><a href="https://github.com/CU-SRL/SRL_cFS">SRL cFS Repo</a> contains all code developed while cFS was our primary platform. For more information reach out to the current software lead, Jason Popich, or Zoe Roy.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cosmos-ground-station"><a class="header" href="#cosmos-ground-station">COSMOS Ground Station</a></h1>
+<p>COSMOS is a ground station developed by Ball Aerospace, that the software team had taylored to to be the receiving end of telemetry from the flight computer. Apps were developed on this platform that specfically correlated to apps created on cFS, and allowed for specific customization of the ground station.</p>
+<p><a href="https://github.com/CU-SRL/SRL_COSMOS">SRL_COSMOS Repo</a> is where you can find the code developed by while this was still used. If you would like to learn more about this project, reach out to the current software lead, Jason Popich, or Zoe Roy.</p>
+<p>This ground station may still be used on the future for the purposes of RF communication, however the team will currently make use of the web-based ground station that comes with F'. For the sake of ease and faster development, the use of COSMOS is going on hold until we reach a point where it can be efficiently incorporated into our development plan.</p>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="current-projects"><a class="header" href="#current-projects">Current Projects</a></h1>
+<p>Here is a list of our current projects! These are opportunities to get involved with!</p>
+<ul>
+<li><a href="avionics/archive/currentprojects/testingboard/testingboard.html">Testing Board</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-board"><a class="header" href="#testing-board">Testing Board</a></h1>
+<p>The Testing Board project is a platform we design and test software and hardware on. It involves designing a custom Printed Circuit Board (PCB), writing software to work on sensors embedded on that PCB, and testing the system.</p>
+<p>It is designed primarily as a proof-of-concept demo platform, and will not be implemented on the final rocket. That said, practices and designs implemented on the Testing Board will likely see usage on the final product.</p>
+<h1 id="project-personnel-1"><a class="header" href="#project-personnel-1">Project Personnel</a></h1>
+<p>Project Lead: Parker Lamb</p>
+<p>Project Reviewers: Andrew Lee</p>
+<h2 id="issue-tracker"><a class="header" href="#issue-tracker">Issue Tracker</a></h2>
+<p>Purchase order sheet: <a href="https://docs.google.com/spreadsheets/d/1z67B3BZv8kECAg4vm3EaZBAK9T2SPx0HYJczIqo_mrw/edit#gid=0">sheets.google.com</a></p>
+<p>Project tracker: <a href="https://github.com/orgs/CU-SRL/projects/1">https://github.com/orgs/CU-SRL/projects/1</a></p>
+<p>This should be used when new tasks are created, in progress, or completed.</p>
+<h2 id="datasheets-1"><a class="header" href="#datasheets-1">Datasheets</a></h2>
+<ul>
+<li><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL343.pdf">Accelerometer (ADXL343BCCZ-RL)</a></li>
+<li><a href="https://www.st.com/content/ccc/resource/technical/document/datasheet/e4/b1/d1/62/1a/e6/44/2f/DM00168691.pdf/files/DM00168691.pdf/jcr:content/translations/en.DM00168691.pdf">Gyroscope (I3G4250D)</a></li>
+<li><a href="https://www.infineon.com/dgdl/Infineon-DPS310-DS-v01_00-EN.pdf?fileId=5546d462576f34750157750826c42242">Pressure sensor (DPS310XTSA1)</a></li>
+<li><a href="https://www.melexis.com/-/media/files/documents/datasheets/mlx90395-datasheet-melexis.pdf">Magnetometer (MLX90395KGO-BBA-101-SP)</a></li>
+<li><a href="https://www.st.com/content/ccc/resource/technical/document/datasheet/ea/c8/ee/86/71/81/4e/d0/CD00153513.pdf/files/CD00153513.pdf/jcr:content/translations/en.CD00153513.pdf">Temperature sensor (STTS75M2F)</a></li>
+<li><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/3080fc.pdf">Voltage regulator (LT3080EDD#TRPBF)</a></li>
+<li><a href="https://www.jst-mfg.com/product/pdf/eng/ePH.pdf">Battery connector (S2B-PH-K-S)</a></li>
+</ul>
+<h2 id="sub-pages"><a class="header" href="#sub-pages">Sub-pages</a></h2>
+<ul>
+<li><a href="avionics/archive/currentprojects/testingboard/testingboardrequirements.html">Requirements</a></li>
+<li><a href="avionics/archive/currentprojects/testingboard/microcontroller.html">Microcontroller Notes</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-board-requirements"><a class="header" href="#testing-board-requirements">Testing Board Requirements</a></h1>
+<h2 id="sensor-requirements"><a class="header" href="#sensor-requirements">Sensor Requirements</a></h2>
+<p>The following sensors should exist on the board.</p>
+<ul>
+<li>Accelerometer</li>
+<li>Gyroscope</li>
+<li>Magnetometer</li>
+<li>Temperature sensor (digital)</li>
+<li>Thermistor</li>
+<li>Barometer</li>
+</ul>
+<p>There shall be at least one sensor that is used for SPI AND I2C.</p>
+<p>Each sensor shall be broken out into their own respective connectors.</p>
+<h2 id="other-ics"><a class="header" href="#other-ics">Other ICs</a></h2>
+<p>There must be a GPS receiver module that can be added to the board.</p>
+<p>There must be a CAN bus transceiver. This must be broken out into a connector.</p>
+<p>Microcontroller must be broken out for the programming connector.</p>
+<p>Microcontroller should have two LEDs connected to two seperate GPIO pins.</p>
+<h2 id="system-requirements"><a class="header" href="#system-requirements">System Requirements</a></h2>
+<ul>
+<li>All devices run on 3.3V</li>
+<li>Decoupling capacitor on all devices</li>
+<li>ESD protected</li>
+<li>4 layer board (signal, ground, power, signal)</li>
+<li>All devices must have a datasheet</li>
+<li>Have an LED power indicator</li>
+</ul>
+<h2 id="purchasing-requirements"><a class="header" href="#purchasing-requirements">Purchasing Requirements</a></h2>
+<ul>
+<li>Entire bill of materials should be under 50 dollars (not including PCB or shipping or 0603 components already in inventory)</li>
+</ul>
+<h2 id="layout-requirements"><a class="header" href="#layout-requirements">Layout Requirements</a></h2>
+<ul>
+<li>The placement of switches shall be organized and sectioned for each sensor</li>
+<li>The text overlay on the board shall clearly communicate the function of each set of switches</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="arm-cortex-m33-notes"><a class="header" href="#arm-cortex-m33-notes">ARM Cortex M33 Notes</a></h1>
+<p>These are some basic notes on the ARM Cortex M33 device we're using.</p>
+<h2 id="cortex-details"><a class="header" href="#cortex-details">Cortex Details</a></h2>
+<p>We're using the 48-pin QFN ARM Cortex M33 - the pinout is available on figure 1.6 on page 15 of the <a href="https://www.renesas.com/us/en/document/dst/ra4m2-group-datasheet">datasheet</a>.</p>
+<h2 id="port-reference"><a class="header" href="#port-reference">Port Reference</a></h2>
+<ul>
+<li><strong>SPI_SSLAx</strong>: Slave selection pins (x is 0-3)</li>
+<li><strong>SPI_MOSI_A</strong>: Data output from master (Master Out Slave In)</li>
+<li><strong>SPI_MISO_A</strong>: Data output from slave (Master In Slave Out)</li>
+<li><strong>SPI_RSPCK_A</strong>: Clock pin</li>
+<li><strong>I2C_SDA2</strong>: <strong>S</strong>erial <strong>Da</strong>ta line</li>
+<li><strong>I2C_SCL2</strong>: <strong>S</strong>erial <strong>Cl</strong>ock line</li>
+</ul>
+<h2 id="our-setup"><a class="header" href="#our-setup">Our Setup</a></h2>
+<p>We have two SPI-connected devices (accelerometer and magnetometer), and 5 I2C-connected devices (accelerometer, pressure sensor, gyroscope, magnetometer and temp sensor).</p>
+<p>Since 2 of the 4 SPI chip select ports double as I2C inputs on the MCU, we only have 2 accessible SPI ports.</p>
+<h2 id="spi-notes"><a class="header" href="#spi-notes">SPI Notes</a></h2>
+<p>Serial Peripheral Interface has four relevant ports: <strong>SSLAx</strong> (connected to chip selects), <strong>MOSI</strong> (data from master to slave), <strong>MISO</strong> (data from slave to master), and <strong>RSPCK</strong> (the clock).</p>
+<p>Since the MCU can only communicate with <em>one</em> SPI device at a time, it must "choose" this device. It does this by activating one of the SSLA (Slave Select Low Active), by settling the SSLA for that device to <em>active low</em>.</p>
+<p>Therefore, you need a <em>single</em> SSLA pin <em>per SPI device</em>. The MCU has 4 SSLA pins, so it is able to support up to 4 SPI devices.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ldolt3080"><a class="header" href="#ldolt3080">LDO(LT3080)</a></h1>
+<p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/3080fc.pdf">Datasheet</a></p>
+<p><strong>Goal of Application:</strong> Drop from 4.2 V to a consistent 3.3 V. Also known as a DC-to-DC step-down converter.</p>
+<p><strong>Specific Part:</strong>
+LT3080EDD#TRPBF</p>
+<p><a href="https://www.digikey.com/short/hdhdfn83">https://www.digikey.com/short/hdhdfn83</a></p>
+<p><strong>Notes</strong>: DD Package, 8-Lead DFN (3mm x 3mm)</p>
+<p><strong>Cost</strong>: $6.40</p>
+<p align="center">  
+    <img src="avionics/archive/currentprojects/testingboard/LDOpics/LDOEquiv.png" width="500" style="margin-bottom: 20px;">
+</p>
+<h2 id="typical-application"><a class="header" href="#typical-application">Typical Application</a></h2>
+<p align="center">
+    <img src="avionics/archive/currentprojects/testingboard/LDOpics/TypicalApplication.PNG" width="500" style="margin-bottom: 20px;">
+</p>
+<h2 id="33v-application"><a class="header" href="#33v-application">3.3V Application</a></h2>
+<p>$$V_{out} = R_{set} \cdot (10 \times 10^{-6})$$</p>
+<p>$$R_{set} = V_{out} \cdot 10 \times 10^{6}$$</p>
+<p>$$R_{set} = (3.3) \cdot 10^5 = 330 \text{ k} \Omega$$</p>
+<p align="center">
+    <img src="avionics/archive/currentprojects/testingboard/LDOpics/LDOLTSpice.png" width="500">
+</p>
+<p><em>Application of LDO in LTSpice.</em></p>
+<h2 id="what-is-an-ldo"><a class="header" href="#what-is-an-ldo">What is an LDO?</a></h2>
+<ul>
+<li>A Low Dropout Regulator(LDO) is a voltage regulator that can get a regulated low output voltage from a higher input voltage.
+<ul>
+<li>The output is steady, low noise, DC.</li>
+<li>This is compared to a Linear Voltage Regulator, which requires a higher voltage drop to function as designed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="ldo-parameters"><a class="header" href="#ldo-parameters">LDO Parameters</a></h2>
+<p><strong>Quiescent Current (IQ)</strong> - Current drawn by system when light or no load is connected</p>
+<p><strong>Power Supply Rejection Ratio (PSRR)</strong> - Ability to reject AC elements of source(e.g. ripple voltage). The datasheet of the LT3080 simply calls it "Ripple Rejection".</p>
+<p>Defined by: \(20\log(\frac{V_{ripple, in}}{V_{ripple,out}})\)</p>
+<p>Ex: Let \(V_{ripple, in}=2 \text V\) &amp; \(V_{ripple, out}=0.2 \text V\)</p>
+<p>$$\text{PSRR} \vert_{dB} = 20\log \left(\frac{V_{ripple, in}}{V_{ripple,out}} \right) = 20 \log \left(\frac{2}{0.2} \right) = 20 \text{ dB}$$</p>
+<p>Ex: Let \(V_{ripple, in}=2 \text V\) &amp; \(V_{ripple, out}= 2 \text {mV}\)</p>
+<p>$$\text{PSRR} \vert_{dB} = 20\log \left(\frac{V_{ripple, in}}{V_{ripple,out}} \right) = 20 \log \left(\frac{2}{2\times10^{-3}} \right) = 60 \text{ dB}$$</p>
+<p>Note: For the PSRR relating to our current application of the part, refer to the "Ripple Rejection, Single Supply" graph. If the \(V_{IN}\) and \(V_{CONTROL}\) pins are powered by different sources, then refer to the "Ripple Rejection, Dual Supply" graphs.</p>
+<p><strong>Load Regulation</strong> - Ability to maintain specified output voltage under varying load conditions</p>
+<p>\(\text{Load Regulation} = \frac{\Delta V_{out}}{\Delta I_{out}}\)</p>
+<h2 id="applications-information"><a class="header" href="#applications-information">Applications Information</a></h2>
+<ul>
+<li>
+<p>For minimizing board leakage: recommends encircling the SET pin and circuitry with a guard ring operated at a potential close to itself, tied to the OUT pin.</p>
+</li>
+<li>
+<p>\(V_{IN}\) must be more than 0.1V to 0.5V greater than the output voltage. This depends on the current that needs to flow through the load. For more information, refer to pages 4 and 8 of the datasheet.</p>
+</li>
+<li>
+<p>There must be a minimum load current of 1 mA</p>
+</li>
+</ul>
+<h3 id="output-capacitor-22u"><a class="header" href="#output-capacitor-22u">OUTPUT CAPACITOR 2.2u</a></h3>
+<ul>
+<li>Capacitor must have an ESR(Equivalent Series Resistance) of 0.5 Ohms or less
+<ul>
+<li>How to find the ESR of a capacitor is explained <a href="avionics/archive/currentprojects/testingboard//src/avionics/hardware/currentprojects/testingboard/ceramiccapacitors.html">here</a></li>
+</ul>
+</li>
+<li>Materials with a low ESR include: Ceramic, Tantalum, or low ESR electrolytic</li>
+</ul>
+<p><em>A Note on Ceramic Capacitors</em></p>
+<ul>
+<li>Ceramic capacitors are manufactured with a variety of dielectrics, each with different behavior across temperature and applied voltage</li>
+<li>Most common dielectrics are specified with EIA temperature characteristic codes of: Z5U, Y5V, X5R, X7R</li>
+<li>Z5U, Y5V dielectrics are good for providing high capacitances in a small package, but tend to have strong voltage and temp coefficients</li>
+<li>X7R or X5R are better to use, but be aware of their temperature characteristics</li>
+<li>Try not to find a ceramic capacitor with a piezoelectric response. (It's no requirement, but MIL-STD-202 testing is vibration testing.)</li>
+</ul>
+<h2 id="additional-purchased-components"><a class="header" href="#additional-purchased-components">Additional Purchased Components</a></h2>
+<p><strong>330K Resistor</strong></p>
+<p>ERA-3AEB334V</p>
+<p><a href="https://www.digikey.com/short/nzfdzw40">https://www.digikey.com/short/nzfdzw40</a></p>
+<p><em>Notes: 0.1% Tolerance, 0.1 W Power Rating(This is fine)</em></p>
+<p>Cost: $0.35</p>
+<p><strong>1u Capacitor</strong></p>
+<p>C0603C105K8PAC7867</p>
+<p><a href="https://www.digikey.com/short/z8pd0t38">https://www.digikey.com/short/z8pd0t38</a></p>
+<p><em>Notes: Tolerance: 10%, Temperature Coefficient: X5R, Rated Voltage: 10V, Package: 0603, ESR: 0.008 Ohms &lt; 0.5 (Source: LTSpice). Normally stocking, RoHS compliant, has datasheet. Has gone through MIL–STD–202 testing. Optionally, you could buy another as a bypass capacitor of the 330k resistor. The LDO’s datasheet claims that would lead to “improvement in transient performance” and reduction of system noise.</em></p>
+<p>Cost: $0.10</p>
+<p><strong>2.2u Capacitor</strong></p>
+<p>C0603C225K8PAC7867</p>
+<p><a href="https://www.digikey.com/short/4v45dvz4">https://www.digikey.com/short/4v45dvz4</a></p>
+<p>*<em>Notes: Tolerance: 10%, Temperature Coefficient: X5R, Rated Voltage: 10V, Package: 0603, ESR: 0.017 Ohms &lt; 0.5 (Source: LTSpice). Normally stocking, RoHS compliant, has datasheet. Has gone through MIL–STD–202 testing.</em></p>
+<p>Cost: $0.23</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ceramic-capacitors"><a class="header" href="#ceramic-capacitors">Ceramic Capacitors</a></h1>
+<h2 id="esr-frequency-characteristics"><a class="header" href="#esr-frequency-characteristics">ESR Frequency Characteristics</a></h2>
+<p><a href="https://article.murata.com/en-global/article/impedance-esr-frequency-characteristics-in-capacitors">Source</a></p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/capacitor.png" width="100">
+</p>
+<p>In an ideal capacitor, the impedance is: \( Z = \frac{1}{\omega C} \). Plotted logarithmically, this looks like:</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/idealcapplot.png" width="300">
+</p>
+<p>However, when a real-world capacitor is analyzed, we get a different result:</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/datacompare.png" width="650">
+</p>
+<p><em>Data from <a href="https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=MCASL168SB5225MTNA01&amp;u=M">MCASL168SB5225MTNA01</a> Capacitor compared with idealized impedance.</em></p>
+<p>In real-world capacitors, there is some power lost due to dielectric substances (the stuff that goes in between the plates of the capacitor, e.g. ceramic), electrodes (the physical metal plates in a capacitor), among other things. We can accurately approximate all of these losses by saying there is some Equivalent Series Resistance (ESR), that changes with the frequency of the input.</p>
+<p>Additionally, there is parasitic inductance at high frequencies, that can be approximated with an Equivalent Series Inductance (ESL).</p>
+<p>Together, along with a resistor in parallel to the capacitor to represent leakage, we have a much more accurate model of how a real-world capacitor operates.</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/realcapacitor.png" width="300">
+</p>
+<p>Putting the model into practice, we can now explain various parts of the real capacitor's impedance plot.</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/realcapz.png" width="650">
+</p>
+<h2 id="how-to-find-an-esr-value-of-a-capacitor"><a class="header" href="#how-to-find-an-esr-value-of-a-capacitor">How to find an ESR value of a capacitor</a></h2>
+<h3 id="esr-as-a-function-of-frequency"><a class="header" href="#esr-as-a-function-of-frequency">ESR as a function of frequency</a></h3>
+<p><a href="https://datasheet.octopart.com/0402ZD105KAT2A-AVX-datasheet-22851.pdf">Source</a></p>
+<p>The ESR, above all, is an approximation. It is a value that changes with respect to the frequency of the input. The ESR can be calculated by:</p>
+<p>$$ \text{ESR} = \frac{\text{D.F.}}{2\pi fC} $$</p>
+<ul>
+<li>\(\text{D.F.}\) is the Dissipation Factor. It is often given as a percentage. It could also be given as: \( \text{D.F.} = \tan (\delta) \) where \( \delta\) is the “Loss angle”
+<ul>
+<li>\(f\) is the frequency in which the value of \(\delta\) was measured</li>
+</ul>
+</li>
+<li>\(C\) is the listed capacitance</li>
+</ul>
+<p>The "loss angle" is a representation of how inaccurately the capacitor is able to get its desired impedance.</p>
+<p align = 'center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/lossangle.png" width="300">
+</p>
+<p>When it comes to getting a graphical representation of ESR, it is not reccomended to try and make one up yourself using the formula. Many producers of capacitors have free tools on their websites. You can use them to get a graphical representation of a capacitor's impedance and ESR.</p>
+<p>These tools include Murata's <a href="https://ds.murata.co.jp/simsurfing/index.html?lcid=en-us">SimSurfing</a>, KEMET's <a href="https://ksim3.kemet.com/capacitor-simulation">K-SIM Capacitor Analysis</a>, or Samsung Electro-Mechanics' <a href="https://weblib.samsungsem.com/mlcc/mlcc-ec.do">MLCC Component Library</a>. <em>(MLCC is an abbreviation for Multi-Layer Ceramic Capacitor.)</em> There are many other tools, by many other names. If you find a part, and want to learn more about it, then digging around on the manufacturer's website for a bit will usually reward you with some way to access the ESR graph directly. It's often tucked under a tab like "Products"/"Components", or one like "Design Analysis Tools". Worst come to worst, you might have to select the capacitor you want on their website and somewhere near it will be a button to "simulate" or "graph" it.</p>
+<p>To use these tools, generally it will require you to select a part(in this case, the capacitor you want to simulate). If it doesn't immediately show you a graph, then somewhere on the page you can select a "graph type" or "frequency characteristic". |Z| (or "Impedance") shows a graph of the capacitor's impedance, R (or "ESR") shows a graph of the capacitor's ESR.</p>
+<p>These are much more precise tools than calculating it oneself, as the frequency a company measures their Dissipation Factor at can vary. You might even be able to find how the capacitance changes with respect to temperature!</p>
+<h3 id="single-esr-value"><a class="header" href="#single-esr-value">Single ESR value</a></h3>
+<p>If there is a single value given to represent the ESR, the frequency of the input is the capacitor's self-resonant frequency. At this point, the impedance of the real capacitor is \( |Z| = \text{ESR} \)</p>
+<p>This can be seen through a provided plot that shows the ESR value and measured impedance of a capacitor with respect to the input frequency. Notice how they intersect at the self-resonant frequency, the "bottom of the hump":</p>
+<p align = 'center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/esr_z_plot.jpg" width="400">
+</p>
+<p><em><a href="https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=MCASL168SB5225MTNA01&amp;u=M">MCASL168SB5225MTNA01</a> Capacitor's impedance compared with ESR.</em></p>
+<p>LTSpice has a database of capacitors if a single ESR or ESL value is needed. Just create a capacitor, right click it, and click on "Select Capacitor". This might be a good resource if you need to get a value specifically for a Linear Technologies (Analog Devices) part. Otherwise, I would stray away from it. The values they give are often very different from what the manufacturers specify.</p>
+<h2 id="smdsurface-mount-packagecasesize"><a class="header" href="#smdsurface-mount-packagecasesize">SMD(Surface Mount) Package/Case/Size</a></h2>
+<p><a href="https://www.kadvacorp.com/technology/smd-capacitor-sizes/">Source</a></p>
+<p>The following is a table of codes standardized by the EIA(Electronic Industries Alliance) regarding package sizes. Not just capacitors can go in these packages.</p>
+<p align ='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/EIAcapcodes.png" width="400">
+</p>
+<p>Out of these, the 0603 package size is reccomended as it is relatively easy to solder.</p>
+<h2 id="temperature-coefficients"><a class="header" href="#temperature-coefficients">Temperature Coefficients</a></h2>
+<p><a href="https://content.kemet.com/datasheets/F3101_CerMoldAxRad.pdf">Source</a>. I will also be using <a href="https://catalogs.kyocera-avx.com/SurfaceMount.pdf">this catalog</a> to provide the occasional example.</p>
+<h3 id="classes"><a class="header" href="#classes">Classes</a></h3>
+<p>Temperature coefficients are generally separated by classes. The most common classes are Class I and Class II. Class III does exist, but its use cases are far more narrow.</p>
+<p><strong>Class I:</strong> Great stability with respect to temperature, voltage, frequency, and time (aging). However, Class I capacitors have very low capacitance values.</p>
+<p><strong>Class II:</strong> Available for a much wider range of capacitance values; however, temperature has a greater impact on capacitance. Ideal for bypass or coupling applications. Affected by temperature, voltage, frequency, and time.</p>
+<p><strong>Class III:</strong> Even higher range of capacitance values. Most efficient in terms of space, but worst when it comes to stability. Only use if the stability of capacitance is of little to no value. Could work in a bypass or coupling application.</p>
+<h3 id="c0gnp0"><a class="header" href="#c0gnp0">C0G(NP0)</a></h3>
+<p>The main Class I capacitor still in production is the C0G(NP0).</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/C0GNP0.PNG" width="500">
+</p>
+<h3 id="class-ii--iii-capacitors"><a class="header" href="#class-ii--iii-capacitors">Class II &amp; III Capacitors</a></h3>
+<p>The temperature coefficients of Class II &amp; III capacitors are organized as such:</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/classes2and3table.PNG" width="550">
+</p>
+<p>For example, the X5R capacitor will operate from -55 C(<strong>X</strong>) to 85 C(<strong>5</strong>) with a capacitance change of at most ±15%(<strong>R</strong>). This can be seen with the example below:</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/X5Rexample.png" width="400">
+</p>
+<p>It is important to note that all that is guaranteed with an X5R capacitor is that the % Capacitance stay inside the red box.</p>
+<p>The primary Class III capacitors still in production are Z5U and Y5V.</p>
+<p>Here is an example of a Y5V temperature coefficient:</p>
+<p align='center'>
+    <img src="avionics/archive/currentprojects/testingboard/cappics/Y5Vexample.png" width="400">
+</p><div style="break-before: page; page-break-before: always;"></div><h2 id="relevant-calculations-and-simulations-for-testing-board"><a class="header" href="#relevant-calculations-and-simulations-for-testing-board">Relevant Calculations and Simulations for Testing Board</a></h2>
+<p>The following simulations are from Ash Tribble. Simulation of the LT3080 part from under-voltage</p>
+<img src="avionics/archive/currentprojects/testingboard/testingboardpics/simulationimage.png" width="650" height="400">
+<p>Larger picture of graph...</p>
+<img src="avionics/archive/currentprojects/testingboard/testingboardpics/graph_largerpicture.png" width="650" height="400">
+<p>Transient voltage dip (2ms voltage dip)...</p>
+<img src="avionics/archive/currentprojects/testingboard/testingboardpics/2msblip.png" width="650" height="400">
+<div style="break-before: page; page-break-before: always;"></div><h1 id="power-budget-for-the-board"><a class="header" href="#power-budget-for-the-board">Power Budget For The Board</a></h1>
+<h2 id="power-consumption-of-testing-board"><a class="header" href="#power-consumption-of-testing-board">Power Consumption of Testing Board</a></h2>
+<p>List of parts and their peak current consumption:</p>
+<ol>
+<li>GPS Ublox_NEO-6 Module              - 67mA (47mA average during max performance acquisition mode)</li>
+<li>STTS75M2F Temperature Sensor        - 100uA (75uA operational average, 1uA standby average)</li>
+<li>DPS310XTSA1 Pressure Sensor         - 345uA (38uA operational average high precision, 1 temperature and 1 pressure reading per second)</li>
+<li>MLX90395KGO-BBA-101-SP Magnetometer - 250mA start-up for less than 3uS (4mA operational average)</li>
+<li>ADXL343BCCZ-RL Accelerometer (X2)   - (140uA typical)</li>
+<li>I3G4250D Gyroscope                  - (6.1mA typical)</li>
+<li>LT3080EDD#TRPBF PMIC                - (17mA typical)</li>
+</ol>
+<p>Adding all of the maximum values yields a maximum supply current consumption of 341mA.</p>
+<p>Adding all of the average operational values yields average supply current of 75mA.</p>
+<h2 id="power-consumption-of-bbb"><a class="header" href="#power-consumption-of-bbb">Power Consumption of BBB</a></h2>
+<img src="avionics/archive/currentprojects/testingboard/testingboardpics/BBBpower.PNG" width="650" height="400">
+<p>We are powering the device using 3.7V battery (not 5V test conditions) and not powering a display. This means we take (idle current with display - idle current without display = display current) and then take (loading a webpage AKA computational stuff IDK - display current = estimated average current consumption). This estimated average current consumption is 360mA.</p>
+<p>As part of a factor of safety because I don't know how current consumption changes as our voltage supply changes and they only provide data for 5V supply, I will do P = IV and solve the current consumption at 3.7V such that at 5V and 3.7V, the amount of power the BBB consumes is the same.</p>
+<p>This is equal to 487mA.</p>
+<h2 id="available-power"><a class="header" href="#available-power">Available Power</a></h2>
+<p>A single one of our Li-ion batteries holds 1.25Ah of total supply current.</p>
+<h2 id="factor-of-safety"><a class="header" href="#factor-of-safety">Factor of Safety</a></h2>
+<p>For a factor of safety, because of how expensive a launch is, let's call it 2.</p>
+<p>Thus, the amount of total average current consumption is equal to (BBB power + Testing Board power = Total Power). This is 487mA + 75mA = 562mA. Multiply by 2 to account for our factor of safety and we get 1122mA. This means we get 1.25 / 1.122 = 1.1131 hours of system on-time off of one battery.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="new-member-on-boarding-process-documentation"><a class="header" href="#new-member-on-boarding-process-documentation">New Member On-Boarding Process Documentation</a></h1>
+<p>Documenting the on-boarding processes have been used in the past, noting what has gone right and what should be changed.</p>
+<p>[PAST YEARS]
+For hardware, this year we will begin with a soldering workshop using cheap solderable breadboards, basic LEDs, resistors, and anything else the team needs to be soldered right now. The goal of the workshop is to get new members excited about creating something, introduce electronics concepts to people who have no experience, give them a framework for how they can imagine the design that they will be doing in Altium Designer.</p>
+<p>The workshop will cover the topics of through-hole soldering, surface mount soldering, multimeter usage, circuit basics if there are new members not familiar with those concepts, explanation of what parts look like, what the parts do, what an IC is, maybe some wire stripping, splicing, etc.</p>
+<p>Then Andrew Lee is planning on giving an introduction to Altium Designer lecture. The workshop happened on a friday evening, he will probably go over stuff on the following avionics full team on Sunday and let people get a list of things to get set up with Altium Designer on Saturday (or maybe do this on Friday if we end earlier than expected). He will record this video this time around, be in-person to help out.</p>
+<p>Then after assessing the amount of new members, we will cater our projects to match that. If there are a lot, we may begin with development of break-out boards just to help build basic experience, or kick-off a new sensor board project with GPS module which will be seperate from the testing board. Update the documentation after the first avionics meeting with new members to develop that plan.</p>
+<p>NOTE: There were 17 people who showed up out of the 29 that joined the slack channel. 7 out of 17ish people joined from talking at classes. In new member meeting during breakout, 3 new members went to hardware, 6 to software, 8 to RF</p>
+<p>There were also 3 more people that joined later.</p>
+<p>Sub-team leads are doing new member on-boarding meetings this week (hardware on friday and software on saturday night). The attendance to each was:</p>
+<ul>
+<li>5 new members showed up to the hardware meeting</li>
+<li>10-ish new members showed up to the software meeting</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

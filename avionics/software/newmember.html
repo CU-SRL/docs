@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>New Software Members - CU Sounding Rocket Lab Avionics Documentation</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CU Sounding Rocket Lab Avionics Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs/edit/main/src/avionics/software/newmember.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="new-member-guide"><a class="header" href="#new-member-guide">New Member Guide</a></h1>
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of contents</a></h2>
+<ol>
+<li><a href="#background-requirements">Background</a></li>
+<li><a href="#pre-install-setup">Pre-Install Prep</a>
+<ul>
+<li><a href="#software-requirements">Required Software</a></li>
+<li><a href="#python-venv">Python install</a></li>
+<li><a href="#github-setup">Github setup</a></li>
+</ul>
+</li>
+<li><a href="#fprime-install">Installing FPrime</a></li>
+<li><a href="#learning-fprime">Learning FPrime</a></li>
+</ol>
+<h2 id="background-information"><a class="header" href="#background-information">Background Information</a></h2>
+<p>For software development we are using the FPrime framework (sometimes written as F') for C++ developed by JPL. In order to develop software you must first understand the basics of C++ as the more advaced concepts can be learened as you work through the tutorial. If you have completed CSCI1300(or equivalent) and CSCI2270(or activly taking 2270) than you will learn all the basics you need in class. If you have not completed 2270 <a href="https://www.youtube.com/watch?v=5UNuR7_hot8">this video</a> is recommended for learning all of the basics.</p>
+<p>A Linux operating system or image is required for self installation. Because many of our new members will be using windows, we are working on hosting a server which will run linux and solve all the issues that come with VMs and things. Updates to come.</p>
+<!-- Windows users will have a virtualbox image provided by the Software Lead(or Avionics Lead). It will include all of the needed software, and users can skip to the [Github Setup](#github-setup) steps. To use the image follow the installation section of [this guide](http://download.virtualbox.org/virtualbox/UserManual.pdf) to install virtualbox.  -->
+<p>If you want to install FPrime on your own computer, use the following instructions. This guide will use macOS as an example, but the commands in linux will be the same unless otherwise specified. Windows users should install WSL to follow these commands.</p>
+<h2 id="pre-install-setup"><a class="header" href="#pre-install-setup">Pre-Install Setup</a></h2>
+<h3 id="software-requirements"><a class="header" href="#software-requirements">Software Requirements</a></h3>
+<ol>
+<li>
+<p>Unix based OS (macOS or Linux)</p>
+<ul>
+<li>Windows can use wsl with a debian based image, or a virtual machine</li>
+<li>See Avionics lead or Software lead for a copy of the vm image</li>
+</ul>
+</li>
+<li>
+<p>git</p>
+<ul>
+<li><a href="https://git-scm.com/docs/gittutorial">Here</a> is a good tutorial for git</li>
+</ul>
+</li>
+<li>
+<p>CMake 3.16 or higher</p>
+</li>
+<li>
+<p>GCC or Clang</p>
+</li>
+<li>
+<p>Python 3.7+ with pip</p>
+</li>
+<li>
+<p>Vim</p>
+<ul>
+<li>In depth knowledge is not really need, just understand how to edit a few lines and save</li>
+<li><a href="https://www.youtube.com/watch?v=RZ4p-saaQkc">Here</a> is a good vim tutorial</li>
+</ul>
+</li>
+<li>
+<p>VSCode</p>
+<ul>
+<li>While another editor could be used, most developers use VSCode and a list of recomended plugins will be provided</li>
+</ul>
+</li>
+</ol>
+<h3 id="software-install"><a class="header" href="#software-install">Software install</a></h3>
+<h4 id="needed-software"><a class="header" href="#needed-software">Needed software</a></h4>
+<p>Ensure all software listed above is installed with your package manager of choice. On macOS brew is recomended.</p>
+<pre><code class="language-bash">brew install CMake gcc git python@3.10 vim
+</code></pre>
+<h4 id="python-venv"><a class="header" href="#python-venv"><strong>Python venv</strong></a></h4>
+<p>If using a debian based image it is possible not all needed python packages are installed, fix this by installing them with</p>
+<pre><code class="language-shell">sudo apt install git cmake default-jre python3 python3-pip python3-venv
+</code></pre>
+<p>We can now begin the virtual enviroment creation</p>
+<blockquote>
+<p>A virtual enviroment (venv) allows for different packages to be installed at different versions within python and mitigate version conflict errors</p>
+</blockquote>
+<p>Pick a location to install the virtual enviroment. For the purposes of this guide we will use the <code>$HOME</code> directory as our root. If you would rather use another location feel free.</p>
+<pre><code class="language-bash">python3 -m venv $HOME/fprime-venv
+. $HOME/fprime-venv/bin/activate
+pip install -U setuptools setuptools_scm wheel pip
+</code></pre>
+<p>The first command creates the venv, the second command activates the venv, and the third command installs some needed packages.</p>
+<p>To exit the virtual enviroment simply enter <code>deactivate</code> while the venv is active.</p>
+<blockquote>
+<p>Adding an alias to your shell profile can be useful to quickly activate the venv from any directory
+Using macOS and zsh as an example we can execute the following commands to add it as an alias</p>
+<pre><code class="language-sh">cd $HOME
+vim .zshrc
+</code></pre>
+<p>linux users will need to modifly the file <code>~/.bashrc</code>
+Add the following line at the end of the file and save</p>
+<pre><code class="language-sh">alias fpvenv=". $HOME/fprime-venv/bin/activate"
+</code></pre>
+<p>Ensure to update your terminal with <code>. ~/.zshrc</code>
+Now typing fpvenv will activate your virtual enviroment</p>
+</blockquote>
+<h4 id="github-setup"><a class="header" href="#github-setup"><strong>Github Setup</strong></a></h4>
+<p>We recomend linking your student email to Github for the student pro benefits <a href="https://education.github.com/discount_requests/pack_application">Found Here</a>.</p>
+<p><em>If you already have a working git and github with 2FA setup skip to <a href="#fprime-install"><strong>FPrime Install</strong></a></em></p>
+<h5 id="generating-ssh-keys"><a class="header" href="#generating-ssh-keys">Generating SSH keys</a></h5>
+<p>We first generate a ssh key with the line below</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C "your_email@example.com"
+</code></pre>
+<p>When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. When prompted for a passphrase you can press Enter to skip.</p>
+<p>Ensure the ssh agent is running</p>
+<pre><code class="language-bash">eval "$(ssh-agent -s)"
+</code></pre>
+<p>For macOS verify the <code>~/.ssh/config</code> file exists</p>
+<blockquote>
+<pre><code class="language-bash">open ~/.ssh/config
+</code></pre>
+<p>and add this information the the config file.</p>
+<pre><code class="language-text">Host *.github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  IgnoreUnknown UseKeychain
+</code></pre>
+<p>If the file does not exist create it with and then add the information</p>
+<pre><code class="language-bash">touch ~/.ssh/config
+</code></pre>
+</blockquote>
+<p>For both macOS and Linux</p>
+<pre><code class="language-bash">ssh-add ~/.ssh/id_ed25519
+</code></pre>
+<h5 id="adding-the-ssh-key-to-github"><a class="header" href="#adding-the-ssh-key-to-github">Adding the SSH key to Github</a></h5>
+<p>copy the ssh key public information to your clipboard</p>
+<pre><code class="language-bash">pbcopy &lt; ~/.ssh/id_ed25519.pub
+</code></pre>
+<p>In Github go to <code>settings &gt; Access&gt; SSH and GPG Keys</code> and select new SSH key. Give it a meaningful title, ensure it is an authentication key, and paste your clipboard into the key box. Then press the <code>Add Key</code> button.</p>
+<p>To verify that it has worked run and type <code>yes</code> when prompted</p>
+<pre><code class="language-bash">ssh -T git@github.com
+</code></pre>
+<p>You should see</p>
+<pre><code class="language-bash">&gt; Hi USERNAME! You've successfully authenticated, but GitHub does not
+&gt; provide shell access.
+</code></pre>
+<blockquote>
+<p>if this does not display check <a href="https://docs.github.com/en/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign">here</a></p>
+</blockquote>
+<h4 id="vscode-setup"><a class="header" href="#vscode-setup"><strong>VSCode Setup</strong></a></h4>
+<p>I recomend installing the following plugins to your VSCode, along with connecting your github to VSCode for sync between devices.</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C++ Tools</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-cpp-syntax">Better C++ Syntax</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C++ extension pack</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-themes">C++ Themes</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen">Doxygen Documentation Generator</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=unlv-team5.fpptools">FPPTools</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense">Path Intellisense</a></li>
+</ul>
+<p>For using VSCode in conjunction with F', the recomended way is opening the <code>srlFp</code> directory in VSCode, and <code>cd</code> your shell into the <code>srlFp/Ref</code> directory.</p>
+<h2 id="fprime-install"><a class="header" href="#fprime-install"><strong>FPrime Install</strong></a></h2>
+<p>Note that all commands should be executed within the virtual enviroment created above</p>
+<h4 id="clone-the-repo"><a class="header" href="#clone-the-repo">Clone the repo</a></h4>
+<p>In your prefered directory(<code>$HOME</code> or <code>Desktop</code> is recomended) clone the srl FPrime repo</p>
+<pre><code class="language-bash">git clone git@github.com:CU-SRL/srlFp.git
+cd srlFp
+pip install -r requirements.txt
+</code></pre>
+<h4 id="verify-install"><a class="header" href="#verify-install">Verify install</a></h4>
+<p>On the <strong>tutorials branch</strong> verify that the Ref deployment builds</p>
+<pre><code class="language-bash">cd Ref
+fprime-util generate
+fprime-util build
+fprime-gds -g html
+</code></pre>
+<blockquote>
+<p>use <code>git checkout &lt;branch&gt;</code> to switch branches</p>
+</blockquote>
+<h2 id="learning-fprime"><a class="header" href="#learning-fprime">Learning FPrime</a></h2>
+<p>Before begining the tutorials checkout a branch for your work from tutorials. There is no need to push this branch, this will just be for your personal use.</p>
+<pre><code class="language-bash">git fetch -a
+git switch tutorials
+git checkout -b &lt;BRANCH NAME HERE&gt;
+</code></pre>
+<p>You are able to now start on the <strong>Getting Started Tutorial</strong> found <a href="https://nasa.github.io/fprime/v3.1.0/Tutorials/README.html">here</a>.</p>
+<p>There are a few extra terms that are common that should be highlighted:</p>
+<ul>
+<li>Drv: short for driver, contains a variety of different drivers including uart, i2c, and spi drivers for linux</li>
+<li>Fw: short for framework, provides a large number of useful data types and routines</li>
+<li>Fpp: short for FPrimePrime, a modeling language to make F' development quicker and easier than before</li>
+<li>Svc: short for Service, provides useful runtime tools for fprime deployments</li>
+<li>Os: short for Operating System, provides the Operating System Abstraction Layer(<a href="https://en.wikipedia.org/wiki/Operating_system_abstraction_layer">OSAL</a>) for fprime</li>
+</ul>
+<p>For working on the <strong>Math Component Tutorial</strong> found <a href="https://nasa.github.io/fprime/v3.1.0/Tutorials/MathComponent/Tutorial.html">Here</a> I recomend focusing on following the steps given in in sections 1-4, then reading the goals in section 5 and attempting to implement them without copying from the tutorial until needed.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../avionics/software/software.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../avionics/software/devnotes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../avionics/software/software.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../avionics/software/devnotes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

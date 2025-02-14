@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Requirements Meeting Notes - CU Sounding Rocket Lab Avionics Documentation</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CU Sounding Rocket Lab Avionics Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs/edit/main/src/avionics/avionics_testrocket/testrocketrequirementsmeetingnotes.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="this-is-a-page-to-document-how-we-made-decisions-on-the-avionics-test-rocket"><a class="header" href="#this-is-a-page-to-document-how-we-made-decisions-on-the-avionics-test-rocket">This is a page to document how we made decisions on the avionics test rocket</a></h2>
+<p>[NOT CURRENTLY UP TO DATE]</p>
+<h1 id="reasoning-behind-not-using-smaller-rocket"><a class="header" href="#reasoning-behind-not-using-smaller-rocket">Reasoning Behind Not Using Smaller Rocket</a></h1>
+<p>It's cheaper to use a smaller rocket, but here is our engineering justification behind not going with that. The main goal of these flights is to test our avionics system to see if it will achieve proper performance on space shot. As far as basic functionality, we will do that on the ground, read data sheets carefully, and be thorough with documentation of our system. For survivability and reliability, this is where we need to test on a real rocket. The goal is to get our system to break. Our system is cheap enough to where we don’t have to care about testing slowly and upwards. We already know we have hardware that, if properly soldered together, can survive an obsidian level flight as well (our previous big rocket flight). Thus, we still believe the cheapest and most time efficient way to have accurate testing is to get our system to break as fast as possible and fix problems from there.</p>
+<h1 id="list-of-considerations"><a class="header" href="#list-of-considerations">List of considerations:</a></h1>
+<ul>
+<li>Size</li>
+<li>Speed</li>
+<li>Parachute Mechanism?</li>
+<li>Heat</li>
+<li>Pressure Range</li>
+<li>g-loading</li>
+<li>ESD Requirements</li>
+<li>Timeline</li>
+</ul>
+<h1 id="current-considerations"><a class="header" href="#current-considerations">Current Considerations</a></h1>
+<p>The general plan is that we will coordinate with the L1 launch team and use one of their launches, in order to save money for the club. They have generously offered to help us with this, but first we need to provide them with our expected parameters like size, apogee, acceleration etc. to give them an idea of what we need.</p>
+<p>SIZE:</p>
+<p>As previous years suggested, the diameter should be at least 3 inches, but ideally 4 or 5 so that the components can rest comfortably. This is something that we will have to design once we have all of our components laid out.</p>
+<p>MORE TO BE DOCUMENTED LATER</p>
+<h1 id="previous-years-discussion"><a class="header" href="#previous-years-discussion">Previous Years' Discussion</a></h1>
+<h2 id="considerations"><a class="header" href="#considerations">Considerations...</a></h2>
+<p>SIZE -</p>
+<p>For the size, we must be able to fit our entire avionics system, a back-up avionics system (the one that will deploy parachutes and stuff for the first few flights while we are testing basic functionality), and have space to route any thermistors, connectors, battteries, etc.</p>
+<p>The Beagle Bone Black (hereby referred to as BBB in this document) has dimensions of 3.4 inches x 2.15 inches x ~ 1 inch. We wanted a 5-inch diameter rocket at first, but soon realized that this would be extremely expensive in terms of the quality of the fuel, amount of fuel, and cost of rocket kit in order to make and launch this rocket (look to the next section about speed for more details on this). Thus, we are going to use a 4-inch diameter rocket which will be able to fit the BBB and BBB cape board (custom electronics attatched onto the BBB) extremely easily when they are positioned vertically. This should offer enough space for even testing more boards at once as well.</p>
+<p>SPEED -</p>
+<p>For the speed, we want to reach the COCOM limit of the GPS module we are using (which is 1000 knots, or 514m/s, or 1150mph) in order to be able to see how the GPS will turn off, and then also see if it will turn back on again by the time we reach apogee. We originally wanted to see this rocket go above that speed for over 10 seconds. This is because typical GPS modules have a refresh rate of 1 second. We will have to look deeper into the datasheet of the GPS we currently have, determine if we need one with a higher refresh rate or not. The simulations of the 4-inch diameter rocket we are likely to choose results in a speed above 514m/s for only about 1.5 seconds.</p>
+<p>PARACHUTE MECHANISM -</p>
+<p>For the parachute, we won't be able to deploy them on our early on. For first few flights we want to record when we WOULD deploy our drogue and see how accurate we are with the actual deployment of the COTS solution. The avionics test rocket will have COTS avionics system as the main avionics system until we deem ourselves capable of doing it in-house.</p>
+<p>HEAT -</p>
+<p>We want to be able to survive the ambient heat. Not much to consider here for now, the avionics bay of our rocket likely won't get that hot. We will have temperature sensors to measure exactly how hot things are getting.</p>
+<p>PRESSURE RANGE -</p>
+<p>We want to test what our pressure readings are at each height, while we are moving at the speed we are. This will offer very valuable information on how we can use pressure data readings in the future, and how accurate of a model they may provide of our trajectory if we don't adjust them for the speed we move at, or if we do, or if we need to make additional considerations when we reach speeds higher than mach 1.</p>
+<p>G-LOADING -</p>
+<p>The g-loading requirement is still up for debate. Current rockets we are looking at will have a max-g of around 22g. Currently, we should figure out how we can coat the board, make sure thermals won't go crazy if we do that, and then also test another board inside the rocket that doesn't have coating and see how each performs (do parts fly off during flight).</p>
+<p>ESD REQUIREMENTS -</p>
+<p>Previous flights have taught us that ESD protection is important for our system (duh, my bad for not implementing something like that on the last board - Andrew Lee), but because this is the first time we are designing something like this, we don't have a perfectly informed idea of the current counter-measures are going to work, and perfectly protect our electronics. Thus, we will first do testing on the ground of the effects of ESD on our system, and then we will decide whether we need some sort of grounding to the rocket frame or something like that.</p>
+<p>TIMELINE -</p>
+<p>The intention of this rocket is to be able to fly and test custom avionics. It offers some type of real-situation testing without costing the club an arm and leg, and allows us to test more frequently, as opposed to waiting for the yearly big rocket launch. Currently, the team allocates around 1500 dollars a year for our avionics test rocket launches. Each reload of the motor costs around 400 dollars. The first rocket launch will ideally occur at the beginning of the spring semester of 2022. This will be for the absolute minimum viable product, with the core requirement that we are able to take and log data. Afterwards, we will do a lot of testing on the avionics electronics and software (plan in our testing process documentation), and then hopefully launch again with an avionics system we are confident of operating correctly by the end of the semester.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../avionics/avionics_testrocket/testingrocket.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../avionics/avionics_testrocket/testingprocessdocumentation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../avionics/avionics_testrocket/testingrocket.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../avionics/avionics_testrocket/testingprocessdocumentation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
