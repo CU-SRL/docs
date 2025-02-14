@@ -1,34 +1,100 @@
-name: Deploy
+name: CI & Deploy
+
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
 
 jobs:
-  deploy:
+
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
+    # Checkout code
+    - uses: actions/checkout@v4
+
+    # Cache Cargo registry (dependencies)
+    - name: Cache Cargo registry
+      uses: actions/cache@v4
       with:
-        fetch-depth: 0
-    - name: Install mdbook
-      run: |
-        mkdir mdbook
-        curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
-        echo `pwd`/mdbook >> $GITHUB_PATH
-    - name: Deploy GitHub Pages
-      run: |
-        # This assumes your book is in the root of your repository.
-        # Just add a `cd` here if you need to change to another directory.
-        mdbook build
-        git worktree add gh-pages
-        git config user.name "Deploy from CI"
-        git config user.email ""
-        cd gh-pages
-        # Delete the ref to avoid keeping history.
-        git update-ref -d refs/heads/gh-pages
-        rm -rf *
-        mv ../book/* .
-        git add .
-        git commit -m "Deploy $GITHUB_SHA to gh-pages"
-        git push --force --set-upstream origin gh-pages
+        path: ~/.cargo/registry
+        key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-registry-
+
+    # Cache Cargo git index
+    - name: Cache Cargo git index
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/git
+        key: ${{ runner.os }}-cargo-git-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-git-
+          
+    # Cache mdBook binary
+    - name: Cache mdBook binary
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/bin/mdbook
+        key: ${{ runner.os }}-mdbook-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-mdbook-
+
+    # Install markdown book
+    - name: Install mdBook
+      run: cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
+
+    # Run mdBook Rust code tests
+    - name: Test Rust code
+      run: mdbook test
+
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Cache mdBook binary in deploy job as well
+      - name: Cache mdBook binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/mdbook
+          key: ${{ runner.os }}-mdbook-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mdbook-
+
+      # Installation again (should be cached)
+      - name: Install mdBook
+        run: cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
+
+      # Build the book and deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        run: |
+          # Build the mdBook
+          mdbook build
+          
+          # Create (or update) the gh-pages worktree
+          git worktree add gh-pages || true
+          git config user.name "Deploy from CI"
+          git config user.email "deploy@ci"
+
+          cd gh-pages
+          # Remove previous gh-pages history and files
+          git update-ref -d refs/heads/gh-pages || true
+          rm -rf *
+          # Copy the built book from the default location ("book" directory)
+          mv ../book/* .
+
+          git add .
+          git commit -m "Deploy ${GITHUB_SHA} to gh-pages"
+          git push --force --set-upstream origin gh-pages
