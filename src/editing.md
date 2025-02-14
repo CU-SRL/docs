@@ -41,7 +41,7 @@ git push origin main
 
 The documentation root looks like this. 
 
-```
+```markdown
 book/           The theme and styling of the website itself.
 src/            The folder containing site content.
 book.toml       Backend parameters for the site generator.
@@ -59,7 +59,7 @@ There is also a guide specific for this book available on the [mdBook documentat
 
 The documentation inside the `src/` folder is structured as shown below.  
 
-```
+```markdown
 SUMMARY.md
 avionics/
 - currentprojects/

@@ -45,15 +45,22 @@ FPrime GDS - Version Problems
     - It is bad practice and potentially dangerous to downgrade the compiler version being used on your machine, so if you for example run GLIBC version 2.35, don't try to change what version your computer uses. Your operating system is meant to run on the compiler version that it comes with, so don't try to change it. That is why we use a VM to compile with the correct version.
     - To get the executable onto the beaglebone black, use scp:
 
-            scp {RELEVANT DIR}/Ref debian@192.168.7.2:~
+        ```shell
+        scp {RELEVANT DIR}/Ref debian@192.168.7.2:~
+        ```
     
     - From there you need to make sure you give it the appropriate permissions to be able to run it:
 
-            sudo chmod +x Ref
+        ```shell
+        sudo chmod +x Ref
+        ```
+
 - Setting up said VM:
     - After cloning the repo, installing the tools, then building on the machine, run the following to get the proper tools installed:
 
-            sudo apt install crossbuild-essential-armhf
+        ```shell
+        sudo apt install crossbuild-essential-armhf
+        ```
 
     - The beagleboneblack toolchain on the github has the correct path of CMAKE already set up, so use that toolchain to generate and build
 
