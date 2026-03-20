@@ -4,9 +4,8 @@
 
 The mission of SRL Avionics is to create a reliable avionics system capable of verifying that a rocket has reached space while building a supportive community which develops us as engineers. We welcome members of all skill levels and are dedicated to using rocketry avionics as a way to deepen our technical ability.
 
-<!-- ## Meeting Time -->
-
-**Join us for the full team new member meeting on 9/2!**
+## Meeting Time
+__Join us every Wednesday at 6:30PM in ECEE 220!__
 
 <!-- Avionics Meetings - Sunday 3:00pm Engineering Lobby (Check Slack avionics channel to make sure the location has not changed for the week)
 
@@ -24,19 +23,17 @@ Hardware Meetings - Friday 4:30PM Engineering Lobby -->
 - [Slack Invite Link](https://join.slack.com/t/soundingrocketlab/shared_invite/zt-2n9ciw4h3-sb49brFFkLlJb3Cov8K31A)
 - Notion Invite Link - Coming Soon
 
-## Members
+## Leads
 
-Reach out to leads for any questions you may have! (Also if you don't see your name up here, let the avionics team lead know and they will add you! It's an important part of avionics to take pride in and show off what you've done, the experience you've gained, and what you've learned!)
+Reach out to leads for any questions you may have!
 
-Alex Reich [alre8317@colorado.edu](mailto:alre8317@colorado.edu)  - Avionics Team Lead
+Alex Reich [alre8317@colorado.edu](mailto:alre8317@colorado.edu)  - Avionics Lead
 
-Allison Byrnes [allison.byrnes@colorado.edu](mailto:allison.byrnes@colorado.edu) - Avionics Hardware Lead
+Pranith Bhat [pranith.bhat@colorado.edu](mailto:pranith.bhat@colorado.edu) - Avionics Controls Lead
 
-Winnie Regan [wire5926@colorado.edu](mailto:wire5926@colorado.edu)
+Owen White [owen.white@colorado.edu](mailto:owen.white@colorado.edu) - Avionics Embedded Software Lead
 
-<!-- Nico Madrid [nima9911@colorado.edu](mailto:nima9911@colorado.edu)  -->
+Fedor Bezzubtsev [fedor.bezzubtsev@colorado.edu](mailto:fedor.bezzubtsev@colorado.edu) - Avionics Hardware Lead
 
-Kofi Asare [koas3551@colorado.edu](mailto:koas3551@colorado.edu)
-
-To be updated in the fall!
+Landon Holligan [landon.holligan@colorado.edu](mailto:landon.holligan@colorado.edu) - Avionics Structures Lead
 
