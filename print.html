@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CU Sounding Rocket Lab Avionics Documentation</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CU Sounding Rocket Lab Avionics Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="welcome-to-the-cu-sounding-rocket-lab-docs"><a class="header" href="#welcome-to-the-cu-sounding-rocket-lab-docs">Welcome to the CU Sounding Rocket Lab Docs</a></h1>
+<p>Welcome to the CU SRL Avionics Documentation!</p>
+<p>If you are not yet a member of the CU SRL, please visit our site, at <a href="https://cusrl.com/">https://cusrl.com/</a>, for more information on getting involved. You can also check out any pages on this site called "Getting Involved" under each of the sub-teams.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="editing-the-docs"><a class="header" href="#editing-the-docs">Editing the docs</a></h1>
+<p>Our documentation system is hosted on <a href="https://pages.github.com/">GitHub Pages</a>, and uses Markdown files to show content.</p>
+<p>To edit the documentations, you may either:</p>
+<ol>
+<li>Clone the git repository these documents are hosted on, and edit using an editor of your choice.</li>
+<li>Edit the docs directly on GitHub, and commit your changes there.</li>
+</ol>
+<p>If you're going to be doing a lot of editing, we recommend the first option. Otherwise, click the "Edit" button on the top right of a page to edit it directly on GitHub. You may also add new pages on GitHub itself.</p>
+<h2 id="cloning-the-repository"><a class="header" href="#cloning-the-repository">Cloning the repository</a></h2>
+<p>First, you must be added to the <a href="https://github.com/CU-SRL">Github SRL organization</a>. Get in touch with a team leader to do this.</p>
+<p>Next, clone the repository.</p>
+<p>For first-time Git users, we recommend you use <a href="https://desktop.github.com/">GitHub Desktop</a>, with an editor of your choice (such as <a href="https://code.visualstudio.com/">Visual Studio Code</a>).</p>
+<p>For command line users, or those who want to familiarize themselves with git, use the following command in a folder of your choice:</p>
+<pre><code class="language-bash">git clone git@github.com:CU-SRL/docs.git
+</code></pre>
+<p>then open the documentation in an editor.</p>
+<h2 id="uploading-changes"><a class="header" href="#uploading-changes">Uploading changes</a></h2>
+<p>Using <a href="https://desktop.github.com/">GitHub Desktop</a>, simply add a change summary, commit, then push to the <code>main</code> branch.</p>
+<p>Using command-line git, navigate to the repository folder, then</p>
+<pre><code class="language-bash">git add .
+git commit -m "&lt;change description&gt;"
+git push origin main
+</code></pre>
+<h2 id="working-with-the-documentation"><a class="header" href="#working-with-the-documentation">Working with the documentation</a></h2>
+<p>The documentation root looks like this.</p>
+<pre><code class="language-markdown">book/           The theme and styling of the website itself.
+src/            The folder containing site content.
+book.toml       Backend parameters for the site generator.
+</code></pre>
+<p>Most of the work you'll be doing will be inside the <code>src/</code> folder.</p>
+<h3 id="working-with-markdown"><a class="header" href="#working-with-markdown">Working with Markdown</a></h3>
+<p>GitHub has good documentation on working with Markdown, <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">available here</a>.</p>
+<p>There is also a guide specific for this book available on the <a href="https://rust-lang.github.io/mdBook/format/markdown.html">mdBook documentation</a>, with some unique features like strikethrough text and table syntax.</p>
+<h3 id="structure"><a class="header" href="#structure">Structure</a></h3>
+<p>The documentation inside the <code>src/</code> folder is structured as shown below.</p>
+<pre><code class="language-markdown">SUMMARY.md
+avionics/
+- currentprojects/
+    - currentprojects.md
+    - testboard.md
+- overview/
+    - images/
+    - overview.md
+    - ...
+- gettinginvolved.md
+</code></pre>
+<p>All pages are Markdown (<code>.md</code>) files.</p>
+<p>Section headings are folders. Inside each folder, you might find some subheadings. If you want a subheading to be clickable, create that subheading inside its folder (such as <code>overview/overview.md</code>).</p>
+<p>We recommend you explore a bit and get familiarized.</p>
+<h3 id="adding-a-page"><a class="header" href="#adding-a-page">Adding a page</a></h3>
+<p>First, create the <code>.md</code> file for the page you want to create.</p>
+<p>Then, create a link to that Markdown file inside the <code>SUMMARY.md</code> file. Look inside <code>SUMMARY.md</code> for examples.</p>
+<h3 id="removing-or-moving-a-page"><a class="header" href="#removing-or-moving-a-page">Removing or moving a page.</a></h3>
+<p>Modify the relevant page, and make sure to update <code>SUMMARY.md</code> accordingly to redo the link to that page.</p>
+<h3 id="working-with-images"><a class="header" href="#working-with-images">Working with images</a></h3>
+<p>To add an image to a page, create an <code>images/</code> folder if it does not already exist, in the same directory as the page you want to add an image to. Copy the image to that images folder.</p>
+<p>Then, inside the <code>.md</code> file, use <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images">Markdown image syntax</a> to link to it. Links are relative, so use <code>images/your-image.png</code> for the link.</p>
+<p>If you want to resize your image, use the following syntax instead:</p>
+<pre><code class="language-html">&lt;img src="images/your-image.png" width="150" height="280"&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><img src="avionics/images/image.png" width="500">
+<h1 id="mission-statement"><a class="header" href="#mission-statement">Mission Statement</a></h1>
+<p>The mission of SRL Avionics is to create a reliable avionics system capable of verifying that a rocket has reached space while building a supportive community which develops us as engineers. We welcome members of all skill levels and are dedicated to using rocketry avionics as a way to deepen our technical ability.</p>
+<h2 id="meeting-time"><a class="header" href="#meeting-time">Meeting Time</a></h2>
+<p><strong>Join us every Wednesday at 6:30PM in ECEE 220!</strong></p>
+<!-- Avionics Meetings - Sunday 3:00pm Engineering Lobby (Check Slack avionics channel to make sure the location has not changed for the week)
+
+Software Meetings - Saturday 5:00PM Engineering Lobby
+
+Hardware Meetings - Friday 4:30PM Engineering Lobby -->
+<h2 id="cu-sounding-rocket-laboratory-website-link"><a class="header" href="#cu-sounding-rocket-laboratory-website-link">CU Sounding Rocket Laboratory Website Link</a></h2>
+<ul>
+<li><a href="https://cusrl.com/avionics/">Avionics Page</a></li>
+</ul>
+<h2 id="join-the-srl-slack-and-notion"><a class="header" href="#join-the-srl-slack-and-notion">Join the SRL Slack and Notion!</a></h2>
+<ul>
+<li><a href="https://join.slack.com/t/soundingrocketlab/shared_invite/zt-2n9ciw4h3-sb49brFFkLlJb3Cov8K31A">Slack Invite Link</a></li>
+<li>Notion Invite Link - Coming Soon</li>
+</ul>
+<h2 id="leads"><a class="header" href="#leads">Leads</a></h2>
+<p>Reach out to leads for any questions you may have!</p>
+<p>Alex Reich <a href="mailto:alre8317@colorado.edu">alre8317@colorado.edu</a>  - Avionics Lead</p>
+<p>Pranith Bhat <a href="mailto:pranith.bhat@colorado.edu">pranith.bhat@colorado.edu</a> - Avionics Controls Lead</p>
+<p>Owen White <a href="mailto:owen.white@colorado.edu">owen.white@colorado.edu</a> - Avionics Embedded Software Lead</p>
+<p>Fedor Bezzubtsev <a href="mailto:fedor.bezzubtsev@colorado.edu">fedor.bezzubtsev@colorado.edu</a> - Avionics Hardware Lead</p>
+<p>Landon Holligan <a href="mailto:landon.holligan@colorado.edu">landon.holligan@colorado.edu</a> - Avionics Structures Lead</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-involved"><a class="header" href="#getting-involved">Getting Involved!</a></h1>
+<p>Ready to get involved? Follow these steps!</p>
+<p>Do everything on the <a href="https://cusrl.com/join">new member checklist</a>.</p>
+<p>Reach out to the current avionics team lead or the sub-team lead with the topic you're most interested in (embedded software, web development, controls/state estimation, structures, RF, or PCB design).</p>
+<!-- Send them a nice message with the following (not actually required but for fun and letting the team lead get to know you!): 
+- year
+- major
+- what you like to do for fun
+- why you're interested in avionics (can be: I don't know anything about avionics and want to learn more!)
+- your favorite home-cooked meal (the current avionics lead needs inspiration for what to cook, recently been struggling)
+-->
+<p>On the slack, join the following channels:</p>
+<ul>
+<li><code>#avionics</code></li>
+<li><code>#avionics-hardware</code></li>
+<li><code>#avionics-software</code></li>
+<li><code>#avionics-bay</code></li>
+</ul>
+<p>The leads will have a list of things you need to do to get set up with the team, ask about this! Also let them know how much experience you are coming in with so they can cater the onboarding process to you individually.</p>
+<p>Jot down the time and date of the next avionics meeting in your planner! (Also should be on the <a href="avionics/centralpage.html">central page</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="this-is-a-page-for-avionics-members-to-list-out-resume-and-career-tips"><a class="header" href="#this-is-a-page-for-avionics-members-to-list-out-resume-and-career-tips">This is a page for avionics members to list out resume and career tips!</a></h2>
+<p>First off, feel free to reach out to your avionics lead if you want to meet 1-on-1 for resume advice or simply send them/him/her your current resume. Whatever your comfortable with! Your sub-team leads and team lead will always be willing to help you out, and you can gain a lot of meaning from getting feedback from peers on your resume. This will be a page that gets updated as time moves forward, and hopefully it can be a great additional resource for your professional development!</p>
+<ul>
+<li><a href="https://www.reddit.com/r/EngineeringResumes/comments/m2cc65/new_and_improved_wiki/">Reddit Engineering Resume Advice</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="current-projects"><a class="header" href="#current-projects">Current Projects</a></h1>
+<p>Avionics is currently working on a number of projects in parallel.</p>
+<ol>
+<li><a href="avionics/currentprojects/phoenix/phoenix.html">Phoenix Flight Computer</a>
+<ul>
+<li>This is the custom flight computer flown on Mamba III and currently being upgraded for Spaceshot. Currently looking for new members with experience in
+<ul>
+<li>State estimation/Kalman Filter (Simulink, C++)</li>
+<li>Embedded software (C, C++)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="avionics/currentprojects/avbay.html">Spaceshot Avionics Bay</a>
+<ul>
+<li>We will be developing the entire avionics bay structure for Spaceshot. Currently looking for new members with experience in
+<ul>
+<li>Structures</li>
+<li>Harnessing</li>
+<li>Manufacturing (Lathe, Mill)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="avionics/currentprojects/groundstation.html">Ground Station</a>
+<ul>
+<li>We are currently developing an entire ground station and mission control suite. Looking for new members with experience in
+<ul>
+<li>Structures</li>
+<li>Linux software development</li>
+<li>Full stack web development</li>
+<li>Embedded software</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="avionics/currentprojects/WALRUS.html">WALRUS Video Streaming</a>
+<ul>
+<li>Project in progress to create a system to live stream video from the rocket. Looking for new members with experience in
+<ul>
+<li>Linux software development</li>
+<li>Shaders/video compression</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="avionics/currentprojects/lighthouse/lighthouse.html">Lighthouse Cooperative Radar</a>
+<ul>
+<li>Project to create a radar system to accurately track the rocket through flight using radio waves. Looking for new members with experience in
+<ul>
+<li>Verilog</li>
+<li>Embedded software</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="phoenix-flight-computer"><a class="header" href="#phoenix-flight-computer">Phoenix Flight Computer</a></h1>
+<p>The Phoenix flight computer is designed with one goal in mind-- to be the main flight computer for SRL's rockets. It must</p>
+<ul>
+<li>Record data from onboard sensors</li>
+<li>Downlink telemetry in flight to aid in recovery</li>
+<li>Estimate apogee altitude using an Extended Kalman Filter</li>
+<li>Deploy parachutes at apogee</li>
+<li>Trigger cameras and various peripherals based on command from mission control</li>
+</ul>
+<p><a href="avionics/currentprojects/phoenix/phx_software.html">Software Details</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="phoenix-software-details"><a class="header" href="#phoenix-software-details">Phoenix Software Details</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="walrus-video-streaming"><a class="header" href="#walrus-video-streaming">WALRUS Video Streaming</a></h1>
+<p>Wireless Array for Long Range Uninterrupted Streaming</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lighthouse-cooperative-radar"><a class="header" href="#lighthouse-cooperative-radar">Lighthouse Cooperative Radar</a></h1>
+<p>In order to get an accurate altitude/position reading on the rocket, we are developing a cooperative radar system. We will uplink a signal from the ground, re-amplify and retransmit it using a repeater onboard the rocket. We will then use ranging and angle-of-arrival algorithms on the ground to determine the position of the rocket.</p>
+<p>The signal will be a Pseudo-Random Noise (PRN) sequence. It will be generated by an FPGA, and modulated using  Binary Phase Shift Keying (BPSK). The uplink signal will be on the 2.4 GHz HAM band, and the downlink signal will be on the 3.3GHz HAM band.</p>
+<h2 id="ranging"><a class="header" href="#ranging">Ranging</a></h2>
+<p>The ranging algorithm will compute the 2-way time-of-flight (TOF) for the signal. It will estimate the TOF by correlating the recieved, demodulated stream with the PRN being transmitted. By timing the difference between correlation peaks, we can calculate the time of flight and get the distance the signal traveled using $ d = c*\frac{t}{2} $ where $c$ is the speed of light and $t$ is the 2 way TOF. The correlation algorithm will be written in Verilog for the Spartan 7 FPGA.</p>
+<p>The bitrate of the PRN determines the ranging accuracy. Since we are using BPSK modulation, the bitrate is directly proportional to the signal bandwidth. At the HAM bands we have chosen, the largest bandwidth we can get is 20MHz, which means that we can get a 20 Mbps chip rate. This corresponds to an accuracy of 15 meters radially, which is good enough considering that the rocket will be more than 100km in the sky.</p>
+<h2 id="angle-of-arrival"><a class="header" href="#angle-of-arrival">Angle of Arrival</a></h2>
+<p>Angle of arrival will consist of three phases.</p>
+<ol>
+<li>Initial Pointing</li>
+</ol>
+<p>The repeater on the rocket will send out a pure tone beacon at 3.3GHz (only modulated using On-Off Keying (OOK) to comply with HAM laws). The groundstation horn antenna array will use either amplitude angle of arrival or phase interferometry (not sure yet). The gimbal control law will work to point the array towards the beacon source.</p>
+<ol start="2">
+<li>Acquisition</li>
+</ol>
+<p>Once the gimbal is pointing close enough to the rocket for it to recieve the uplinked PRN, the beacon tone will turn off and the repeater will automatically start retransmitting the PRN. The groundstation will continue to use the coarse angle of arrival algorithm.</p>
+<ol start="3">
+<li>Tracking</li>
+</ol>
+<p>Since the baseline of the antenna array is 1 meter in the azimuth and elevation axes, the $2\pi$ ambiguity angle will be ~2.5°. Once the coarse tracking gets within this threshold, it will switch to fine tracking, which will use phase interferometry with the 1m baseline to track with a higher accuracy. More details on the fine accuracy can be found in the PDR slideshow.</p>
+<h2 id="antenna-design"><a class="header" href="#antenna-design">Antenna Design</a></h2>
+<p>Details can be found on the <a href="avionics/currentprojects/lighthouse/antennadesign.html">antenna design</a> page.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="antenna-design-1"><a class="header" href="#antenna-design-1">Antenna Design</a></h1>
+<h2 id="ground-side"><a class="header" href="#ground-side">Ground side</a></h2>
+<h3 id="rx-horn-antennas"><a class="header" href="#rx-horn-antennas">RX Horn Antennas</a></h3>
+<h3 id="tx-helix-antenna"><a class="header" href="#tx-helix-antenna">TX Helix Antenna</a></h3>
+<h2 id="flight-repeater"><a class="header" href="#flight-repeater">Flight Repeater</a></h2>
+<h3 id="cots-monopoles"><a class="header" href="#cots-monopoles">COTS Monopoles</a></h3>
+<p>We have chosen to use commercial monopole antennas on the flight repeater. The omnidirectional gain pattern is best for a rocket with uncontrolled attitude, and since the ground antennas are circularly polarized we won't get polarization mismatch as the rocket tumbles. Using COTS parts will also reduce development cost and risk.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spaceshot-avionics-bay"><a class="header" href="#spaceshot-avionics-bay">Spaceshot Avionics Bay</a></h1>
+<p>Preliminary wiring diagram</p>
+<img src="avionics/currentprojects/../images/IMG_0484.jpg"><div style="break-before: page; page-break-before: always;"></div><h1 id="ground-station-distributed-system"><a class="header" href="#ground-station-distributed-system">Ground Station Distributed System</a></h1>
+<p>The objective of this project is to improve the operational capacity of SRL during launches. The system is designed with the following architecture.</p>
+<p>[block diagram here]</p>
+<p>This project consists of the following subparts:</p>
+<h2 id="raspberry-pi-central-controller"><a class="header" href="#raspberry-pi-central-controller">Raspberry Pi Central Controller</a></h2>
+<p>The Raspberry Pi CM5 with a custom carrier board will be the central node in the system. It will interface with the peripherals (stepper controller PCB, radios) and recieve commands/forward downlinked data to and from the mission control application.</p>
+<h2 id="gimbal"><a class="header" href="#gimbal">Gimbal</a></h2>
+<p>Our avionics structures team has designed, manufactured, and constructed a 2-axis actuated gimbal. We will mount our antennas on it, using the Lighthouse angle of arrival functionality to automatically track the rocket. By tracking the rocket, we can use antennas with higher directionality and improve the link budget.</p>
+<p>The gimbal stepper motors are controlled by the stepper controller PCB.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
