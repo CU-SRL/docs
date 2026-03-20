@@ -1,3 +1,5 @@
 # Spaceshot Avionics Bay
 
-Wiring diagram
+Preliminary wiring diagram
+
+<img src="../images/IMG_0484.jpg">
