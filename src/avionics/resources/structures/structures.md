@@ -1,6 +1,6 @@
 # Structures Resources
 
 Topics:
-- Fusion360 resources
-- Solidworks resources
-- ANSYS FEA resources
+- Tolerancing Guidelines
+- Creating Drawings
+- Design for Manufacturing Guidelines (DFM)
