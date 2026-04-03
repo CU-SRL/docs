@@ -5,7 +5,7 @@ Topics:
 
 ## GPIOs
 
-#### *STEP 1:* Setting up the devicetree:
+#### STEP 1: Setting up the devicetree:
 
 In Zephyr RTOS, the easiest way to configure hardware interface with the gpio is to add the following to your `app.overlay` file
 
@@ -25,7 +25,7 @@ In Zephyr RTOS, the easiest way to configure hardware interface with the gpio is
 
 This example would define GPIO A1. Setting `status = "okay"` tells Zephyr to enable GPIO bank A, and the `zephyr,user` code defines the specific GPIO that you want to access (bank A, pin 1). When you do this for your own code, talk to whoever designed the PCB to see what GPIO bank and pin you should use.
 
-#### *STEP 2:* Access the device in your C/C++ code:
+#### STEP 2: Access the device in your C/C++ code:
 
 Then, in your code, you can access that node in the following way:
 
