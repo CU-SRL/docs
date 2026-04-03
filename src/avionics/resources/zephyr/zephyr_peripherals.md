@@ -9,7 +9,7 @@ Topics:
 
 In Zephyr RTOS, the easiest way to configure hardware interface with the gpio is to add the following to your `app.overlay` file
 
-```
+```c++
 / {
     ...other configs here...
 
