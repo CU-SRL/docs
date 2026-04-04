@@ -62,5 +62,20 @@ int your_function() {
 
     // set gpio low
     gpio_pin_set_dt(&your_gpio, 0);
+
+    return 0;
 }
+```
+
+## Sensor API
+
+## I2C Devices
+
+## ADCs
+
+## SPI Devices
+
+## UART (Interrupt Based)
+
+## UART (DMA Based)
 
