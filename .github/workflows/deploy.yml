@@ -1,0 +1,101 @@
+name: CI & Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout code
+    - uses: actions/checkout@v4
+
+    # Cache Cargo registry (dependencies)
+    - name: Cache Cargo registry
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/registry
+        key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-registry-
+
+    # Cache Cargo git index
+    - name: Cache Cargo git index
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/git
+        key: ${{ runner.os }}-cargo-git-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-git-
+          
+    # Cache mdBook binary
+    - name: Cache mdBook binary
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/bin/mdbook
+        key: ${{ runner.os }}-mdbook-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-mdbook-
+
+    # Install markdown book
+    - name: Install mdBook
+      run: |
+        if ! command -v mdbook &> /dev/null; then
+          cargo install mdbook --no-default-features --features search --vers "^0.4" --locked;
+        else
+          echo "mdBook is already installed, skipping installation."
+        fi
+
+    # Run mdBook Rust code tests
+    - name: Test Rust code
+      run: mdbook test
+
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Restore the mdBook binary from the cache
+      - name: Restore mdBook binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/mdbook
+          key: ${{ runner.os }}-mdbook-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mdbook-
+
+      # Build the book and deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        run: |
+          # Build the mdBook
+          mdbook build
+          
+          # Create (or update) the gh-pages worktree
+          git worktree add gh-pages || true
+          git config user.name "Deploy from CI"
+          git config user.email "deploy@ci"
+
+          cd gh-pages
+          # Remove previous gh-pages history and files
+          git update-ref -d refs/heads/gh-pages || true
+          rm -rf *
+          # Copy the built book from the default location ("book" directory)
+          mv ../book/* .
+
+          git add .
+          git commit -m "Deploy ${GITHUB_SHA} to gh-pages"
+          git push --force --set-upstream origin gh-pages
