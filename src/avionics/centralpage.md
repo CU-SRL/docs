@@ -1,4 +1,4 @@
-<img src="images/image.png" width="500">
+<img src="images/IMG7279.jpeg" width="500">
 
 # Mission Statement
 
