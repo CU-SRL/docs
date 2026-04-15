@@ -7,7 +7,7 @@
 - [About Avionics](avionics/centralpage.md)
 - [Getting Involved](avionics/gettinginvolved.md)
 - [Resume Advice](avionics/resumeadvice.md)
-- [Resources](avioncs/resources/resources.md)
+- [Resources](avionics/resources/resources.md)
   - [SRL Avionics Common Practices](avionics/resources/common_practices/avionics_common_practices.md)
   - [Git Resources](avionics/resources/git/git.md)
     - [SRL Git Workflow](avionics/resources/git/git_procedure.md)
