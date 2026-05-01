@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SRL Avionics Project Development Cycle - CU Sounding Rocket Lab Avionics Documentation</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CU Sounding Rocket Lab Avionics Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs/edit/main/src/avionics/resources/common_practices/dev_cycle.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="srl-avionics-project-development-cycle"><a class="header" href="#srl-avionics-project-development-cycle">SRL Avionics Project Development Cycle</a></h1>
+<p>The objective of this page is to provide a clear blueprint to guide the team through project conception to completion.</p>
+<h2 id="stage-1-conception"><a class="header" href="#stage-1-conception">Stage 1: Conception</a></h2>
+<p>In order for a project to be successful, it must have predefined</p>
+<ul>
+<li><strong>Motivation</strong></li>
+<li><strong>Scope</strong></li>
+<li><strong>Requirements</strong></li>
+</ul>
+<p>Before a project can pass this stage, these 3 things MUST be fully defined and agreed upon by the project lead (and if relevant the team captains).</p>
+<p>This stage is also where research on the current field is conducted. Questions that should be answered include</p>
+<ul>
+<li>Is there a COTS solution?
+<ul>
+<li>If so, can we use it or modify it?</li>
+<li>If not, is it because it has yet to be done, or because there is a better way to achieve the stated goal?</li>
+</ul>
+</li>
+<li>Have other student rocketry teams done something similar?
+<ul>
+<li>If so, what challenges did they face? How can we address those problems from the start to come up with a better solution?</li>
+<li>If not, who could we reach out to for guidance? Are there professors at CU who would be willing to advise?</li>
+</ul>
+</li>
+<li>Is the high-level system architecture/con-ops even feasible?
+<ul>
+<li>Are the interfaces possible/do they make sense?</li>
+<li>Do the laws of physics allow the requirements to meet without compromising each other? (this is where link budget analysis, power budgets, weight restrictions, etc. come into play)</li>
+<li>Does the club have the institutional knowledge to design, build, and test a system with the proposed complexity?
+<ul>
+<li>The simpler the project is, the higher the likelihood of completion.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This stage concludes with a Preliminary Design Review (PDR) (guidance on this presentation coming soon). Project leads should encourage other unrelated members of the club to participate, as multidisciplinary opinions can often catch overlooked design flaws.</p>
+<p>This stage should last 1-2 months, depending on the complexity of the project. It is important to leave this stage relatively quickly both to capitalize on momentum and to get to the prototyping stage as quickly as possible.</p>
+<h2 id="stage-2-design"><a class="header" href="#stage-2-design">Stage 2: Design</a></h2>
+<p>Once the project has passed PDR, club resources can be devoted to the project's development. Work should start on any relevant software, PCBs, or structural hardware in parallel to avoid one specific area being in the critical path.</p>
+<ul>
+<li>Avoid the temptation to wait on software development for the PCB to be done. Often, the software development takes much longer than hardware design, so the project will suffer delays if software dev is not started immediately. This is why infrastructure such as unit testing and breakout boards for peripherals are extremely valuable.</li>
+<li>This is why defining strong requirements and interfaces in the coneception stage is important. A common source of truth will allow hardware and software teams to understand what the other needs to do, which will avoid blockages while one waits for the other.</li>
+</ul>
+<p>As soon as the project enters the design phase, Responsible Engineers should be appointed to own every major aspect of the project (i.e. software, PCBs, antenna design, structures/mechanisms design). These REs will commit to seeing through their part of the project until completion, and will often be the members driving the project through the conception stage.</p>
+<ul>
+<li>Avoid giving an RE role to someone who has not demonstrated personal investment in the project. Ownership is something that must be intrinsically motivated, so everyone will have a better time if the person responsible for each subsystem comes to work sessions often and communicates well.</li>
+</ul>
+<p>This stage is where rapid, cheap prototyping should occur. 3D printing and cheap parts off Amazon or McMaster are perfect for this, enabling the REs to determine the actual feasibility of the project as quickly as possible.</p>
+<p>Before major POs are placed, an informal Design Review should be held. These are meetings where the RE can present their work on a subsystem to other members of the club (often not in the same subteam). These meetings help to iron out inconsistencies in the design and serve as a filter to make sure only the most robust ideas make it through to the end product.</p>
+<p>This stage should culminate in a Critical Design Review (CDR). By the time of the CDR, the PCB must be fully designed, the software must be largely written, and the low level implementation details of the project must be resolved. <strong>PCBs/expensive mechanical components should not be ordered before the project has passed a formal CDR.</strong></p>
+<p>The CDR will be a formal presentation, detailing the low-level implementation details. The RE for each subsystem will present their portion, and feedback will be encouraged from the rest of the team.</p>
+<p>The design stage for a project should take about a semester. Be wary of extending past this timeline except in specific cases or extremely complex projects. Momentum is very difficult to carry between semesters, especially over the summer, and the effect of losing this momentum should not be underestimated.</p>
+<h2 id="stage-3-assembly-integration-and-test"><a class="header" href="#stage-3-assembly-integration-and-test">Stage 3: Assembly, Integration and Test</a></h2>
+<p>After CDR is passed, the project is fully greenlit. PCBs and components for any relevant structures should be ordered.</p>
+<ul>
+<li>Any large system shall have a BOM with a list of all parts for future reference, which will be a requirement before the avionics lead will place POs.</li>
+<li>Any machined components shall have associated drawings in compliance with the drawing guidelines to help machinists</li>
+<li>Any PCB will also have an associated schematic and layout review before ordering</li>
+</ul>
+<p>Components should all be ordered together, and marked off on the BOM when they are recieved. The team will assemble the project and begin to test the software. This stage is considered flight ready once testing concludes that the initial system requirements have been met.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../avionics/resources/common_practices/avionics_common_practices.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../avionics/resources/git/git.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../avionics/resources/common_practices/avionics_common_practices.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../avionics/resources/git/git.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
