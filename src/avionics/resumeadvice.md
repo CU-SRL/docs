@@ -19,3 +19,6 @@ Things to consider:
     - Represent your technical achievements at a high level. In other words, do not specifically say "Wrote a function that wrote 8 bit values to a configuration register over SPI for the TMC429". Instead, think more along the lines "Wrote custom driver to control the TMC429 motor driver over SPI in C". They will ask you about the details in the interview-- use the space to include more high level ownership.
     - Keep your bulletpoints short. Each one should not take up more than 2 lines.
     - Start bullet points with action verbs. "Owned", "Led", "Executed", etc.
+
+Notes on making connections:
+- Coming soon
