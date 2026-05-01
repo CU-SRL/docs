@@ -32,3 +32,7 @@ This leads us nicely into the idea of...
 
 Coming soon...
 
+$$ G_{eff} = \eta \frac{4\pi A_0}{\lambda _0^2} $$
+
+$$ \eta_{petals} = e^{-(\frac{2.08 \frac{D}{\lambda}}{N^2})^2} $$
+
