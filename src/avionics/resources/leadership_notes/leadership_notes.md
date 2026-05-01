@@ -55,4 +55,4 @@ The infrastructure a team has or doesn't have is, in my opinion, the difference 
 - Remote access/card access
 - Unit testing and simulation frameworks
 
-As the lead, this is your main project. If you can build these things, you will build a strong organization that will have a much easier time moving past obstacles and will face less obstacles in the first place. 
+As the lead, building this infrastructure is your main project. If you can build these things, you will build a strong organization that will have a much easier time moving past obstacles and will face less obstacles in the first place.
