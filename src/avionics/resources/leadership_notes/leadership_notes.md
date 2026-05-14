@@ -26,6 +26,7 @@ Specific standards that I'm referencing:
 - Have equal respect for all your teammates, whether they are new members or seasoned veterans. 
 - Do not permit any form of joke at another's expense (unless the people in question are good friends outside of the club). Feel comfortable calling people out on this calmly but firmly, to ensure that all new members feel welcome.
 - Embody the motto that "leaders get to take none of the credit and all of the blame." When something goes right, celebrate your team and the hard work they have done. When something goes wrong, look inwards and ask yourself how you could've led your team differently to a different outcome. 
+- Do not permit any slander whatsoever of other student teams, particularly those at the CU. They can be huge assets, so alienating them comes with a steep cost.
 
 One specific standard I want to emphasize above the others: 
 
@@ -56,3 +57,43 @@ The infrastructure a team has or doesn't have is, in my opinion, the difference 
 - Unit testing and simulation frameworks
 
 As the lead, building this infrastructure is your main project. If you can build these things, you will build a strong organization that will have a much easier time moving past obstacles and will face less obstacles in the first place.
+
+### Avoiding Becoming the Technical Bottleneck
+- not your job to make every decision, just to guide
+- choose REs wisely
+- you should be removing blockers, not adding them
+
+### Delegation
+- provide very specific instructions
+- subteam leads should help new members through tasks step by step first time around
+- have tasks ready for new members at every single meeting
+
+### The Team as a Company
+- caring for your people as a family
+- encourage a culture of "I do it for them because I know they would do it for me"
+
+### Decision-Making
+- make the smallest decision possible
+- karnaugh maps: figure out what you need to do regardless of what you're waiting on and act on it
+- explore the state space
+
+### Momentum
+- celebrate wins publicly
+- the importance of discussing in public channels
+- announce new projects riding on the wave of a successful event
+
+### New Member Meetings and Retention
+- new member tasks
+- strong vision
+- word of mouth recruiting
+
+### Safety
+
+### Conflict
+- need to think about this one
+#### Sub-topic: the dangers of political infighting
+
+### Subteam Leads
+- your biggest asset. develop a team around you that will sharpen you
+
+### Setting the Team Up for When You Leave

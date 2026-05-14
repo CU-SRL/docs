@@ -26,6 +26,9 @@ This stage is also where research on the current field is conducted. Questions t
 
 This stage concludes with a Preliminary Design Review (PDR) (guidance on this presentation coming soon). Project leads should encourage other unrelated members of the club to participate, as multidisciplinary opinions can often catch overlooked design flaws.
 
+### PDR Guidance
+
+
 This stage should last 1-2 months, depending on the complexity of the project. It is important to leave this stage relatively quickly both to capitalize on momentum and to get to the prototyping stage as quickly as possible.
 
 ## Stage 2: Design
@@ -44,6 +47,8 @@ Before major POs are placed, an informal Design Review should be held. These are
 This stage should culminate in a Critical Design Review (CDR). By the time of the CDR, the PCB must be fully designed, the software must be largely written, and the low level implementation details of the project must be resolved. **PCBs/expensive mechanical components should not be ordered before the project has passed a formal CDR.**
 
 The CDR will be a formal presentation, detailing the low-level implementation details. The RE for each subsystem will present their portion, and feedback will be encouraged from the rest of the team. 
+
+### CDR Guidance
 
 The design stage for a project should take about a semester. Be wary of extending past this timeline except in specific cases or extremely complex projects. Momentum is very difficult to carry between semesters, especially over the summer, and the effect of losing this momentum should not be underestimated.
 
