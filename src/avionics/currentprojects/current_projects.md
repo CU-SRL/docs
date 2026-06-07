@@ -25,3 +25,4 @@ Avionics is currently working on a number of projects in parallel.
     - Project to create a radar system to accurately track the rocket through flight using radio waves. Looking for new members with experience in
         - Verilog 
         - Embedded software
+6. [DIABLO Data Acquisition System](diablo/diablo.md)
