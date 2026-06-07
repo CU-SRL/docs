@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Installation - CU Sounding Rocket Lab Avionics Documentation</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CU Sounding Rocket Lab Avionics Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/CU-SRL/docs/edit/main/src/avionics/resources/zephyr/zephyr_install.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="zephyr-rtos-setup-guide"><a class="header" href="#zephyr-rtos-setup-guide">Zephyr RTOS Setup Guide</a></h1>
+<p>Zephyr is a scalable real-time operating system designed for resource-constrained embedded devices. It supports a wide range of ARM Cortex-M targets — including STM32 and Nordic nRF series — which are commonly used in avionics hardware.</p>
+<p>These scripts automate the full installation of the Zephyr SDK, the <code>west</code> meta-tool, and all required dependencies.</p>
+<p>Note:</p>
+<ul>
+<li>Summary written by AI</li>
+<li>Any time <code>zephyrproject</code> is mentioned, it can be replaced with the top level directory of your project.</li>
+</ul>
+<hr />
+<h2 id="quick-start"><a class="header" href="#quick-start">Quick Start</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Platform</th><th>Script</th></tr></thead><tbody>
+<tr><td>Linux (Ubuntu, Fedora, Arch)</td><td><code>install_zephyr_linux.sh</code></td></tr>
+<tr><td>macOS (Intel and Apple Silicon)</td><td><code>install_zephyr_mac.sh</code></td></tr>
+<tr><td>Windows (Git Bash + Chocolatey)</td><td><code>install_zephyr_windows.sh</code></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="platform-specific-instructions"><a class="header" href="#platform-specific-instructions">Platform-Specific Instructions</a></h2>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<p><strong>Prerequisites:</strong> <code>sudo</code> access is required to install system packages.</p>
+<pre><code class="language-bash">chmod +x install_zephyr_linux.sh
+./install_zephyr_linux.sh
+</code></pre>
+<p>Supported distributions: Ubuntu, Debian, Linux Mint, Pop!_OS, Fedora, Arch, Manjaro.</p>
+<hr />
+<h3 id="macos"><a class="header" href="#macos">macOS</a></h3>
+<p><strong>Prerequisites:</strong> The script will install Homebrew automatically if it is not present. Accept the Xcode Command Line Tools prompt when asked.</p>
+<pre><code class="language-bash">chmod +x install_zephyr_mac.sh
+./install_zephyr_mac.sh
+</code></pre>
+<p>Works on both Intel (<code>x86_64</code>) and Apple Silicon (<code>arm64</code>) Macs.</p>
+<hr />
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p>Windows support is provided through <strong>Git Bash</strong> (included with <a href="https://git-scm.com/download/win">Git for Windows</a>) and <a href="https://chocolatey.org/install">Chocolatey</a>.</p>
+<p><strong>Step 1: Install Chocolatey</strong> (run once from an Administrator PowerShell)</p>
+<pre><code class="language-powershell">Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = 3072
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+</code></pre>
+<p><strong>Step 2: Run the script from Git Bash</strong> (not PowerShell or cmd.exe)</p>
+<pre><code class="language-bash">chmod +x install_zephyr_windows.sh
+./install_zephyr_windows.sh
+</code></pre>
+<blockquote>
+<p><strong>WSL2 alternative:</strong> If you have WSL2 installed, running <code>install_zephyr_linux.sh</code> inside a WSL2 Ubuntu shell is generally more reliable than the Git Bash approach. See <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Microsoft's WSL2 guide</a> for setup instructions.</p>
+</blockquote>
+<hr />
+<h2 id="what-the-scripts-do"><a class="header" href="#what-the-scripts-do">What the Scripts Do</a></h2>
+<p>Each script performs the following steps in order:</p>
+<ol>
+<li><strong>Install system packages</strong> — cmake, ninja, gperf, device tree compiler, Python 3, and other build tools via the platform's package manager.</li>
+<li><strong>Create a Python virtual environment</strong> at <code>~/zephyrproject/.venv</code> to isolate Zephyr's Python dependencies from the system.</li>
+<li><strong>Install West</strong> — Zephyr's meta-build tool, used to manage the workspace and build firmware.</li>
+<li><strong>Initialize the Zephyr workspace</strong> at <code>~/zephyrproject/</code> by cloning the Zephyr repository and all required modules.</li>
+<li><strong>Install Zephyr Python requirements</strong> from <code>zephyr/scripts/requirements.txt</code>.</li>
+<li><strong>Download and install the Zephyr SDK</strong> — the cross-compilation toolchain for your target architecture.</li>
+<li><strong>Persist the venv activation</strong> in your shell profile (<code>.bashrc</code>, <code>.zshrc</code>, or <code>.bash_profile</code>) so the environment is available in future terminal sessions.</li>
+</ol>
+<hr />
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>All scripts respect the following environment variables, which you can set before running to override defaults:</p>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>ZEPHYR_SDK_VERSION</code></td><td><code>0.16.8</code></td><td>Zephyr SDK version to install</td></tr>
+<tr><td><code>ZEPHYR_BASE</code></td><td><code>~/zephyrproject</code></td><td>Where to initialize the Zephyr workspace</td></tr>
+<tr><td><code>ZEPHYR_TOOLCHAIN</code></td><td><code>arm-zephyr-eabi</code></td><td>Which cross-compiler toolchain to install</td></tr>
+</tbody></table>
+</div>
+<p><strong>Example — install a specific SDK version and all toolchains:</strong></p>
+<pre><code class="language-bash">ZEPHYR_SDK_VERSION=0.16.8 ZEPHYR_TOOLCHAIN=all ./install_zephyr_linux.sh
+</code></pre>
+<p><strong>Common toolchain values:</strong></p>
+<ul>
+<li><code>arm-zephyr-eabi</code> — ARM Cortex-M/R (STM32, nRF, most avionics MCUs)</li>
+<li><code>riscv64-zephyr-elf</code> — RISC-V targets</li>
+<li><code>xtensa-espressif_esp32_zephyr-elf</code> — ESP32</li>
+<li><code>all</code> — every supported toolchain (~7 GB download)</li>
+</ul>
+<blockquote>
+<p>For most avionics work targeting STM32 or Nordic nRF MCUs, the default <code>arm-zephyr-eabi</code> toolchain is sufficient.</p>
+</blockquote>
+<hr />
+<h2 id="verifying-the-installation"><a class="header" href="#verifying-the-installation">Verifying the Installation</a></h2>
+<p>After the script completes, open a new terminal and run:</p>
+<pre><code class="language-bash">source ~/zephyrproject/.venv/bin/activate   # Linux/macOS
+# or
+source ~/zephyrproject/.venv/Scripts/activate  # Windows Git Bash
+
+west --version
+cmake --version
+</code></pre>
+<p>You should see version output for both tools with no errors.</p>
+<hr />
+<h2 id="building-your-first-project"><a class="header" href="#building-your-first-project">Building Your First Project</a></h2>
+<p>The standard Zephyr workflow uses <code>west build</code> to compile firmware for a specific board target.</p>
+<pre><code class="language-bash"># Activate the Zephyr environment
+source ~/zephyrproject/.venv/bin/activate
+
+# Navigate into the Zephyr source tree
+cd ~/zephyrproject/zephyr
+
+# Build the hello_world sample for your board
+west build -b &lt;board_name&gt; samples/hello_world
+
+# Flash the firmware (requires a connected programmer)
+west flash
+</code></pre>
+<p><strong>Common board targets:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Board</th><th>Zephyr target name</th></tr></thead><tbody>
+<tr><td>STM32 Nucleo-F401RE</td><td><code>nucleo_f401re</code></td></tr>
+<tr><td>STM32 Nucleo-L476RG</td><td><code>nucleo_l476rg</code></td></tr>
+</tbody></table>
+</div>
+<p>Run <code>west boards</code> to list all supported targets, or search at <a href="https://docs.zephyrproject.org/latest/boards/index.html">docs.zephyrproject.org</a>.</p>
+<hr />
+<h2 id="pinning-a-specific-zephyr-version"><a class="header" href="#pinning-a-specific-zephyr-version">Pinning a Specific Zephyr Version</a></h2>
+<p>To use a specific Zephyr release instead of the latest, pass <code>--mr</code> to <code>west init</code>:</p>
+<pre><code class="language-bash">west init --mr v3.7.0 ~/zephyrproject
+</code></pre>
+<p>Zephyr releases follow the pattern <code>v&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code>. Check <a href="https://github.com/zephyrproject-rtos/zephyr/releases">GitHub releases</a> for available versions.</p>
+<hr />
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<p><strong><code>west: command not found</code> after installation</strong>
+The virtual environment is not active. Run:</p>
+<pre><code class="language-bash">source ~/zephyrproject/.venv/bin/activate
+</code></pre>
+<p><strong><code>west update</code> fails mid-way</strong>
+Network interruptions can leave the workspace in a partial state. Re-run <code>west update</code> — it is idempotent and will resume where it left off.</p>
+<p><strong>SDK setup fails with permission errors (Linux)</strong>
+Ensure <code>~/zephyr-sdk-&lt;version&gt;/</code> is owned by your user, not root. Re-run the SDK setup step manually:</p>
+<pre><code class="language-bash">cd ~/zephyr-sdk-0.16.8
+./setup.sh -t arm-zephyr-eabi -h -c
+</code></pre>
+<p><strong>Homebrew not on PATH after install (macOS Apple Silicon)</strong>
+Add this to your <code>~/.zshrc</code>:</p>
+<pre><code class="language-bash">eval "$(/opt/homebrew/bin/brew shellenv)"
+</code></pre>
+<p><strong>CMake can't find the Zephyr package</strong>
+Run <code>west zephyr-export</code> from inside the workspace directory:</p>
+<pre><code class="language-bash">cd ~/zephyrproject
+west zephyr-export
+</code></pre>
+<p><strong>Windows: <code>7z</code> not found</strong>
+Install 7-Zip via Chocolatey from an Admin shell, then reopen Git Bash:</p>
+<pre><code class="language-powershell">choco install 7zip
+</code></pre>
+<hr />
+<h2 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h2>
+<ul>
+<li><a href="https://docs.zephyrproject.org/latest/develop/getting_started/index.html">Zephyr Getting Started Guide</a></li>
+<li><a href="https://docs.zephyrproject.org/latest/develop/west/basics.html">West Workspace Basics</a></li>
+<li><a href="https://docs.zephyrproject.org/latest/boards/index.html">Zephyr Board Support</a></li>
+<li><a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">Zephyr SDK Releases</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../avionics/resources/zephyr/zephyr.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../avionics/resources/zephyr/zephyr_peripherals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../avionics/resources/zephyr/zephyr.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../avionics/resources/zephyr/zephyr_peripherals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
